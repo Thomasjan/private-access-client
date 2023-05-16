@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <h1>HOME Page</h1>
+        <h1>HOME Pageeeee</h1>
         <p>{{info}}</p>
     </v-container>
 </template>
