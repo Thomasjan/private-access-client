@@ -66,5 +66,6 @@ export default {
       this.items = data;
     });
   },
+  
 };
 </script>
