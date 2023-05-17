@@ -1,7 +1,54 @@
 <template>
-  <div>
-    GestimumERP
-  </div>
+  <v-card class="bg-white pa-2">
+      <h3 class="text-center">Découvrez nos dernières évolutions</h3>
+      <div class="ml-2">
+
+
+        <div class="mt-6">
+          <h3 class="text-primary">Gestimum Gestion Comptable PME</h3>
+          <v-divider
+            :thickness="1"
+            class="border-opacity-100 mt-4"
+            color="primary"
+          ></v-divider>
+
+          <div class="mt-6">
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Possibilité d’importer les comptes généraux et auxiliaires</p> 
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Ajout du libellé du mode de règlement dans la personnalisation de la liste de la saisie des écritures </p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Augmentation de la taille du code journal pour le passer à 10 caractères</p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Augmentation de la taille du code tiers pour le passer à 20 caractères</p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Augmentation de la taille du compte pour le passer à 25 caractères</p>
+          </div>
+        </div>
+
+      <div class="mt-6">
+        <h3 class="text-primary">	Gestimum Gestion Commerciale PME</h3>
+        <v-divider
+          :thickness="1"
+          class="border-opacity-100 mt-4"
+          color="primary"
+        ></v-divider>
+
+        <div class="mt-6">
+          <p class="font-weight-medium">Renforcement du module Affaires et CRM</p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Ajout d’un onglet Affaires dans les fiches tiers</p> 
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Ajout d’un onglet Actions dans les affaires </p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Ajout de champs de recherche dans l’onglet Actions des fiches tiers</p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Possibilité de paramétrer un rappel automatique selon le type d’actions</p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Possibilité de paramétrer les états d’actions</p>
+          </div>
+
+        <div class="mt-4">
+          <p class="font-weight-medium">Renforcement du module EDI</p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon>Ajout de l’export des avoirs au format @GP</p> 
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Ajout de nouveaux champs dans les exports au format EDICOT </p>
+            
+          </div>
+      </div>
+
+
+      </div>
+  </v-card>
 </template>
 
 <script>
