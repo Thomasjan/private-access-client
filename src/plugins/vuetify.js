@@ -10,7 +10,7 @@ const customDarkTheme = {
   colors: {
     background: "#15202b",
     surface: "#15202b",
-    primary: "#e0743f",
+    primary: "#EB6F2A",
     secondary: "#03dac6",
     error: "#ff5722",
   },
@@ -21,18 +21,18 @@ const customLightTheme = {
   colors: {
     background: "#eee",
     surface: "#15202b",
-    primary: "#e0743f",
+    primary: "#EB6F2A",
     secondary: "#00ccff",
-    error: "#ffcc00",
+    error: "#ff0000",
   },
 };
 
 export default createVuetify({
   theme: {
-    defaultTheme: "customLightTheme",
+    defaultTheme: 'customLightTheme',
     themes: {
-      customDarkTheme,
       customLightTheme,
+      customDarkTheme,
     },
   },
 });

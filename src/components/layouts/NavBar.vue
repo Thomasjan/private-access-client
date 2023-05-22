@@ -5,10 +5,12 @@
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
                 </div>
                 <div class="flex-wrap">
-                  <v-row class="pa-6"> <p class="px-2 cursor-pointer links">Revenir à l'espace public</p> - <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contact')">Contact</p> </v-row> 
+                  <v-row class="pa-6"> <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> - <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> </v-row> 
                 </div>
             </v-row>
             <v-divider></v-divider>
+
+        <div >
 
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
                 <h3 class="text-center">Bienvenue, {CLIENT} dans votre espace privé Gestimum</h3>
@@ -61,12 +63,16 @@
             <!-- Content -->
 
             
+        </div>
+        
 
             <footer></footer>
         </v-card>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
     data() {
         return {
@@ -115,21 +121,37 @@ export default {
                         route: '/formation'
                     },
                 ]
+            },
 
-            }
         }
     },
     
     mounted(){
+        console.log('user', this.$store.state.user)
 
+        if (this.$store.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
+            let userId = localStorage.getItem('auth')
+            User.getUser(userId)
+                .then((response) => { 
+                    this.$store.commit('UPDATE_USER', response.data)
+                })
+                .catch(() => { router.push({ name: 'logout' }) })
+        }
     },
 
     methods:{
         handleMenu(item){
             this.route = item.route;
             this.$router.push(item.route)
+        },
+        logout(){
+            localStorage.removeItem('auth')
         }
-    }
+    },
+
+    computed: {
+    ...mapGetters(['getUser']),
+  },
     
     
 

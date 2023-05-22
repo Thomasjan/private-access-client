@@ -10,6 +10,8 @@ import store from './store'
 import NavBar from './components/layouts/NavBar.vue'
 import Footer from './components/layouts/Footer.vue'
 
+import LoginForm from './components/LoginForm.vue'
+
 //views
 import GestimumERP from './components/views/GestimumERP.vue'
 import Support from './components/views/Support.vue'
@@ -22,6 +24,9 @@ import Contacts from './components/views/Contacts.vue'
 
 
 const app = createApp(App);
+
+
+app.component('login-form', LoginForm)
 
 
 app.component('navbar', NavBar)

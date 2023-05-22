@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <!-- <navbar></navbar> -->
+        <navbar></navbar>
     </v-container>
 </template>
 

@@ -1,36 +1,41 @@
 import { createStore } from 'vuex';
 
 const store = createStore({
-  state() {
-    return {
-      // Define your state properties here
-      counter: 0
-    };
+  state: {
+    user: {
+      id: '',
+      email: '',
+      name: '',
+      surname: '',
+    },
   },
+
+  
   mutations: {
-    // Define your mutations here
-    increment(state) {
-      state.counter++;
+    
+    UPDATE_USER(state, data) {
+      state.user = { ...data };
     },
-    decrement(state) {
-      state.counter--;
-    }
+    DELETE_USER(state) {
+      state.user = {}
+    },
   },
+
   actions: {
-    // Define your actions here
-    increment(context) {
-      context.commit('increment');
+    
+    UPDATE_USER({ commit }, updatedUser) {
+      commit('UPDATE_USER', updatedUser);
     },
-    decrement(context) {
-      context.commit('decrement');
-    }
+    DELETE_USER({ commit }) {
+      commit('DELETE_USER');
+    },
   },
   getters: {
-    // Define your getters here
-    counterSquared(state) {
-      return state.counter ** 2;
-    }
-  }
+    getUser(state) {
+      return state.user;
+    },
+    
+  },
 });
 
 export default store;
