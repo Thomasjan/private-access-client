@@ -13,6 +13,8 @@ import NavBar from './components/layouts/NavBar.vue'
 import { useTheme } from 'vuetify'
 import LoginForm from './components/LoginForm.vue'
 
+import User from './services/users.service'
+
 export default {
   components: { NavBar, LoginForm },
   name: 'App',

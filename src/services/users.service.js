@@ -4,11 +4,12 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
 
  const userService = {
   getUsers,
+  getUser,
   postUser,
 };
 
+//récupérer la liste de tous les utilisateurs
 async function getUsers() {
-    console.log(API_URL)
   try {
     const response = await axios.get(`${API_URL}/users/getUsers`);
     return response.data;
@@ -17,6 +18,19 @@ async function getUsers() {
     throw error;
   }
 }
+//récupérer un utilisateur
+async function getUser(userId) {
+  console.log('getUser', userId)
+  try {
+    const response = await axios.get(`${API_URL}/users/getUser/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting user:', error);
+    throw error;
+  }
+}
+
+
 
 async function postUser(user) {
   try {

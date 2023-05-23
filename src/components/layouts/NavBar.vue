@@ -13,7 +13,7 @@
         <div >
 
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
-                <h3 class="text-center">Bienvenue, {CLIENT} dans votre espace privé Gestimum</h3>
+                <h3 class="text-center">Bienvenue, <strong class="text-uppercase">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
                 <div class="mt-14">
                     <v-row class="flex-row justify-center">
                         <v-flex v-for="item in nav.client" :key="item.route">
@@ -72,6 +72,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import User from '../../services/users.service'
 
 export default {
     data() {
@@ -127,15 +128,16 @@ export default {
     },
     
     mounted(){
-        console.log('user', this.$store.state.user)
 
-        if (this.$store.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
+        if (this.$store.state.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
             let userId = localStorage.getItem('auth')
+            console.warn('userId', userId)
             User.getUser(userId)
                 .then((response) => { 
-                    this.$store.commit('UPDATE_USER', response.data)
+                    this.$store.commit('UPDATE_USER', response)
+                    console.log('response', response)
                 })
-                .catch(() => { router.push({ name: 'logout' }) })
+                .catch(() => {router.push({ name: 'logout' }) })
         }
     },
 
