@@ -5,7 +5,7 @@
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
                 </div>
                 <div class="flex-wrap">
-                  <v-row class="pa-6"> <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> - <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Administration</p> </v-row> 
+                  <v-row class="pa-6"> <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> - <p class="px-2 cursor-pointer links" @click="route='/administration'; $router.push('/administration')">Administration</p> </v-row> 
                 </div>
             </v-row>
             <v-divider></v-divider>
@@ -62,7 +62,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import User from '../../services/users.service'
-import LottieAnimation from 'lottie-web-vue'
 import AdministrationAnim from '../../assets/animations/administration.json'
 
 export default {
@@ -112,7 +111,6 @@ export default {
     },
     
     mounted(){
-        console.log(AdministrationAnim)
 
         if (this.$store.state.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
             let userId = localStorage.getItem('auth')
@@ -145,3 +143,16 @@ export default {
 
 }
 </script>
+
+<style scoped>
+
+.links:hover{
+    color: red;
+}
+
+.hover-card:hover{
+    opacity: 0.8;
+}
+
+
+</style>
