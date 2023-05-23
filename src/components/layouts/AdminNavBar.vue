@@ -40,6 +40,15 @@
                        <h3 class="text-primary text-center mt-4">Administration</h3>
                        <div class="w-75 mx-auto mt-6">
                             <p class="text-center">Vous êtes actuellement dans l'espace Administration.</p>
+                            <div class="mt-6">
+                                <lottie-animation
+                                    ref="anim"
+                                    :animationData="AdministrationAnim"
+                                    :loop="true"
+                                    :autoPlay="true"
+                                    :speed="1"
+                                    />
+                            </div>
                        </div>
                     </div>
 
@@ -53,10 +62,13 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import User from '../../services/users.service'
+import LottieAnimation from 'lottie-web-vue'
+import AdministrationAnim from '../../assets/animations/administration.json'
 
 export default {
     data() {
         return {
+            AdministrationAnim,
             route: '/',
             nav:{
                 admin:[
@@ -95,10 +107,12 @@ export default {
                 ],
             },
 
+
         }
     },
     
     mounted(){
+        console.log(AdministrationAnim)
 
         if (this.$store.state.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
             let userId = localStorage.getItem('auth')

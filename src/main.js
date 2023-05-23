@@ -2,6 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { loadFonts } from './plugins/webfontloader'
 
+import LottieAnimation from "lottie-web-vue";
+
+
 import vuetify from './plugins/vuetify'
 import router from './router'
 import store from './store'
@@ -60,4 +63,5 @@ loadFonts()
   .use(vuetify)
   .use(router)
   .use(store)
+  .use(LottieAnimation)
   .mount('#app')
