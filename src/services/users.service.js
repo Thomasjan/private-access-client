@@ -20,7 +20,6 @@ async function getUsers() {
 }
 //récupérer un utilisateur
 async function getUser(userId) {
-  console.log('getUser', userId)
   try {
     const response = await axios.get(`${API_URL}/users/getUser/${userId}`);
     return response.data;
@@ -30,8 +29,7 @@ async function getUser(userId) {
   }
 }
 
-
-
+//Ajouter un utilisateur
 async function postUser(user) {
   try {
     const response = await axios.post(`${API_URL}/users/addUser`, user);

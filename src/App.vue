@@ -2,6 +2,7 @@
   <v-app>
     <v-main>
       <login-form v-if="$router.currentRoute.value.path=='/login'"></login-form>
+      <admin-layout v-else-if="isAdminRoute"></admin-layout>
       <nav-bar v-else></nav-bar>
       <!-- <router-view /> -->
     </v-main>
@@ -34,6 +35,12 @@ export default {
 
   mounted(){
     
-  }
+  },
+
+   computed: {
+    isAdminRoute() {
+      return this.$router.currentRoute.value.path.startsWith('/administration');
+    },
+  },
 }
 </script>

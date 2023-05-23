@@ -15,7 +15,9 @@
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
                 <h3 class="text-center">Bienvenue, <strong class="text-uppercase">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
                 <div class="mt-14">
-                    <v-row class="flex-row justify-center">
+
+                    <!-- Menu client -->
+                    <v-row class="flex-row justify-center" v-if="$store.state.user.role_id >=3">
                         <v-flex v-for="item in nav.client" :key="item.route">
                                 <v-card 
                                 class="bg-primary pa-2 text-h6 font-weight-regular text-uppercase px-6 ma-2 cursor-pointer hover-card" 
@@ -29,6 +31,36 @@
                                 </v-card>
                         </v-flex>
                     </v-row>
+
+                    <!-- menu admin / partenaire -->
+                    <v-row class="flex-row justify-center" v-else>
+                        <v-flex v-for="item in nav.partenaire" :key="item.route">
+                                <v-card 
+                                class="bg-primary pa-2 text-h6 font-weight-regular text-uppercase px-6 ma-2 cursor-pointer hover-card" 
+                                style="width: 280px; height: 80px"
+                                @click="handleMenu(item)"
+                                >
+                                    <div class="my-4">
+                                        <v-icon color="white" :icon="item.icon" size="x-large">  </v-icon>
+                                        <span class="ml-8 text-no-wrap">{{item.text}}</span>
+                                    </div>
+                                </v-card>
+                        </v-flex>
+                        
+                    </v-row>
+
+                    <v-row class="flex-row justify-center">
+                        <v-card v-if="$store.state.user.role_id === 1"
+                        class="bg-secondary pa-2 text-h6 font-weight-regular text-uppercase px-6 ma-2 cursor-pointer hover-card" 
+                        style="width: 290px; height: 80px"
+                        @click="$router.push('/administration')"
+                        >
+                            <div class="my-4">
+                                <v-icon color="white" icon="mdi-cog" size="x-large">  </v-icon>
+                                <span class="ml-8 text-no-wrap">Administration</span>
+                            </div>
+                        </v-card>
+                    </v-row>
                 </div>
             </div>
 
@@ -40,18 +72,28 @@
                 >
                     <v-list>
                     <v-list-item
-                        prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-                        title="Client"
-                        subtitle="client88@gmailcom"
+                        prepend-avatar="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
+                        :title="$store.state.user.name"
+                        :subtitle="$store.state.user.email"
                     ></v-list-item>
                     </v-list>
 
                     <v-divider></v-divider>
 
-                    <v-list density="compact" nav v-for="item in nav.client" :key="item.route">
-                    <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
-                    
-                    </v-list>
+                    <!-- menu client -->
+                    <div v-if="$store.state.user.role_id >=3">
+                        <v-list density="compact" nav v-for="item in nav.client" :key="item.route">
+                            <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
+                        </v-list>
+                    </div>
+
+                    <!-- Menu admin / partenaire -->
+                    <div v-else>
+                        <v-list density="compact" nav v-for="item in nav.partenaire" :key="item.route">
+                            <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
+                        </v-list>
+                    </div>
+
                 </v-navigation-drawer>
 
                 <v-main style="height: 90vh" class="ml-0">
@@ -81,9 +123,45 @@ export default {
             nav:{
                 admin:[
                     {
+                        icon: 'mdi-monitor',
+                        text: 'Gestimum ERP',
+                        route: '/gestimum-erp'
+                    },
+                    {
                         icon: 'mdi-school',
                         text: 'Formation',
-                        route: '/Formation'
+                        route: '/formation'
+                    },
+                    {
+                        icon: 'mdi-assistant',
+                        text: 'Support',
+                        route: '/support'
+                    },
+                    {
+                        icon: 'mdi-newspaper',
+                        text: 'G-News',
+                        route: '/g-news'
+                    },
+                    {
+                        icon: 'mdi-card-account-mail',
+                        text: 'Mes contacts',
+                        route: '/contacts'
+                    },
+
+                    {
+                        icon: 'mdi-handshake',
+                        text: 'Aide à la vente',
+                        route: '/aide-vente'
+                    },
+                    {
+                        icon: 'mdi-file-document-edit',
+                        text: 'Mon contrat',
+                        route: '/contrat'
+                    },
+                    {
+                        icon: 'mdi-currency-eur',
+                        text: 'Tarifs',
+                        route: '/tarifs'
                     },
                 ],
                 client:[
@@ -117,10 +195,47 @@ export default {
                 ],
                 partenaire:[
                     {
+                        icon: 'mdi-monitor',
+                        text: 'Gestimum ERP',
+                        route: '/gestimum-erp'
+                    },
+                    {
                         icon: 'mdi-school',
                         text: 'Formation',
                         route: '/formation'
                     },
+                    {
+                        icon: 'mdi-assistant',
+                        text: 'Support',
+                        route: '/support'
+                    },
+                    {
+                        icon: 'mdi-newspaper',
+                        text: 'G-News',
+                        route: '/g-news'
+                    },
+                    {
+                        icon: 'mdi-card-account-mail',
+                        text: 'Mes contacts',
+                        route: '/contacts'
+                    },
+
+                    {
+                        icon: 'mdi-handshake',
+                        text: 'Aide à la vente',
+                        route: '/aide-vente'
+                    },
+                    {
+                        icon: 'mdi-file-document-edit',
+                        text: 'Mon contrat',
+                        route: '/contrat'
+                    },
+                    {
+                        icon: 'mdi-currency-eur',
+                        text: 'Tarifs',
+                        route: '/tarifs'
+                    },
+
                 ]
             },
 
@@ -131,13 +246,11 @@ export default {
 
         if (this.$store.state.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
             let userId = localStorage.getItem('auth')
-            console.warn('userId', userId)
             User.getUser(userId)
                 .then((response) => { 
                     this.$store.commit('UPDATE_USER', response)
-                    console.log('response', response)
                 })
-                .catch(() => {router.push({ name: 'logout' }) })
+                .catch(() => {this.$router.push({ name: 'logout' }) })
         }
     },
 
@@ -148,6 +261,8 @@ export default {
         },
         logout(){
             localStorage.removeItem('auth')
+            this.$store.commit('UPDATE_USER', {})
+            this.$router.push({ name: 'login' })
         }
     },
 
