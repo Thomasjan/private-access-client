@@ -27,6 +27,8 @@ import Contrat from './components/views/Contrat.vue'
 import AideVente from './components/views/Aide-vente.vue'
 import Tarifs from './components/views/Tarifs.vue'
 
+//views -> admin ->utilities
+import CreationEntreprise from './components/views/admin/utilities/CreationEntreprise.vue'
 
 
 
@@ -52,6 +54,8 @@ app.component('contrat', Contrat )
 app.component('aide-vente', AideVente)
 app.component('tarifs', Tarifs )
 
+//Views -> Admin -> Utilities
+app.component('creation-entreprise', CreationEntreprise)
 
 
 

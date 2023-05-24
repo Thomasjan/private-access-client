@@ -64,6 +64,7 @@ import { mapGetters, mapActions } from 'vuex';
 import User from '../../services/users.service'
 import AdministrationAnim from '../../assets/animations/administration.json'
 
+
 export default {
     data() {
         return {
@@ -118,7 +119,10 @@ export default {
                 .then((response) => { 
                     this.$store.commit('UPDATE_USER', response)
                 })
-                .catch(() => {this.$router.push({ name: 'logout' }) })
+                .catch(() => {
+                    console.log('erreur')
+                    this.$router.push({ name: 'login' })
+                    })
         }
     },
 

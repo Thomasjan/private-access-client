@@ -250,7 +250,10 @@ export default {
                 .then((response) => { 
                     this.$store.commit('UPDATE_USER', response)
                 })
-                .catch(() => {this.$router.push({ name: 'logout' }) })
+                .catch((err) => {
+                    console.log(err)
+                    this.$router.push({ name: 'login' }) 
+                    })
         }
     },
 
