@@ -5,8 +5,10 @@ const API_URL = 'http://localhost:3000/api'; // Replace with your API URL
  const authService = {
   login,
   register,
+  getLogins
 };
 
+//Login
 async function login(form) {
   try {
     const response = await axios.post(`${API_URL}/auth/login`, form);
@@ -17,6 +19,7 @@ async function login(form) {
   }
 }
 
+//Register
 async function register(user) {
   try {
     const response = await axios.post(`${API_URL}/auth/register`, user);
@@ -26,5 +29,17 @@ async function register(user) {
     throw error;
   }
 }
+
+//Récupérer tous les logins
+async function getLogins() {
+  try {
+    const response = await axios.get(`${API_URL}/auth/getLogins`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting logins:', error);
+    throw error;
+  }
+}
+
 
 export default authService;

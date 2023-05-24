@@ -12,6 +12,7 @@
     "@mdi/font": "5.9.55",
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
+    "lottie-web-vue": "^2.0.6",
     "roboto-fontface": "*",
     "sass": "^1.62.1",
     "vue": "^3.2.13",

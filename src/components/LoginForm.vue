@@ -129,7 +129,6 @@ export default {
             Auth.login(this.form)
                 .then((response) => {
                     this.errors = '';
-                    console.warn(response.id)
                     localStorage.setItem('auth', response.id);
                     this.$store.commit('UPDATE_USER', response);
                     console.log(this.$store.state.user)
