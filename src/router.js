@@ -21,7 +21,7 @@ import Tarifs from './components/views/Tarifs.vue'
 import SuiviConnexions from './components/views/admin/SuiviConnexions.vue'
 import SuiviTelechargements from './components/views/admin/SuiviTelechargements.vue'
 import MajVersions from './components/views/admin/MajVersions.vue'
-import ListeLogins from './components/views/admin/ListeLogins.vue' 
+import ListeUtilisateurs from './components/views/admin/ListeUtilisateurs.vue' 
 
 const routes = [
   { path: '/', component: Home },
@@ -44,7 +44,7 @@ const routes = [
     { path: '/administration/suivi-connexions', component: SuiviConnexions },
     { path: '/administration/suivi-téléchargements', component: SuiviTelechargements },
     { path: '/administration/maj-versions', component: MajVersions },
-    { path: '/administration/liste-logins', component: ListeLogins },
+    { path: '/administration/liste-utilisateurs', component: ListeUtilisateurs },
 
 ]
 

@@ -1,6 +1,6 @@
 <template>
   <v-card class="ml-1 bg-white">
-    <h3 class="text-center text-primary mt-4">Liste des Connexions</h3>
+    <h3 class="text-center text-primary mt-4">Liste des Utilisateurs</h3>
 
     <div class="mt-10">
 
@@ -29,17 +29,13 @@
             width="600"
             persistent
           >
-            <creation-entreprise v-on:closeDialog="userDialog=false"></creation-entreprise>
+            <creation-utilisateur v-on:closeDialog="userDialog=false"></creation-utilisateur>
           </v-dialog>
         </v-btn>
       </div>
 
       <div class="mt-6">
-        <!-- <v-list class="bg-white ml-8">
-          <v-list-items v-for="login in logins" :key="login.id">
-            <v-list-item-title> {{login.entreprise.social_reason}} - {{login.user.name + ' ' + login.user.surname}} - {{login.date}} </v-list-item-title>
-          </v-list-items>
-        </v-list> -->
+        
 
       
       <v-table density="compact" class="bg-white">
@@ -50,20 +46,24 @@
             <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
             <th class="text-left text-black" @click="sortByField('name')">Nom</th>
             <th class="text-left text-black" @click="sortByField('surname')">Prénom</th>
-            <th class="text-left text-orange" @click="sortByField('date')">Date</th>
+            <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
+            <th class="text-left text-orange" @click="sortByField('contract')">Contrat</th>
+            <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th>
           </tr>
         </thead>
         <tbody>
           <tr
-            v-for="login in logins"
-            :key="login.id"
+            v-for="user in users"
+            :key="user.id"
           >
-            <td>{{ login.entreprise.social_reason }}</td>
-            <td>{{ login.entreprise.category }}</td>
-            <td>{{ login.entreprise.subcategory }}</td>
-            <td>{{ login.user.name }}</td>
-            <td>{{ login.user.surname }}</td>
-            <td>{{ login.date }}</td>
+            <td>{{ user.social_reason }}</td>
+            <td>{{ user.category }}</td>
+            <td>{{ user.subcategory }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.created_at.slice(0,10) }}</td>
+            <td>{{ user.contract? user.contract: 'pas de contrat' }}</td>
+            <td>{{ user.end_contract }}</td>
           </tr>
         </tbody>
       </v-table>
@@ -77,28 +77,28 @@
 </template>
 
 <script>
-import Auth from '../../../services/auth.service'
+import User from '../../../services/users.service'
 
 export default {
   
   data: () => ({
     entrepriseDialog: false,
     userDialog: false,
-    logins: [],
+    users: [],
     sortBy: [],
      
   }),
 
-  created() {
-    this.fetchLogins()
+  mounted() {
+    this.fetchUsers()
   },
 
   methods: {
-    //récupération des entreprises
-    fetchLogins(){
-      Auth.getLogins()
+    // récupération des Utilisateurs
+    fetchUsers(){
+      User.getUsers()
       .then(response => {
-        this.logins = response
+        this.users = response
         
       })
       .catch(err => {

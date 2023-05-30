@@ -88,9 +88,9 @@ export default {
                         route: '/administration/maj-versions'
                     },
                     {
-                        icon: 'mdi-login',
-                        text: 'liste des login',
-                        route: '/administration/liste-logins'
+                        icon: 'mdi-account-group',
+                        text: 'liste des utilisateurs',
+                        route: '/administration/liste-utilisateurs'
                     },
                     // {
                     //     icon: 'mdi-page-next-outline',
