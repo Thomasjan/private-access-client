@@ -1,5 +1,5 @@
 <template>
-    <v-card class="pa-4 mx-auto bg-white " max-width="1000px">
+    <v-card class="pa-4 mx-auto bg-white  " max-width="1200px">
             <v-row class="flex-row justify-space-between pt-1 pb-6">
                 <div class="flex justify-space-between ml-2">
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
@@ -88,15 +88,15 @@ export default {
                         route: '/administration/maj-versions'
                     },
                     {
-                        icon: 'mdi-login',
-                        text: 'liste des login',
-                        route: '/administration/liste-logins'
+                        icon: 'mdi-account-group',
+                        text: 'liste des Utilisateurs',
+                        route: '/administration/liste-utilisateurs'
                     },
-                    // {
-                    //     icon: 'mdi-page-next-outline',
-                    //     text: 'Gestion Login',
-                    //     route: '/administration/gestion-login'
-                    // },
+                    {
+                        icon: 'mdi-domain',
+                        text: 'Liste des Entreprises',
+                        route: '/administration/liste-entreprises'
+                    },
 
                     // {
                     //     icon: 'mdi-cellphone-arrow-down',

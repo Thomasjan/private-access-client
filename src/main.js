@@ -29,6 +29,7 @@ import Tarifs from './components/views/Tarifs.vue'
 
 //views -> admin ->utilities
 import CreationEntreprise from './components/views/admin/utilities/CreationEntreprise.vue'
+import CreationUtilisateur from './components/views/admin/utilities/CreationUtilisateur.vue'
 
 
 
@@ -56,6 +57,7 @@ app.component('tarifs', Tarifs )
 
 //Views -> Admin -> Utilities
 app.component('creation-entreprise', CreationEntreprise)
+app.component('creation-utilisateur', CreationUtilisateur)
 
 
 
