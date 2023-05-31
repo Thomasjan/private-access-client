@@ -113,6 +113,7 @@ export default {
     },
 
     fetchEntreprises(){
+      this.fetchUsers()
       console.log('fetchEntreprises');
     }
   

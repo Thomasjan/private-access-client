@@ -94,6 +94,9 @@
                         </v-list>
                     </div>
 
+                    <v-list-item class="mt-6" v-if="$store.state.user.role_id === 1" prepend-icon="mdi-cog" title="Administration" @click="$router.push({path: '/administration'})"></v-list-item>
+
+
                 </v-navigation-drawer>
 
                 <v-main style="height: 90vh" class="ml-0">
