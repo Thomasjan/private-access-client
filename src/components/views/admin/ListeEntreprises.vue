@@ -1,6 +1,6 @@
 <template>
   <v-card class="ml-1 bg-white">
-    <h3 class="text-center text-primary mt-4">Liste des Utilisateurs</h3>
+    <h3 class="text-center text-primary mt-4">Liste des Entreprises</h3>
 
     <div class="mt-10">
 
@@ -36,6 +36,7 @@
 
       <div class="mt-6">
         
+
         <v-row class="pa-4">
           <v-col cols="6">
             <v-text-field col="4" v-model="search" label="Rechercher"  class="" prepend-inner-icon="mdi-magnify"></v-text-field>
@@ -47,17 +48,14 @@
             <v-select v-model="subfamily" :items="subfamilyItems" label="Sous-famille" clearable></v-select>
           </v-col>
         </v-row>
-
       
-      <v-table density="compact" class="bg-white" >
+      <v-table density="compact" class="bg-white">
         <thead>
           <tr class="">
             <th class="text-left text-red" @click="sortByField('code_client')">Code</th>
             <th class="text-left text-red" @click="sortByField('social_reason')">Entreprise</th>
             <th class="text-left text-blue" @click="sortByField('category')">Famille</th>
             <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
-            <th class="text-left text-black" @click="sortByField('name')">Nom</th>
-            <th class="text-left text-black" @click="sortByField('surname')">Prénom</th>
             <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
             <th class="text-left text-orange" @click="sortByField('contract')">Contrat</th>
             <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th>
@@ -65,22 +63,19 @@
         </thead>
         <tbody>
           <tr
-            v-for="user in usersFiltered"
-            :key="user.id"
+            v-for="entreprise in entreprisesFiltered"
+            :key="entreprise.id"
           >
-            <td>{{ user.code_client }}</td>
-            <td>{{ user.social_reason }}</td>
-            <td>{{ user.category }}</td>
-            <td>{{ user.subcategory }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.surname }}</td>
-            <td>{{ user.created_at.slice(0,10) }}</td>
-            <td>{{ user.contract? user.contract: 'pas de contrat' }}</td>
-            <td>{{ user.end_contract }}</td>
+            <td>{{ entreprise.code_client }}</td>
+            <td>{{ entreprise.social_reason }}</td>
+            <td>{{ entreprise.category }}</td>
+            <td>{{ entreprise.subcategory }}</td>
+            <td>{{ entreprise.created_at.slice(0,10) }}</td>
+            <td>{{ entreprise.contract? entreprise.contract: 'pas de contrat' }}</td>
+            <td>{{ entreprise.end_contract }}</td>
           </tr>
         </tbody>
       </v-table>
-
       
       </div>
 
@@ -91,37 +86,35 @@
 </template>
 
 <script>
-import User from '../../../services/users.service'
+import Entreprises from '../../../services/entreprises.service'
 
 export default {
   
   data: () => ({
     entrepriseDialog: false,
     userDialog: false,
-    users: [],
-
-
-
+    entreprises: [],
     sortBy: [],
+
     search: '',
     family: '',
     subfamily: '',
     familyItems: ['1. PARTENAIRE', '2. PME', '3. AUTRES'],
     subfamilyItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
+
      
   }),
 
   mounted() {
-    this.fetchUsers()
+    this.fetchEntreprises()
   },
 
   methods: {
     // récupération des Utilisateurs
-    fetchUsers(){
-      User.getUsers()
+    fetchEntreprises(){
+      Entreprises.getEntreprises()
       .then(response => {
-        this.users = response
-        
+        this.entreprises = response
       })
       .catch(err => {
         console.log(err);
@@ -132,35 +125,29 @@ export default {
     
     },
 
-    fetchEntreprises(){
-      this.fetchUsers()
-      console.log('fetchEntreprises');
-    }
-  
-
   },
 
   computed: {
-    usersFiltered() {
-      let users = this.users
+    entreprisesFiltered() {
+      let entreprises = this.entreprises
 
       if (this.search) {
-        users = users.filter(user => {
-          return user.name.toLowerCase().includes(this.search.toLowerCase()) || user.surname.toLowerCase().includes(this.search.toLowerCase()) || user.code_client.toString().includes(this.search.toLowerCase()) || user.social_reason.toLowerCase().includes(this.search.toLowerCase()) 
+        entreprises = entreprises.filter(entreprise => {
+          return  entreprise.code_client.toString().includes(this.search.toLowerCase()) || entreprise.social_reason.toLowerCase().includes(this.search.toLowerCase()) 
         })
       }
       if (this.family) {
-        users = users.filter(user => {
-          return user.category === this.family
+        entreprises = entreprises.filter(entreprise => {
+          return entreprise.category === this.family
         })
       }
       if (this.subfamily) {
-        users = users.filter(user => {
-          return user.subcategory === this.subfamily
+        entreprises = entreprises.filter(entreprise => {
+          return entreprise.subcategory === this.subfamily
         })
       }
 
-      return users
+      return entreprises
     }
   }
 

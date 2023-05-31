@@ -22,6 +22,7 @@ import SuiviConnexions from './components/views/admin/SuiviConnexions.vue'
 import SuiviTelechargements from './components/views/admin/SuiviTelechargements.vue'
 import MajVersions from './components/views/admin/MajVersions.vue'
 import ListeUtilisateurs from './components/views/admin/ListeUtilisateurs.vue' 
+import ListeEntreprises from './components/views/admin/ListeEntreprises.vue' 
 
 const routes = [
   { path: '/', component: Home },
@@ -45,6 +46,7 @@ const routes = [
     { path: '/administration/suivi-téléchargements', component: SuiviTelechargements },
     { path: '/administration/maj-versions', component: MajVersions },
     { path: '/administration/liste-utilisateurs', component: ListeUtilisateurs },
+    { path: '/administration/liste-entreprises', component: ListeEntreprises },
 
 ]
 
