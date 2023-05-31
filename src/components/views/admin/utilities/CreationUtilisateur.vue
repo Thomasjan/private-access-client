@@ -47,7 +47,7 @@
             :items="entreprises"
             :rules="[v => !!v || 'Famille requise']"
             label="Entreprise"
-            item-title="social_reason" 
+            :item-title="labelEntreprise" 
             item-value="id"
             return-object
             required
@@ -77,6 +77,7 @@
 
 <script>
 import Entreprise from '../../../../services/entreprises.service'
+import User from '../../../../services/users.service'
 
 export default {
 
@@ -86,7 +87,7 @@ export default {
       surname: '',
       email: '',
       password: '',
-      entreprise: '',
+      entreprise: null,
       role: '',
       entreprise_id: null,
       role_id: null
@@ -99,6 +100,11 @@ export default {
     this.fetchEntreprises()
   },
   methods:{
+
+    labelEntreprise(item){
+      return `${item.social_reason} - ${item.code_client}` 
+    },
+
     //ajout d'une Entreprise
     addUser(){
       let form = {...this.form}
@@ -118,16 +124,16 @@ export default {
             break;
       }
       console.log(form);
-        // Entreprise.addEntreprise(this.form)
-        // .then(res => {
-        //   this.form = {}
-        //   this.form.contract = 'Aucun'
-        //   this.closeDialog()
-        // })
-        // .catch(err => {
-        //   console.log(err);
-        //   this.errorMessage = err.response.data;
-        // })
+        User.postUser(form)
+        .then(res => {
+          this.form = {}
+          this.$emit('fetchUsers')
+          this.closeDialog()
+        })
+        .catch(err => {
+          console.log(err);
+          this.errorMessage = err.response.data;
+        })
     },
 
     fetchEntreprises(){

@@ -15,7 +15,7 @@
             width="600"
             persistent
           >
-            <creation-entreprise v-on:closeDialog="entrepriseDialog=false;"></creation-entreprise>
+            <creation-entreprise v-on:closeDialog="entrepriseDialog=false" v-on:fetchEntreprises="fetchEntreprises"></creation-entreprise>
           </v-dialog>
         </v-btn>
 
@@ -29,7 +29,7 @@
             width="600"
             persistent
           >
-            <creation-utilisateur v-on:closeDialog="userDialog=false"></creation-utilisateur>
+            <creation-utilisateur v-on:closeDialog="userDialog=false" v-on:fetchUsers="fetchUsers"></creation-utilisateur>
           </v-dialog>
         </v-btn>
       </div>
@@ -41,6 +41,7 @@
       <v-table density="compact" class="bg-white">
         <thead>
           <tr class="">
+            <th class="text-left text-red" @click="sortByField('code_client')">Code</th>
             <th class="text-left text-red" @click="sortByField('social_reason')">Entreprise</th>
             <th class="text-left text-blue" @click="sortByField('category')">Famille</th>
             <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
@@ -56,6 +57,7 @@
             v-for="user in users"
             :key="user.id"
           >
+            <td>{{ user.code_client }}</td>
             <td>{{ user.social_reason }}</td>
             <td>{{ user.category }}</td>
             <td>{{ user.subcategory }}</td>
@@ -109,6 +111,10 @@ export default {
     sortByField(field) {
     
     },
+
+    fetchEntreprises(){
+      console.log('fetchEntreprises');
+    }
   
 
   },

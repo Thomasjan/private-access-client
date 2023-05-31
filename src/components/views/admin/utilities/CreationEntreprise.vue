@@ -111,6 +111,7 @@ export default {
         .then(res => {
           this.form = {}
           this.form.contract = 'Aucun'
+          this.$emit('fetchEntreprises')
           this.closeDialog()
         })
         .catch(err => {
