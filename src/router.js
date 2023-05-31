@@ -43,7 +43,7 @@ const routes = [
 
     //views -> admin
     { path: '/administration/suivi-connexions', component: SuiviConnexions },
-    { path: '/administration/suivi-téléchargements', component: SuiviTelechargements },
+    { path: encodeURI('/administration/suivi-téléchargements'), component: SuiviTelechargements },
     { path: '/administration/maj-versions', component: MajVersions },
     { path: '/administration/liste-utilisateurs', component: ListeUtilisateurs },
     { path: '/administration/liste-entreprises', component: ListeEntreprises },

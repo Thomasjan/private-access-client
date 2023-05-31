@@ -80,7 +80,7 @@ export default {
                     {
                         icon: 'mdi-download',
                         text: 'Suivi des téléchargements',
-                        route: '/administration/suivi-téléchargements'
+                        route: encodeURI('/administration/suivi-téléchargements')
                     },
                     {
                         icon: 'mdi-update',
@@ -97,13 +97,6 @@ export default {
                         text: 'Liste des Entreprises',
                         route: '/administration/liste-entreprises'
                     },
-
-                    // {
-                    //     icon: 'mdi-cellphone-arrow-down',
-                    //     text: 'Modification Login',
-                    //     route: '/administration/modification-login'
-                    // },
-                    
                 ],
             },
 
