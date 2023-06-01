@@ -75,18 +75,17 @@ export default {
   form.image_path = imagePath;
 
   const formData = new FormData();
-  // formData.append('version', form.version);
-  // formData.append('file_name', form.file_name);
-  // formData.append('type', form.type);
-  // formData.append('description', form.description);
-  // formData.append('file_path', form.file_path);
-  // formData.append('image_path', form.image_path);
-  // formData.append('file', form.file[0]);
-  // formData.append('image', form.image[0]);
+  formData.append('version', form.version);
+  formData.append('file_name', form.file_name);
+  formData.append('type', form.type);
+  formData.append('description', form.description);
+  formData.append('file_path', form.file_path);
+  formData.append('image_path', form.image_path);
+  
   formData.append('name', form.file_name);
   formData.append('file', this.form.file[0]);
+  formData.append('image', this.form.image[0]);
 
-  console.log(formData);
 
   Upload.addUpload(formData)
     .then(res => {
@@ -96,13 +95,6 @@ export default {
       console.log(err);
     });
 
-    // fetch("http://localhost:3000/api/uploads/addUpload", {
-    //     method: 'POST',
-    //     body: formData,
-    //     headers: {
-    //       "Content-Type": "multipart/form-data"
-    //     }
-    // })
 },
 
     handleFileChange(fileList) {

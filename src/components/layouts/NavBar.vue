@@ -66,7 +66,7 @@
 
             <div v-else>
                 <v-layout >
-                <v-navigation-drawer class="bg-primary rounded-e-shaped "
+                <v-navigation-drawer permanent class="bg-primary rounded-e-shaped "
                     expand-on-hover
                     rail
                 >

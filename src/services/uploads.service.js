@@ -10,7 +10,7 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
 //récupérer la liste de tous les fichiers
 async function getUploads() {
   try {
-    const response = await axios.get(`${API_URL}/downloads/getUploads`);
+    const response = await axios.get(`${API_URL}/uploads/getUploads`);
     return response.data;
   } catch (error) {
     console.error('Error getting uploads:', error);

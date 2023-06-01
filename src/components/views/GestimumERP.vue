@@ -47,15 +47,47 @@
       </div>
 
 
+      <!-- TEST -->
+      
+        <div v-for="item in uploads" :key="item.id" >
+          <v-img class="cursor-pointer" @click="downloadLink(item)" :src="getLink(item)" :width="100" aspect-ratio="4/3" cover/>
+        </div>
+
       </div>
   </v-card>
 </template>
 
 <script>
+import Upload from '../../services/uploads.service'
+
 export default {
   
   data: () => ({
-    //
+    uploads:[]
   }),
+
+  created() {
+    Upload.getUploads()
+    .then(response => {
+      this.uploads = response
+      console.log(this.uploads)
+    })
+    .catch(e => {
+      console.log(e)
+    })
+
+  },
+
+  methods: {
+    getLink(item) {
+      let link = 'http://localhost:3000/files/uploads/' + item.image_path
+      return link
+    },
+    downloadLink(item) {
+      let link = 'http://localhost:3000/files/uploads/' + item.file_path
+      window.open(link, '_blank')
+      
+    }
+  }
 }
 </script>
