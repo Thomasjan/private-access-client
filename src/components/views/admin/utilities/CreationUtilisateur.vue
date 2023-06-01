@@ -13,7 +13,7 @@
           v-model="form.name"
           type="text"
           label="Nom"
-          :rules="[v => !!v || 'Raison sociale requise']"
+          :rules="[v => !!v || 'Nom requis']"
         ></v-text-field>
 
         <v-text-field
@@ -21,7 +21,7 @@
           v-model="form.surname"
           type="text"
           label="Prénom"
-          :rules="[v => !!v || 'Nom requis']"
+          :rules="[v => !!v || 'Prénom requis']"
         ></v-text-field>
         
         <v-text-field
@@ -29,14 +29,14 @@
           v-model="form.email"
           type="email"
           label="Email"
-          :rules="[v => !!v || 'Nom requise']"
+          :rules="[v => !!v || 'Email requis']"
         ></v-text-field>
         <v-text-field
           color="primary"
           v-model="form.password"
           type="text"
           label="Mot de passe"
-          :rules="[v => !!v || 'Nom requise']"
+          :rules="[v => !!v || 'mot de passe requis']"
         ></v-text-field>
 
         <div class="d-flex mt-2">
@@ -45,7 +45,7 @@
             class="mr-1"
             v-model="form.entreprise"
             :items="entreprises"
-            :rules="[v => !!v || 'Famille requise']"
+            :rules="[v => !!v || 'Entreprise requise']"
             label="Entreprise"
             :item-title="labelEntreprise" 
             item-value="id"
@@ -58,7 +58,7 @@
           class="ml-1"
           v-model="form.role"
           :items="roleItems"
-          :rules="[v => !!v || 'Sous-famille requise']"
+          :rules="[v => !!v || 'Role requis']"
           label="Role"
           required
           ></v-select>

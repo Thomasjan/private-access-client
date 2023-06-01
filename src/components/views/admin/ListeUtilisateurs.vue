@@ -52,15 +52,16 @@
       <v-table density="compact" class="bg-white" >
         <thead>
           <tr class="">
-            <th class="text-left text-red" @click="sortByField('code_client')">Code</th>
-            <th class="text-left text-red" @click="sortByField('social_reason')">Entreprise</th>
-            <th class="text-left text-blue" @click="sortByField('category')">Famille</th>
-            <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
-            <th class="text-left text-black" @click="sortByField('name')">Nom</th>
-            <th class="text-left text-black" @click="sortByField('surname')">Prénom</th>
+            <!-- <th class="text-left text-red" @click="sortByField('code_client')">Code</th> -->
+            <th class="text-left text-blue" @click="sortByField('social_reason')">Entreprise</th>
+            <th class="text-left text-black" @click="sortByField('category')">Famille</th>
+            <th class="text-left text-black" @click="sortByField('subcategory')">Sous-famille</th>
+            <th class="text-left text-red" @click="sortByField('name')">Nom</th>
+            <th class="text-left text-red" @click="sortByField('surname')">Prénom</th>
+            <th class="text-left text-red" @click="sortByField('surname')">Email</th>
             <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
             <th class="text-left text-orange" @click="sortByField('contract')">Contrat</th>
-            <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th>
+            <!-- <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th> -->
           </tr>
         </thead>
         <tbody>
@@ -68,15 +69,16 @@
             v-for="user in usersFiltered"
             :key="user.id"
           >
-            <td>{{ user.code_client }}</td>
+            <!-- <td>{{ user.code_client }}</td> -->
             <td>{{ user.social_reason }}</td>
             <td>{{ user.category }}</td>
             <td>{{ user.subcategory }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.surname }}</td>
+            <td>{{ user.email }}</td>
             <td>{{ user.created_at.slice(0,10) }}</td>
             <td>{{ user.contract? user.contract: 'pas de contrat' }}</td>
-            <td>{{ user.end_contract }}</td>
+            <!-- <td>{{ user.end_contract }}</td> -->
           </tr>
         </tbody>
       </v-table>
@@ -146,7 +148,7 @@ export default {
 
       if (this.search) {
         users = users.filter(user => {
-          return user.name.toLowerCase().includes(this.search.toLowerCase()) || user.surname.toLowerCase().includes(this.search.toLowerCase()) || user.code_client.toString().includes(this.search.toLowerCase()) || user.social_reason.toLowerCase().includes(this.search.toLowerCase()) 
+          return user.name.toLowerCase().includes(this.search.toLowerCase()) || user.surname.toLowerCase().includes(this.search.toLowerCase())  || user.social_reason.toLowerCase().includes(this.search.toLowerCase()) || user.email.toLowerCase().includes(this.search.toLowerCase()) //|| user.code_client.toString().includes(this.search.toLowerCase())
         })
       }
       if (this.family) {

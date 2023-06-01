@@ -20,18 +20,47 @@
 
       <div class="mt-4">
         <span class="font-italic">Téléchargements: </span>
-        <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer">mdi-download</v-icon> </h4>
-        <h4>	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer">mdi-download</v-icon> </h4>
+        <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer" @click="download('catalogue formation')">mdi-download</v-icon> </h4>
+        <h4>	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="download(`modalité d\'accueil`)">mdi-download</v-icon> </h4>
       </div>
    </div>
   </v-card>
 </template>
 
 <script>
+import Download from '../../services/downloads.service'
+
 export default {
   
   data: () => ({
-    //
+    
   }),
+
+  mounted() {
+    
+  },
+  methods: {
+    download(file) {
+      // window.open(`https://www.gestimum.com/telechargement/${file}.pdf`, '_blank');
+      let download = {
+        entreprise_id: this.$store.state.user.entreprise_id,
+        email: this.$store.state.user.email,
+        name: this.$store.state.user.name,
+        surname: this.$store.state.user.surname,
+        file_name: file,
+      }
+      console.log(download)
+
+      Download.addDownload(download)
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+
+  }
+
 }
 </script>

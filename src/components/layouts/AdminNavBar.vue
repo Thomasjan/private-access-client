@@ -11,8 +11,8 @@
             <v-divider></v-divider>
 
             <div>
-                <v-layout >
-                <v-navigation-drawer class="bg-primary rounded-e-shaped "
+                <v-layout>
+                <v-navigation-drawer permanent class="bg-primary rounded-e-shaped "
                     expand-on-hover
                     rail
                 >
@@ -35,7 +35,7 @@
 
                 </v-navigation-drawer>
 
-                <v-main style="height: 90vh" class="ml-0">
+                <v-main  class="ml-0">
                     <div v-if="$router.currentRoute.value.path=='/administration'">
                        <h3 class="text-primary text-center mt-4">Administration</h3>
                        <div class="w-75 mx-auto mt-6">
@@ -80,7 +80,7 @@ export default {
                     {
                         icon: 'mdi-download',
                         text: 'Suivi des téléchargements',
-                        route: '/administration/suivi-téléchargements'
+                        route: encodeURI('/administration/suivi-téléchargements')
                     },
                     {
                         icon: 'mdi-update',
@@ -97,13 +97,6 @@ export default {
                         text: 'Liste des Entreprises',
                         route: '/administration/liste-entreprises'
                     },
-
-                    // {
-                    //     icon: 'mdi-cellphone-arrow-down',
-                    //     text: 'Modification Login',
-                    //     route: '/administration/modification-login'
-                    // },
-                    
                 ],
             },
 

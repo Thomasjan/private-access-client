@@ -13,7 +13,7 @@
         <div >
 
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
-                <h3 class="text-center">Bienvenue, <strong class="text-uppercase">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
+                <h3 class="text-center">Bienvenue, <span class="text-capitalize"> {{$store.state.user.surname}}</span> <strong class="text-uppercase">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
                 <div class="mt-14">
 
                     <!-- Menu client -->
@@ -66,7 +66,7 @@
 
             <div v-else>
                 <v-layout >
-                <v-navigation-drawer class="bg-primary rounded-e-shaped "
+                <v-navigation-drawer permanent class="bg-primary rounded-e-shaped "
                     expand-on-hover
                     rail
                 >
