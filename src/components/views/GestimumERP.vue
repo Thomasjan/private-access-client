@@ -42,17 +42,30 @@
           <p class="font-weight-medium">Renforcement du module EDI</p>
             <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon>Ajout de l’export des avoirs au format @GP</p> 
             <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> Ajout de nouveaux champs dans les exports au format EDICOT </p>
+            <p> <v-icon size="small" class="pb-1" color="primary">mdi-check</v-icon> ....</p>
             
           </div>
       </div>
 
 
       <!-- TEST -->
-      
-        <div v-for="item in uploads" :key="item.id" >
-          <v-img class="cursor-pointer" @click="downloadLink(item)" :src="getLink(item)" :width="100" aspect-ratio="4/3" cover/>
+      <div class="mt-4 ml-2">
+      <h4 class="text-primary">Téléchargements :</h4>
+        <div v-for="item in uploads" :key="item.id" class="mt-4" >
+          <div class="flex flex-col justify-start align-center">
+            <div class="d-flex justify-space-between w-100 px-8">
+              
+              <p class="d-flex">
+                <v-img class="mr-2" :src="getLink(item)" :width="40" aspect-ratio="4/3" contain/>
+                Installez
+                <span class="font-weight-bold text-primary cursor-pointer ml-2"  @click="downloadLink(item)">{{ item.file_name }}</span> 
+              </p>
+                <v-icon class="cursor-pointer" color="primary"  @click="downloadLink(item)">mdi-download</v-icon>
+            </div>
+            <!-- <v-img class="cursor-pointer" @click="downloadLink(item)" :src="getLink(item)" :width="100" aspect-ratio="4/3" cover/> -->
+          </div>
         </div>
-
+      </div>
       </div>
   </v-card>
 </template>

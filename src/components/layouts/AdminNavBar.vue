@@ -11,8 +11,10 @@
             <v-divider></v-divider>
 
             <div>
-                <v-layout>
-                <v-navigation-drawer permanent class="bg-primary rounded-e-shaped "
+                <v-layout class="h-screen">
+                <v-navigation-drawer 
+                    permanent 
+                    class="bg-primary rounded-e-shaped"
                     expand-on-hover
                     rail
                 >
