@@ -48,8 +48,35 @@
       </div>
 
 
+      <div class="mt-6">
+        <h3 class="text-primary">Détails des évolutions depuis la version 7</h3>
+
+        <div class="mx-auto">
+          <v-img class="cursor-pointer mx-auto" @click="openLink('http://docs.gestimum.com/ERP/9.4/NotesVersion/#t=racine%2Fbienvenue.htm')" width="70%" src="http://espace-prive.gestimum.com/images/Lisez-moi/940.png" aspect-ratio="4/3" />
+        </div>
+      </div>
+
+      <v-divider
+          :thickness="1"
+          class="border-opacity-100 mt-4"
+          color="primary"
+      ></v-divider>
+
+      <div class="mt-4 d-flex justify-space-between">
+          <h4 class="cursor-pointer text-hover" @click="openLink('http://docs.gestimum.com/ERP/9/Installation/#t=01%2FPreambule.htm')">Pré-requis et Guide d'installation de SQL Server 2019 Express et de Gestimum</h4>
+          <v-icon class="cursor-pointer"  @click="openLink('http://docs.gestimum.com/ERP/9/Installation/#t=01%2FPreambule.htm')" >mdi-help</v-icon>
+      </div>
+
+
+      <v-divider
+          :thickness="1"
+          class="border-opacity-100 mt-4"
+          color="primary"
+      ></v-divider>
+
+      
       <!-- TEST -->
-      <div class="mt-4 ml-2">
+      <div class="mt-8 ml-2">
       <h4 class="text-primary">Téléchargements :</h4>
         <div v-for="item in uploads" :key="item.id" class="mt-4" >
           <div class="flex flex-col justify-start align-center">
@@ -60,7 +87,7 @@
                 Installez
                 <span class="font-weight-bold text-primary cursor-pointer ml-2"  @click="downloadLink(item)">{{ item.file_name }}</span> 
               </p>
-                <v-icon class="cursor-pointer" color="primary"  @click="downloadLink(item)">mdi-download</v-icon>
+                <v-icon class="cursor-pointer" color="primary" @click="downloadLink(item)">mdi-download</v-icon>
             </div>
             <!-- <v-img class="cursor-pointer" @click="downloadLink(item)" :src="getLink(item)" :width="100" aspect-ratio="4/3" cover/> -->
           </div>
@@ -83,7 +110,14 @@ export default {
     Upload.getUploads()
     .then(response => {
       this.uploads = response
-      console.log(this.uploads)
+      this.uploads.forEach((download) => {
+        const { file_name, downloadUrl } = download;
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', file_name);
+        // Append the link to the DOM
+        document.body.appendChild(link);
+      });
     })
     .catch(e => {
       console.log(e)
@@ -100,7 +134,18 @@ export default {
       let link = 'http://localhost:3000/files/uploads/' + item.file_path
       window.open(link, '_blank')
       
+    },
+
+    openLink(link) {
+      window.open(link, '_blank')
     }
+   
   }
 }
 </script>
+
+<style scoped>
+  .text-hover:hover {
+    color: #EB6F2A;
+  }
+</style>

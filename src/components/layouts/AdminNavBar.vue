@@ -37,7 +37,7 @@
 
                 </v-navigation-drawer>
 
-                <v-main  class="ml-0">
+                <v-main  style="height: 90vh; overflow-y: scroll" class="ml-0 hide-scroll">
                     <div v-if="$router.currentRoute.value.path=='/administration'">
                        <h3 class="text-primary text-center mt-4">Administration</h3>
                        <div class="w-75 mx-auto mt-6">
