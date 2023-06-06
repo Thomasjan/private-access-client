@@ -105,12 +105,8 @@
                 </v-layout>
             </div>
 
-            <!-- Content -->
-
-            
         </div>
         
-
             <footer></footer>
         </v-card>
 </template>
