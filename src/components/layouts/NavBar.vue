@@ -99,18 +99,14 @@
 
                 </v-navigation-drawer>
 
-                <v-main style="height: 90vh" class="ml-0">
+                <v-main style="height: 90vh; overflow-y: scroll" class="ml-0 hide-scroll">
                     <router-view></router-view>
                 </v-main>
                 </v-layout>
             </div>
 
-            <!-- Content -->
-
-            
         </div>
         
-
             <footer></footer>
         </v-card>
 </template>

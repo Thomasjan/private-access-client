@@ -83,6 +83,7 @@ export default {
       Download.getDownloads()
       .then(response => {
         this.downloads = response
+        console.log(this.downloads)
       })
       .catch(err => {
         console.log(err);

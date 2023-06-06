@@ -53,7 +53,7 @@
             required
         ></v-select>
 
-          <v-select
+          <!-- <v-select
           color="primary"
           class="ml-1"
           v-model="form.role"
@@ -61,7 +61,7 @@
           :rules="[v => !!v || 'Role requis']"
           label="Role"
           required
-          ></v-select>
+          ></v-select> -->
         </div>
 
         
@@ -109,6 +109,7 @@ export default {
     addUser(){
       let form = {...this.form}
       form.entreprise_id = form.entreprise.id
+      form.role = form.entreprise.category
       switch (form.role) {
         case 'Admin':
             form.role_id = 1
