@@ -6,6 +6,10 @@ body{
     cursor: pointer;
 }
 
+.text-hover:hover {
+    color: #EB6F2A;
+  }
+
 .hide-scroll::-webkit-scrollbar {
     display: none;
 }

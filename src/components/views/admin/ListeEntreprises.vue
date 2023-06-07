@@ -62,7 +62,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
+          <tr class="text-subtitle-2"
             v-for="entreprise in entreprisesFiltered"
             :key="entreprise.id"
           >

@@ -99,8 +99,13 @@
 
                 </v-navigation-drawer>
 
-                <v-main style="height: 90vh; overflow-y: scroll" class="ml-0 hide-scroll">
-                    <router-view></router-view>
+                <v-main style="height: 100vh; overflow-y: scroll" class="ml-0 hide-scroll">
+                    <router-view style="min-height: 90vh"></router-view>
+
+                    <div class="text-center d-flex justify-center">
+                        <v-icon>mdi-copyright</v-icon>
+                        <p class="ml-2">Gestimum</p>
+                    </div>
                 </v-main>
                 </v-layout>
             </div>

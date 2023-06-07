@@ -32,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
+          <tr class="text-subtitle-2"
             v-for="download in downloadsFiltered"
             :key="download.id"
           >
@@ -68,7 +68,7 @@ export default {
     sortBy: [],
     search: '',
     file: '',
-    files: ['catalogue formation', 'modalité d\'accueil'],
+    files: [],
      
   }),
 
@@ -84,6 +84,9 @@ export default {
       .then(response => {
         this.downloads = response
         console.log(this.downloads)
+
+        //Récupération des fichiers
+        this.files = Array.from(new Set(this.downloads.map(download => download.file_name)));
       })
       .catch(err => {
         console.log(err);

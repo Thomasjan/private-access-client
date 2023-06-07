@@ -22,15 +22,15 @@
 
       <div class="mt-4">
         <span class="font-italic">Téléchargements: </span>
-        <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer" @click="dowloadPdf('catalogue formation', 'http://espace-prive.gestimum.com/PDF/formation/Partenaire/CATALOGUE-%20FORMATION-PARTENAIRES-2023.pdf')">mdi-download</v-icon> </h4>
-        <h4>	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="dowloadPdf(`modalité d\'accueil`, 'http://espace-prive.gestimum.com/PDF/formation/Modalite-accueil-formation-rambouillet-2023.pdf')">mdi-download</v-icon> </h4>
+        <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer" @click="downloadPdf('catalogue formation', 'http://espace-prive.gestimum.com/PDF/formation/Partenaire/CATALOGUE-%20FORMATION-PARTENAIRES-2023.pdf')">mdi-download</v-icon> </h4>
+        <h4>	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="downloadPdf(`modalité d\'accueil`, 'http://espace-prive.gestimum.com/PDF/formation/Modalite-accueil-formation-rambouillet-2023.pdf')">mdi-download</v-icon> </h4>
       </div>
    </div>
 
    <div class="mt-2 ml-2" v-else>
-      <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer"  @click="dowloadPdf('catalogue formation', 'http://espace-prive.gestimum.com/PDF/formation/Partenaire/CATALOGUE-%20FORMATION-PARTENAIRES-2023.pdf')">mdi-download</v-icon> </h4>
-      <h4 class="mt-2">	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="dowloadPdf(`modalité d\'accueil`, 'http://espace-prive.gestimum.com/PDF/formation/Modalite-accueil-formation-rambouillet-2023.pdf')">mdi-download</v-icon> </h4>
-      <h4 class="mt-2">	Bullentin d'inscription à nos formations <v-icon color="primary" class="cursor-pointer" @click="dowloadPdf(`bulletin inscription`, 'http://espace-prive.gestimum.com/PDF/formation/Bulletin-inscription-Formation-partenaire-2023.pdf')">mdi-download</v-icon> </h4>
+      <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf('catalogue formation', 'http://espace-prive.gestimum.com/PDF/formation/Partenaire/CATALOGUE-%20FORMATION-PARTENAIRES-2023.pdf')">mdi-download</v-icon> </h4>
+      <h4 class="mt-2">	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="downloadPdf(`modalité d\'accueil`, 'http://espace-prive.gestimum.com/PDF/formation/Modalite-accueil-formation-rambouillet-2023.pdf')">mdi-download</v-icon> </h4>
+      <h4 class="mt-2">	Bullentin d'inscription à nos formations <v-icon color="primary" class="cursor-pointer" @click="downloadPdf(`bulletin inscription`, 'http://espace-prive.gestimum.com/PDF/formation/Bulletin-inscription-Formation-partenaire-2023.pdf')">mdi-download</v-icon> </h4>
   
       <div class="mt-4">
         <h3 class="text-primary mb-4">Intégration & Formation - Durées préconisées</h3>
@@ -178,25 +178,7 @@ export default {
     
   },
   methods: {
-    // download(file) {
-    //   // window.open(`https://www.gestimum.com/telechargement/${file}.pdf`, '_blank');
-    //   let download = {
-    //     entreprise_id: this.$store.state.user.entreprise_id,
-    //     email: this.$store.state.user.email,
-    //     name: this.$store.state.user.name,
-    //     surname: this.$store.state.user.surname,
-    //     file_name: file,
-    //   }
-    //   console.log(download)
-
-    //   Download.addDownload(download)
-    //     .then(res => {
-    //       console.log(res)
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })
-    // },
+    
     download(file) {
       //Requête dans Store
       this.$store.dispatch('addDownload', file);
@@ -206,7 +188,7 @@ export default {
       window.open(link, '_blank')
     },
 
-    dowloadPdf(file, link) {
+    downloadPdf(file, link) {
       this.download(file)
       this.openLink(link)
     },
@@ -216,7 +198,4 @@ export default {
 }
 </script>
 
-<style scoped>
-  
-</style>
 

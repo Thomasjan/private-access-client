@@ -65,7 +65,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
+          <tr class="text-subtitle-2"
             v-for="user in usersFiltered"
             :key="user.id"
           >

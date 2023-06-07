@@ -12,7 +12,7 @@
 
           <div class="d-flex justify-space-between px-6" v-for="(list, index) in item.lists" :key="index">
             <p class="text-hover cursor-pointer" @click="openLink(list.link)">{{list.title}} </p>
-            <v-icon @click="openLink(list.link)" color="primary">mdi-file-pdf-box</v-icon>
+            <v-icon @click="downloadPdf(list.title, list.link)" color="primary">mdi-file-pdf-box</v-icon>
           </div>
       </div>
     </div>
@@ -23,6 +23,7 @@
 export default {
   
   data: () => ({
+
     items:[
       {
         title: 'Général',
@@ -115,15 +116,20 @@ export default {
   }),
 
   methods: {
+    download(file) {
+      //Requête dans Store
+      this.$store.dispatch('addDownload', file);
+    },
+
     openLink(link) {
       window.open(link, '_blank')
-    }
+    },
+
+    downloadPdf(file, link) {
+      this.download(file)
+      this.openLink(link)
+    },
   }
 }
 </script>
 
-<style scoped>
-.text-hover:hover {
-    color: #EB6F2A;
-  }
-</style>
