@@ -2,7 +2,7 @@
   <div class="mt-4">
    <h3 class="text-center text-primary">Mise à jour des versions en ligne</h3> 
 
-    <div class="w-75 mx-auto mt-10">
+    <v-card class="w-75 mx-auto mt-10 bg-white pa-6">
     <v-form @submit="submitForm">
 
       <v-row class="my-2">
@@ -22,7 +22,9 @@
 
           <!-- <input id='file' type="file" > -->
 
-      <v-select v-model="form.type" :items="types" label="Type"></v-select>
+      <v-select class="mx-8" v-model="form.type" :items="types" label="Type">
+
+      </v-select>
 
       <v-file-input 
         class="mx-3 w-75"
@@ -39,7 +41,7 @@
         <v-btn type="submit" color="primary">Valider</v-btn>
       </div>
   </v-form>
-    </div>
+    </v-card>
 
 
   </div>

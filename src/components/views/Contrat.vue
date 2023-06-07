@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 elevation-0">
+  <v-card class="bg-white pa-2 elevation-0 mb-4">
     <h2 class="text-primary text-center">Mon Contrat</h2>
     
     <div class="mt-4 px-4">
@@ -234,7 +234,7 @@
 
         <div class="d-flex justify-center">
           <h4 class="text-text-subtitle-1 text-center">Télécharger le contrat partenaire </h4>
-          <v-icon class="ml-4 cursor-pointer" color="primary">mdi-download</v-icon>
+          <v-icon @click="downloadPdf('Contrat partenaire', 'http://espace-prive.gestimum.com/PDF/Contrat/Contrat-partenaires-2021.pdf')" class="ml-4 cursor-pointer" color="primary">mdi-download</v-icon>
         </div>
       
       </div>
@@ -250,11 +250,20 @@ export default {
   }),
 
   methods: {
-   
+   download(file) {
+      //Requête dans Store
+      this.$store.dispatch('addDownload', file);
+    },
+
+    openLink(link) {
+      window.open(link, '_blank')
+    },
+
+    downloadPdf(file, link) {
+      this.download(file)
+      this.openLink(link)
+    },
   }
 }
 </script>
 
-<style scoped>
-
-</style>

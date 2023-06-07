@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2">
+  <v-card class="bg-white pa-2 mb-4">
       <h2 class="text-primary text-center">Gestimum ERP</h2>
 
       <h3 class="text-center mt-4">Découvrez nos dernières évolutions</h3>
@@ -117,11 +117,11 @@
         <div>
           <h4>2 - Installation de Gestimum</h4>
           <p class="mt-2 text-medium-emphasis font-italic px-4">
-            Attention : Toute intervention sur le serveur ou sur les postes clients nécessite des compétences métier. Nous vous conseillons de solliciter votre partenaire informatique avant toute mise à jour ou migration de bases de données. Un changement de version nécessite d’effectuer des tests préalables avant la mise en production de votre dossier ; Dans tous les cas, pensez à effectuer au préalable une sauvegarde de la base. Pour toutes informations complémentaires, se référer à votre partenaire.
+            Attention : Toute intervention sur le serveur ou sur les postes clients nécessite des compétences métier. Nous vous conseillons de solliciter votre partenaire informatique avant toute mise à jour ou migration de bases de données. Un changement de version nécessite d’effectuer des tests préalables avant la mise en production de votre dossier ; Dans tous les cas, pensez à effectuer au préalable une sauvegarde de la base. Pour toutes informations complémentaires, se référer à votre partenaire. <br>
             L’assistance G-Web ne se substitue pas aux prestations d’un intégrateur informatique de proximité auquel le client doit pouvoir faire appel pour s’assurer que son infrastructure reste adaptée, que la solution correspond à ses attentes, effectuer ou modifier les paramétrages, former les utilisateurs, effectuer les migrations et mises à jours, se charger d'automatiser les sauvegardes et intervenir sur site.
           </p>
 
-          <p class="mt-4 text-primary font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
+          <p class="mt-4 ml-2 text-primary font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         
           <div v-for="item in uploads" :key="item.id" class="mt-8 px-12" >
             <div class="flex flex-col justify-start align-center">
@@ -186,12 +186,12 @@
 
         <div class="mt-4">
           <p class="text-subtitle-1 font-weight-black">Assurant un retour sur investissement rapide</p>
-          <ul class="px-8">
+          <ul class="px-8 mt-4">
             <li>durée de mise en œuvre moyenne : 5 à 15 jours</li>
             <li>Affaire type : 15 000 € HT comprenant les licences, l’assistance, le maquettage, l’installation & la formation.</li>
           </ul>
 
-          <p class="mt-2">
+          <p class="mt-4">
             D’une grande flexibilité, Gestimum ERP garantit aux entreprises et à leurs partenaires informatiques une exploitation immédiatement performante et un retour sur investissement rapide. Avec Gestimum ERP, la productivité des PME n’a plus de limite.
           </p>
 
@@ -202,7 +202,7 @@
             <li>Gestimum PME Initiale, adapté aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
           </ul>
 
-          <v-img class="mt-2 mx-auto" src="http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png" width="50%" @click="zoomImage('http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png')" />
+          <v-img class="mt-2 mx-auto cursor-pointer" src="http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png" width="50%" @click="zoomImage('http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png')" />
         
         </div>
     </div>
@@ -227,7 +227,7 @@
 
           <p class="text-hover text-orange cursor-pointer">Plus d'infos...</p>
       </div>
-      <v-img src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
+      <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
     </div>
 
 
@@ -257,7 +257,7 @@
 
           <p class="text-hover text-orange cursor-pointer">Plus d'infos...</p>
       </div>
-      <v-img src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')"  />
+      <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')"  />
     </div>
 
 
@@ -326,9 +326,6 @@ export default {
 
 <style scoped>
 
-  .text-hover:hover {
-    color: #EB6F2A;
-  }
 
   ul{
     list-style: none;

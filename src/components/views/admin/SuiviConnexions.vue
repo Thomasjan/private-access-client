@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
+          <tr class="text-subtitle-2"
             v-for="login in loginsFiltered"
             :key="login.id"
           >
