@@ -6,6 +6,19 @@
     @click="closeDialog()"
     >mdi-close</v-icon>
    <h3 class="text-center">Création d'une nouvelle entreprise</h3>
+
+   <v-btn color="primary" class="w-50 mx-auto mt-2" @click="ImportGestimumClients()">Importer de Gestimum</v-btn>
+
+   <v-dialog v-model="importClientDialog" width="600px">
+    <v-card class="bg-white pa-8">
+      <p class="text-primary text-center text-subtitle-1 font-weight-bold">Choisissez un client à importer</p>
+      <v-autocomplete class="mt-2" v-model="selectedClient" :items="subcategoryItems">
+      </v-autocomplete>
+
+      <v-chip>{{ selectedClient }} </v-chip>
+    </v-card>
+      
+   </v-dialog>
    <div class="mt-6">
       <v-form fast-fail @submit.prevent>
         <v-text-field
@@ -80,6 +93,7 @@
 
 <script>
 import Entreprise from '../../../../services/entreprises.service'
+import Gestimum from '../../../../services/gestimum.service'
 
 export default {
 
@@ -96,6 +110,10 @@ export default {
     categoryItems: ['1. PARTENAIRE', '2. PME', '3. AUTRES'],
     subcategoryItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
     contractItems: ['Aucun', 'CSC', 'CS', 'G-WEB', 'G-TEL'],
+
+    importClientDialog: false,
+    GestimumClients: [],
+    selectedClient: {},
   }),
   mounted(){
    
@@ -125,6 +143,19 @@ export default {
     closeDialog(){
       this.$emit('closeDialog')
     },
+
+    ImportGestimumClients(){
+      this.importClientDialog = true;
+
+      Gestimum.getGestimumClients()
+      .then(res => {
+        this.GestimumClients = res;
+        console.log(this.GestimumClients);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
 
 
   },
