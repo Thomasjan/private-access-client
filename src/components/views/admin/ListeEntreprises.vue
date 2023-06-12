@@ -66,13 +66,13 @@
             v-for="entreprise in entreprisesFiltered"
             :key="entreprise.id"
           >
-            <td>{{ entreprise.code_client }}</td>
+            <td> {{ entreprise.code_client }}</td>
             <td>{{ entreprise.social_reason }}</td>
             <td>{{ entreprise.category }}</td>
             <td>{{ entreprise.subcategory }}</td>
-            <td>{{ entreprise.created_at.slice(0,10) }}</td>
+            <td><v-chip color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
             <td>{{ entreprise.contract? entreprise.contract: 'pas de contrat' }}</td>
-            <td>{{ entreprise.end_contract }}</td>
+            <td>  <v-chip :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
           </tr>
         </tbody>
       </v-table>
@@ -124,6 +124,15 @@ export default {
     sortByField(field) {
     
     },
+
+    isContractExpired(entreprise) {
+      const currentDate = new Date();
+      const endContractDate = new Date(entreprise.end_contract);
+
+      // Compare the end_contract date with the current date
+      return endContractDate < currentDate;
+    },
+  
 
   },
 

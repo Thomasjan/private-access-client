@@ -12,10 +12,22 @@
    <v-dialog v-model="importClientDialog" width="600px">
     <v-card class="bg-white pa-8">
       <p class="text-primary text-center text-subtitle-1 font-weight-bold">Choisissez un client à importer</p>
-      <v-autocomplete class="mt-2" v-model="selectedClient" :items="subcategoryItems">
+      <v-autocomplete 
+        class="mt-2" 
+        label="Client"
+        v-model="selectedClient" 
+        :items="GestimumClients"
+        :item-title="labelEntreprise" 
+        item-value="PCF_CODE"
+        return-object
+         >
       </v-autocomplete>
 
-      <v-chip>{{ selectedClient }} </v-chip>
+      <div class="d-flex w-100 justify-space-between">
+        <v-chip color="primary" class="text-center">{{ selectedClient.PCF_RS }} </v-chip>
+        <v-btn outline class="text-primary bg-transparent" @click="handleImport()">Valider</v-btn>
+      </div>
+      
     </v-card>
       
    </v-dialog>
@@ -33,7 +45,7 @@
           color="primary"
           class="w-50 mx-auto text-center mt-2"
           v-model="form.code_client"
-          type="number"
+          type="text"
           label="Code client"
           :rules="[v => !!v || 'Code client requis']"
         ></v-text-field>
@@ -78,7 +90,7 @@
             v-model="form.end_contract"
             type="date"
             label="Date de fin du contrat"
-            :rules="[v => !!v || 'Date de fin du contrat requise']"
+            :rules="[v => (!!v && form.contract != 'Aucun') || 'Date de fin du contrat requise']"
           ></v-text-field>
         </div>
 
@@ -100,7 +112,7 @@ export default {
   data: () => ({
     form:{
       social_reason: '',
-      code_client: Math.floor(Math.random() * 10000),
+      code_client: '',
       category: '',
       subcategory: '',
       contract: 'Aucun',
@@ -155,6 +167,33 @@ export default {
       .catch(err => {
         console.log(err);
       })
+    },
+
+    labelEntreprise(item){
+      if(item.PCF_RS != null && item.PCF_CODE != null){
+        return `${item.PCF_RS} - ${item.PCF_CODE}` 
+      }
+      else{
+        return 'Non disponible'
+      }
+    },
+
+    handleImport(){
+      this.form.social_reason = this.selectedClient.PCF_RS;
+      this.form.code_client = this.selectedClient.PCF_CODE;
+
+      if(this.selectedClient.PCF_TYPE.toLowerCase() == 'p'){
+        this.form.category = '1. PARTENAIRE'
+      }
+      else if(this.selectedClient.PCF_TYPE.toLowerCase() == 'e'){
+        this.form.category = '2. PME'
+      }
+      else{
+        this.form.category = '3. AUTRES'
+      }
+
+
+      this.importClientDialog = false;
     }
 
 
