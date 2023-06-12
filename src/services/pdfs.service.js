@@ -5,7 +5,8 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
  const uploadService = {
     getSupportsPdfs,
     editSupportPdf,
-    addSupportPdf
+    addSupportPdf,
+    deleteSupportPdf
 };
 
 //récupérer la liste de tous les fichiers
@@ -36,6 +37,16 @@ async function addSupportPdf(data) {
     console.error('Error adding pdf:', error);
     throw error;
   }
+}
+
+async function deleteSupportPdf(id) {
+    try {
+        const response = await axios.delete(`${API_URL}/pdfs/deleteSupportPdf/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error deleting pdf:', error);
+        throw error;
+    }
 }
 
 
