@@ -17,6 +17,7 @@
           <div class="d-flex justify-space-between px-6" v-for="(list, index) in item.lists" :key="index">
             <p class="text-hover cursor-pointer" @click="openLink(list.link)">{{list.title}} </p>
             <div class="d-flex">
+              <v-icon class="delete" @click="openDelete(list)">mdi-delete</v-icon>
               <v-icon class="edit" @click="openEdit(list)">mdi-pencil</v-icon>
               <v-icon class="ml-2" @click="downloadPdf(list.title, list.link)" color="primary">mdi-file-pdf-box</v-icon>
             </div>
@@ -77,6 +78,21 @@
       </v-card>
     </v-dialog>
 
+
+    <!-- SUPPRESSION -->
+     <v-dialog v-model="dialogDelete" width="600px">
+      <v-card class="bg-white">
+        <v-card-title class="text-center">Suppression</v-card-title>
+        <v-card-text>
+          <p>Êtes-vous sûr de vouloir supprimer ce PDF ?</p>
+        </v-card-text>
+        <v-card-actions class="d-flex justify-space-between">
+          <v-btn color="primary" @click="dialogDelete = false">Annuler</v-btn>
+          <v-btn color="primary" @click="confirmDelete()">Supprimer</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </v-card>
 </template>
 
@@ -91,6 +107,9 @@ export default {
     pdfs: [],
     dialogEdit: false,
     dialogAdd: false,
+    dialogDelete: false,
+
+    itemDelete: {},
     itemOnEdit: {},
     form:{
       category: '',
@@ -98,95 +117,6 @@ export default {
       link: ''
     },
 
-    items:[
-      {
-        title: 'Général',
-        lists: [
-          {
-            title: 'Préconisations techniques et installation Gestimum ERP',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Installation Gestimum ERP - Mise à jour de version',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Téléchargement de la version logiciel gestimum',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: "Installation ou récupération des modèles d'impression",
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Pré-requis pour formation client',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Le maquettage des préférences de société et paramétrage de gestion',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          }
-        ]
-      },
-      {
-        title: "l'intégré",
-        lists: [
-          {
-            title: "Création d'un champ personnalisé",
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Création Champs personnalisés avec formules',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Renommer les champs personnalisés',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: "	Champs à renseigner pour le prélèvement SEPA",
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Banques et les comptes bancaires',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Décaissement - Les modes de règlements',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          }
-        ]
-      },
-      {
-        title: 'Général',
-        lists: [
-          {
-            title: 'Préconisations techniques et installation Gestimum ERP',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Installation Gestimum ERP - Mise à jour de version',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Téléchargement de la version logiciel gestimum',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: "Installation ou récupération des modèles d'impression",
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Pré-requis pour formation client',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          },
-          {
-            title: 'Le maquettage des préférences de société et paramétrage de gestion',
-            link: 'http://docs.gestimum.com/ERP/8/Installation/#t=Pages%2FPreambule.htm'
-          }
-        ]
-      },
-    ]
   }),
 
   mounted() {
@@ -269,6 +199,12 @@ export default {
       console.log(this.itemOnEdit)
     },
 
+    //ouvrir la suppression d'un item
+    openDelete(item) {
+      this.dialogDelete = true
+      this.itemDelete = item
+    },
+
     //Enregister les modifications
     confirmEdit() {
       
@@ -289,6 +225,7 @@ export default {
       
     },
 
+    //ajout d'un pdf
     addPdf() {
       PDF.addSupportPdf(this.form)
       .then((res) => {
@@ -301,6 +238,20 @@ export default {
         console.log(err)
       })
     },
+
+
+    confirmDelete() {
+      PDF.deleteSupportPdf(this.itemDelete.id)
+      .then((res) => {
+        console.log(res)
+        this.dialogDelete = false
+        this.itemOnEdit = {}
+        this.fetchPdfs()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
   }
 }
 </script>
@@ -310,5 +261,10 @@ export default {
 .edit:hover {
   cursor: pointer;
   color: rgb(38, 146, 235);
+}
+
+.delete:hover {
+  cursor: pointer;
+  color: rgb(255, 27, 27);
 }
 </style>
