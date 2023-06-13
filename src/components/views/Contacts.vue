@@ -9,7 +9,10 @@
 
       <v-img class="mx-auto mt-8" src="http://espace-prive.gestimum.com/images/Contact/contact-gestimum.png" width="80%" />
     
-      <p class="mt-6">Le support Gestimum est accessible 24 heures sur 24 par email assistance@gestimum.com et accompagne les PME et leurs intégrateurs du lundi au vendredi de <strong>9h00 à 12h30 et de 14h00 à 18h00</strong>.</p>
+      <p class="mt-6">
+      Le support Gestimum est accessible 24 heures sur 24 par email
+      <a href="#" @click="sendEmail">assistance@gestimum.com</a> et accompagne les PME et leurs intégrateurs du lundi au vendredi de <strong>9h00 à 12h30 et de 14h00 à 18h00</strong>.
+    </p>
     </div>
   </v-card>
 </template>
@@ -22,7 +25,16 @@ export default {
   }),
 
   methods: {
-   
+    
+    sendEmail() {
+      const email = 'assistance@gestimum.com';
+      const subject = 'Objet de votre email';
+      const body = 'Contenu de votre email';
+
+      const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailtoUrl;
+    }
   }
 }
 </script>

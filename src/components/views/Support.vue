@@ -2,7 +2,7 @@
   <v-card class="bg-white pa-2 elevation-0">
     <h2 class="text-primary text-center">Support</h2>
     <div class="mt-4">
-      <v-btn @click="dialogAdd = true" class="bg-primary ml-4">
+      <v-btn v-if="$store.state.user.role_id ===1" @click="dialogAdd = true" class="bg-primary ml-4">
          <v-icon>mdi-plus </v-icon> 
          PDF
       </v-btn>
@@ -17,8 +17,8 @@
           <div class="d-flex justify-space-between px-6" v-for="(list, index) in item.lists" :key="index">
             <p class="text-hover cursor-pointer" @click="openLink(list.link)">{{list.title}} </p>
             <div class="d-flex">
-              <v-icon class="delete" @click="openDelete(list)">mdi-delete</v-icon>
-              <v-icon class="edit" @click="openEdit(list)">mdi-pencil</v-icon>
+              <v-icon v-if="$store.state.user.role_id ===1" class="delete" @click="openDelete(list)">mdi-delete</v-icon>
+              <v-icon v-if="$store.state.user.role_id ===1" class="edit" @click="openEdit(list)">mdi-pencil</v-icon>
               <v-icon class="ml-2" @click="downloadPdf(list.title, list.link)" color="primary">mdi-file-pdf-box</v-icon>
             </div>
           </div>
@@ -114,7 +114,8 @@ export default {
     form:{
       category: '',
       title: '',
-      link: ''
+      link: '',
+      ref: 'support'
     },
 
   }),
@@ -146,7 +147,6 @@ export default {
     }, {});
 
     this.pdfs = Object.values(pdfsByCategory);
-    console.log(this.pdfs)
   })
     .catch((err) => {
       console.log(err)
@@ -212,7 +212,7 @@ export default {
        this.itemOnEdit.created_at = this.itemOnEdit.created_at.slice(0, 19).replace('T', ' ');
        this.itemOnEdit.updated_at = updated_at;
        
-      PDF.editSupportPdf(this.itemOnEdit.id, this.itemOnEdit)
+      PDF.editPdf(this.itemOnEdit.id, this.itemOnEdit)
       .then((res) => {
         console.log(res)
         this.dialogEdit = false
@@ -227,7 +227,8 @@ export default {
 
     //ajout d'un pdf
     addPdf() {
-      PDF.addSupportPdf(this.form)
+      this.form.ref = 'support'
+      PDF.addPdf(this.form)
       .then((res) => {
         console.log(res)
         this.dialogAdd = false
@@ -241,7 +242,7 @@ export default {
 
 
     confirmDelete() {
-      PDF.deleteSupportPdf(this.itemDelete.id)
+      PDF.deletePdf(this.itemDelete.id)
       .then((res) => {
         console.log(res)
         this.dialogDelete = false

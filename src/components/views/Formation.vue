@@ -35,167 +35,276 @@
       <div class="mt-4">
         <h3 class="text-primary mb-4">Intégration & Formation - Durées préconisées</h3>
 
-        <div class="mt-2" v-for="(item, index) in items" :key="index">
-            <h4>{{item.title}} </h4>
-          <ul class="px-6" v-for="(list, i) in item.liste" :key="i">
+        <v-btn v-if="$store.state.user.role_id ===1" @click="dialogAdd = true" class="bg-primary ml-4 mb-4">
+         <v-icon>mdi-plus </v-icon> 
+         Formation
+      </v-btn>
+        <div class="mt-2" v-for="(item, index) in formations" :key="index">
+            <h4>{{item.category}} </h4>
+          <ul class="px-6" v-for="(list, i) in item.lists" :key="i">
             <li class="d-flex justify-space-between">
               <div class="d-flex">
                 <v-icon class="my-auto" color="primary" size="6">mdi-circle</v-icon>
                   <p class="text-start ml-2">{{list.title}} </p> 
               </div>
-             <p>{{list.time}} </p>
+              <div class="d-flex">
+                <p class="mr-4">{{list.time}} </p>
+                <v-icon v-if="$store.state.user.role_id ===1" class="delete" @click="openDelete(list)">mdi-delete</v-icon>
+                <v-icon v-if="$store.state.user.role_id ===1" class="edit" @click="openEdit(list)">mdi-pencil</v-icon>
+              </div>
             </li>
           </ul>
         </div>
       </div>
+
+       
 
     <div class="text-center mt-10 font-italic text-subtitle-2">
         Le maquettage fonctionnel permet de réduire significativement la durée de formation et d'améliorer la qualité d'accompagnement. Sans maquettage fonctionnel, la formation ne pourra se dérouler que sur la base de fichier de démonstration générique. La durée des prestations est donnée à titre indicatif et dépend du niveau des utilisateurs et de la profondeur du périmètre fonctionnel à étudier. L'installation de l'ERP doit être effectuée avant toute session de formation.
     </div>
 
    </div>
+
+    <!-- MODIFICATIONS -->
+   <v-dialog v-model="dialogEdit" width="600px">
+      <v-card class="bg-white">
+        <v-card-title class="text-center">Modification</v-card-title>
+        <v-card-text>
+          <!-- <v-text-field label="Catégorie" v-model="itemOnEdit.category"></v-text-field> -->
+         <v-autocomplete
+          v-model="itemOnEdit.category"
+          :items="getCategories()"
+          label="Catégorie"
+          :tags="true"
+          :filter="customFilter"
+          @input="handleInput"
+          return-object
+        >
+        </v-autocomplete>
+          <v-text-field label="Titre" v-model="itemOnEdit.title"></v-text-field>
+          <v-text-field label="Durée" v-model="itemOnEdit.time"></v-text-field>
+        </v-card-text>
+        <v-card-actions class="d-flex justify-space-between">
+          <v-btn color="primary" @click="dialogEdit = false">Annuler</v-btn>
+          <v-btn color="primary" @click="confirmEdit()">Enregistrer</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+
+    <!-- AJOUT -->
+    <v-dialog v-model="dialogAdd" width="600px">
+      <v-card class="bg-white">
+        <v-card-title class="text-center">Ajout</v-card-title>
+        <v-card-text>
+          <!-- <v-text-field label="Catégorie" v-model="itemOnEdit.category"></v-text-field> -->
+         <v-autocomplete
+          v-model="form.category"
+          :items="getCategories()"
+          label="Catégorie"
+          :tags="true"
+          :filter="customFilter"
+          @input="handleInput"
+          return-object
+        >
+        </v-autocomplete>
+          <v-text-field label="Titre" v-model="form.title"></v-text-field>
+          <v-text-field label="Durée" v-model="form.time"></v-text-field>
+        </v-card-text>
+        <v-card-actions class="d-flex justify-space-between">
+          <v-btn color="primary" @click="dialogAdd = false">Annuler</v-btn>
+          <v-btn color="primary" @click="addFormation()">Enregistrer</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+
+    <!-- SUPPRESSION -->
+     <v-dialog v-model="dialogDelete" width="600px">
+      <v-card class="bg-white">
+        <v-card-title class="text-center">Suppression</v-card-title>
+        <v-card-text>
+          <p>Êtes-vous sûr de vouloir supprimer ce PDF ?</p>
+        </v-card-text>
+        <v-card-actions class="d-flex justify-space-between">
+          <v-btn color="primary" @click="dialogDelete = false">Annuler</v-btn>
+          <v-btn color="primary" @click="confirmDelete()">Supprimer</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-card>
 </template>
 
 <script>
-import Download from '../../services/downloads.service'
+import Formations from '../../services/formations.service'
 
 export default {
   
   data: () => ({
-    items:[
-      {
-        title: 'Maquettage & intégration des données : 5 à 15 jours',
-        liste: [
-          {
-            title: 'Maquettage - cadrage du projet',
-            time: '1 à 2 jours'
-          },
-          {
-            title: 'Base Article, Tiers & Contacts',
-            time: '2 à 3 jours'
-          },
-          {
-            title: 'Base Tarifs',
-            time: '1 à 2 jours'
-          },
-          {
-            title: 'Base Ecritures, Comptes généraux & analytiques',
-            time: '1 à 2 jours'
-          },
-          {
-            title: 'Déclaration de TVA Cerfa & EDI-TVA',
-            time: '1 à 2 jours'
-          },
-          {
-            title: "Liaison site vitrine et/ou site e-commerce à partir de l'automate de connexion bidirectionnelle",
-            time: '2 à 4 jours'
-          },
-          {
-            title: 'Dématérialisation des documents de vente - EDI (selon solution partenaire sélectionnée)',
-            time: '2 à 3 jours'
-          },
-          {
-            title: "Installation de l'ERP",
-            time: '0,5 à 1 jour'
-          },
-        ]
-      },
-      {
-        title: 'Formation Gestion Commerciale PME: 3 à 6 jours',
-        liste: [
-          {
-            title: 'Tiers, contacts et actions',
-            time: '0,5 jour'
-          },
-          {
-            title: 'Article (nomenclatures, valorisations ...)',
-            time: '2 jours'
-          },
-          {
-            title: 'Tarif et promotions (selon complexité)',
-            time: '0,5 jour'
-          },
-          {
-            title: 'Affaires et planning des ressources',
-            time: '1 jour'
-          },
-          {
-            title: 'Gestion des échéances et des règlements',
-            time: '0,5 jour'
-          },
-          {
-            title: "Décisionnel - exploitation tableaux croisés",
-            time: '0,5 jour'
-          },
-          {
-            title: 'Synchronisation données gestimum ERP avec un site vitrine et/ou site e-commerce',
-            time: '0,5 jour'
-          },
-          {
-            title: "Synchronisation données des documents de vente en EDI",
-            time: '0,5 jour'
-          },
-        ]
-      },
-      {
-        title: 'Formation Gestion Comptable: 2 à 5 jours',
-        liste: [
-          {
-            title: 'Comptabilité générale et auxiliaire',
-            time: '1 jour'
-          },
-          {
-            title: "Gestion de l'analytique et des centres de coûts",
-            time: '0,5 jour'
-          },
-          {
-            title: 'Gestion des budgets & engagement achat',
-            time: '1 jour'
-          },
-          {
-            title: 'Gestion des échéances et des règlements',
-            time: '1 jour'
-          },
-          {
-            title: "Rapprochement bancaire manuel & automatique",
-            time: '0,5 jour'
-          },
-          {
-            title: 'Déclaration de TVA Cerfa & EDI-TVA',
-            time: '0,5 jour'
-          },
-          {
-            title: "Décisionnel - exploitation tableaux croisés",
-            time: '0,5 jour'
-          },
-        ]
-      }
-    ]
+    formations: [],
+    dialogEdit: false,
+    dialogAdd: false,
+    dialogDelete: false,
+
+    itemDelete: {},
+    itemOnEdit: {},
+    form:{
+      category: '',
+      title: '',
+      time: '',
+    },
   }),
 
   mounted() {
+    this.fetchFormations();
     
   },
   methods: {
+
+    
+    //get Formations
+    fetchFormations() {
+      Formations.getFormations()
+      .then((res) => {
+        //on map sur les categories
+        const formationsByCategory = res.reduce((acc, item) => {
+        const category = item.category;
+        if (!acc[category]) {
+          acc[category] = {
+            category: category,
+            lists: [item],
+          };
+        } else {
+          acc[category].lists.push(item);
+        }
+        return acc;
+      }, {});
+
+      this.formations = Object.values(formationsByCategory);
+      console.log(this.formations)
+  })
+    .catch((err) => {
+      console.log(err)
+    })
+    },
+
+    //permettre d'ajouter une catégorie
+    handleInput(event) {
+    const value = event.target.value;
+    const categories = this.getCategories();
+    if (!categories.includes(value)) {
+      this.dialogEdit && (this.itemOnEdit.category = value);
+      this.dialogAdd && (this.form.category = value);
+    }
+  },
+
+    //permettre de filtrer les catégories
+  customFilter(item, queryText, itemText) {
+    const hasItem = this.getCategories().includes(queryText);
+    const matchesItem = itemText.toLowerCase().includes(queryText.toLowerCase());
+    return hasItem || matchesItem;
+  },
+    //liste des catégories
+    getCategories() {
+    const categories = this.formations.map((formation) => formation.category);
+    return [...new Set(categories)];
+    },
+
     
     download(file) {
       //Requête dans Store
       this.$store.dispatch('addDownload', file);
     },
 
+
     openLink(link) {
       window.open(link, '_blank')
     },
 
+    //ouvrir le pdf et le télécharger
     downloadPdf(file, link) {
       this.download(file)
       this.openLink(link)
     },
 
+    //ouvrir l'édition d'un item
+    openEdit(item) {
+      this.dialogEdit = true
+      this.itemOnEdit = item
+      console.log(this.itemOnEdit)
+    },
+
+    //ouvrir la suppression d'un item
+    openDelete(item) {
+      this.dialogDelete = true
+      this.itemDelete = item
+    },
+
+    //Enregister les modifications
+    confirmEdit() {
+      
+       const updated_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
+       this.itemOnEdit.created_at = this.itemOnEdit.created_at.slice(0, 19).replace('T', ' ');
+       this.itemOnEdit.updated_at = updated_at;
+       
+      Formations.editFormation(this.itemOnEdit.id, this.itemOnEdit)
+      .then((res) => {
+        console.log(res)
+        this.dialogEdit = false
+        this.itemOnEdit = {}
+        this.fetchFormations()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+      
+    },
+
+    //ajout d'un pdf
+    addFormation() {
+      Formations.addFormation(this.form)
+      .then((res) => {
+        console.log(res)
+        this.dialogAdd = false
+        this.form = {}
+        this.fetchFormations()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+
+
+    confirmDelete() {
+      Formations.deleteFormation(this.itemDelete.id)
+      .then((res) => {
+        console.log(res)
+        this.dialogDelete = false
+        this.itemOnEdit = {}
+        this.fetchFormations()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
+
   }
 
 }
 </script>
+
+<style scoped>
+
+.edit:hover {
+  cursor: pointer;
+  color: rgb(38, 146, 235);
+}
+
+.delete:hover {
+  cursor: pointer;
+  color: rgb(255, 27, 27);
+}
+</style>
+
 
 
