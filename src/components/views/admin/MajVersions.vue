@@ -39,6 +39,9 @@
       <p class="ml-2 text-grey-darken-2">Description</p>
       <vue-editor  v-model="form.description"></vue-editor>
 
+      <p class="ml-2 text-grey-darken-2 mt-4">Patch</p>
+      <vue-editor  v-model="form.patch"></vue-editor>
+
       <div class="text-center mt-4">
         <v-btn type="submit" color="primary">Valider</v-btn>
       </div>
@@ -67,6 +70,7 @@ export default {
       type: '',
       image: null,
       description: '',
+      patch: '<p><strong style="color: rgb(239, 132, 28);">Titre Module</strong></p><p><strong style="color: rgb(88, 97, 102);"><img src="http://espace-prive.gestimum.com/images/Decor/barre-orange.gif" height="1" width="100%"></strong></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><br></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p>',
     },
     
 
@@ -77,6 +81,7 @@ export default {
     submitForm(e) {
   e.preventDefault();
   const form = { ...this.form };
+  console.log(form)
 
   const filePath = `uploads/${form.file_name}`;
   const imagePath = `uploads/${form.image[0].name}`;
@@ -89,6 +94,7 @@ export default {
   formData.append('file_name', form.file_name);
   formData.append('type', form.type);
   formData.append('description', form.description);
+  formData.append('patch', form.patch);
   formData.append('file_path', form.file_path);
   formData.append('image_path', form.image_path);
   
@@ -107,6 +113,7 @@ export default {
         type: '',
         image: null,
         description: '',
+        patch: '',
       };
     })
     .catch(err => {
