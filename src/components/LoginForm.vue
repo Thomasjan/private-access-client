@@ -144,9 +144,7 @@ export default {
 
         //redirection vers mot de passe oublié
         mdpoublie(){
-            console.log("🚀 ~ file: LoginComponent.vue ~ line 152 ~ mdpoublie ~ 'mdp oublie'", 'mdp oublie')
-             this.$router.push({ name: 'mdpoublie' });
-            
+             this.$router.push({ name: 'mdp-oublie' });
         },
     },
     
@@ -169,19 +167,8 @@ export default {
             
         },
     },
-
-    // computed: {
-    //     ...mapState(['users']),
-    //     selectedClient: {
-    //         get() {
-    //             return this.$store.state.formation.selectedClient;
-    //         },
-    //         set(data) {
-    //             this.$store.commit('UPDATE_FORMATION_CLIENT', data);
-    //         },
-    //     },
-    // },
 };
+
 </script>
 
 <style>

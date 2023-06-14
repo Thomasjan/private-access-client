@@ -108,7 +108,7 @@ export default {
     
     mounted(){
 
-        if (this.$store.state.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
+        if (this.$store.state.user.id == '' && this.$route.name !== 'mdp-oublie' && this.$route.name !== 'generate-password') {
             let userId = localStorage.getItem('auth')
             User.getUser(userId)
                 .then((response) => { 

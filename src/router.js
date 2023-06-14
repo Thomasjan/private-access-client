@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from './components/Home.vue'
-import HelloWorld from './components/HelloWorld.vue'
 import LoginForm from './components/LoginForm.vue'
+import MdpOublie from './components/MdpOublie.vue'
 
 //layouts
 import Administration from './components/layouts/AdminLayout.vue'
@@ -28,8 +28,8 @@ const routes = [
   { path: '/', component: Home },
   {name: 'home', path: '/home', component: Home },
   {name: 'login',  path: '/login', component: LoginForm },
+  {name: 'mdp-oublie',  path: '/mdp-oublie', component: MdpOublie },
   {name: 'logout',  path: '/logout', component: LoginForm },
-//   {name: 'administration',  path: '/administration', component: Administration },
 
   //views
   { path: '/gestimum-erp', component: GestimumERP },
@@ -72,8 +72,7 @@ router.beforeEach((to, from, next) => {
             store.commit('UPDATE_USER', blankUsers)
             next({ name: 'login' })
         })
-    // } else if (!(to.name === 'login' || await function() {!!store.getters.usersFullName.id})) next({ name: 'login' })
-    } else if (!( to.name == 'login' || (to.name == 'mdpoublie') || !! localStorage.getItem('auth'))) {
+    } else if (!( to.name == 'login' || (to.name == 'mdp-oublie') || !! localStorage.getItem('auth'))) {
         next({ name: 'login' })
    
     } else {
