@@ -8,7 +8,7 @@
         <p class="mt-4 ml-2 text-primary font-italic  font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         <div class="mt-2 d-flex flex-column justify-center align-center">
             <h3 class="text-blue mt-2">Version {{lastUpload.version}} </h3>
-            <v-img class="mr-2 bg-blue mt-2 w-25" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
+            <v-img class="mr-2 bg-blue mt-2 w-25 rounded-lg cursor-pointer" @click="zoomImage(getLink(lastUpload))" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
             <p class="font-italic text-subtitle-2 mt-4 text-left mx-6" v-html="lastUpload.description"></p>
             <v-btn color="primary w-25 mx-auto mt-4" size="large" @click="downloadLink(lastUpload)"> 
               <v-icon class="mr-4 mt-1">mdi-download</v-icon>
@@ -248,7 +248,7 @@
 
 
     <v-dialog v-model="isZoomedIn" max-width="900px">
-      <v-img class="rounded-lg" :src="zoomedImageSrc" width="100%" />
+      <v-img class="rounded-lg ml-8" :src="zoomedImageSrc" width="100%" />
     </v-dialog>
 
       </div>
