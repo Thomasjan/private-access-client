@@ -76,7 +76,7 @@
             <td>{{ user.name }}</td>
             <td>{{ user.surname }}</td>
             <td>{{ user.email }}</td>
-            <td><v-chip color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
+            <td><v-chip size="small" color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
             <td>{{ user.contract? user.contract: 'pas de contrat' }}</td>
             <!-- <td>{{ user.end_contract }}</td> -->
           </tr>

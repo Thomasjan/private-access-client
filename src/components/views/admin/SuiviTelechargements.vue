@@ -41,8 +41,8 @@
             <td>{{ download.name }}</td>
             <td>{{ download.surname }}</td>
             <td>{{ download.email }}</td>
-            <td>{{ download.date.slice(0,10) }}</td>
-            <td>{{ download.date.slice(10,19) }}</td>
+            <td> <v-chip size="small" color="primary">{{ download.date.slice(0,10) }}</v-chip></td>
+            <td> <v-chip size="small" color="blue">{{ download.date.slice(10,19) }}</v-chip> </td>
           </tr>
         </tbody>
       </v-table>

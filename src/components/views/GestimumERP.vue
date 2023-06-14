@@ -2,7 +2,27 @@
   <v-card class="bg-white pa-2 mb-4">
       <h2 class="text-primary text-center">Gestimum ERP</h2>
 
-      <h3 class="text-center mt-4">Découvrez nos dernières évolutions</h3>
+      <!-- DERNIERE VERSION ERP -->
+      <div class="mt-6 mx-auto text-center" v-if="lastUpload != {}">
+        <h2 class="text-decoration-underline">Dernière version du logiciel</h2>
+        <p class="mt-4 ml-2 text-primary font-italic  font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
+        <div class="mt-2 d-flex flex-column justify-center align-center">
+            <h3 class="text-blue mt-2">Version {{lastUpload.version}} </h3>
+            <v-img class="mr-2 bg-blue mt-2 w-25" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
+            <p class="font-italic text-subtitle-2 mt-4 text-left mx-6" v-html="lastUpload.description"></p>
+            <v-btn color="primary w-25 mx-auto mt-4" size="large" @click="downloadLink(lastUpload)"> 
+              <v-icon class="mr-4 mt-1">mdi-download</v-icon>
+              Télécharger
+            </v-btn>
+        </div>
+      </div>
+      <v-divider
+          :thickness="1"
+          class="border-opacity-100 mt-4 w-75 mx-auto"
+          color="primary"
+        ></v-divider>
+
+      <h3 class="text-center mt-8">Découvrez nos dernières évolutions</h3>
       <div class="ml-2">
 
 
@@ -123,7 +143,7 @@
 
           <p class="mt-4 ml-2 text-primary font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         
-          <div v-for="item in uploads" :key="item.id" class="mt-8 px-12" >
+          <div v-for="item in uploads.slice(0,2)" :key="item.id" class="mt-8 px-12" >
             <div class="flex flex-col justify-start align-center">
               <div class="d-flex justify-space-between w-100 ">
                 
@@ -134,7 +154,7 @@
                 </p>
                   <v-icon class="cursor-pointer" color="primary" @click="downloadLink(item)">mdi-download</v-icon>
               </div>
-              <p class="mt-2 ml-2 font-italic text-start">{{item.description}} </p>
+              <p class="mt-2 ml-2 font-italic text-start" v-html="item.description"> </p>
             </div>
             <v-divider
               :thickness="1"
@@ -276,6 +296,7 @@ export default {
   
   data: () => ({
     uploads:[],
+    lastUpload: {},
 
     zoomedImageSrc: '',
     isZoomedIn: false,
@@ -293,6 +314,14 @@ export default {
         // Append the link to the DOM
         document.body.appendChild(link);
       });
+    })
+    .catch(e => {
+      console.log(e)
+    })
+
+    Upload.getLastUpload()
+    .then(response => {
+      this.lastUpload = response
     })
     .catch(e => {
       console.log(e)

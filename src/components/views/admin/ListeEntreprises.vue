@@ -70,9 +70,9 @@
             <td>{{ entreprise.social_reason }}</td>
             <td>{{ entreprise.category }}</td>
             <td>{{ entreprise.subcategory }}</td>
-            <td><v-chip color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
+            <td><v-chip size="small" color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
             <td>{{ entreprise.contract? entreprise.contract: 'pas de contrat' }}</td>
-            <td>  <v-chip :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
+            <td>  <v-chip size="small" :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
           </tr>
         </tbody>
       </v-table>

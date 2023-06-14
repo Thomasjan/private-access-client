@@ -29,15 +29,17 @@
       <v-file-input 
         class="mx-3 w-75"
         v-model="form.image"
-        accept="image/png, image/jpeg, image/bmp"
+        accept="image/png, image/jpeg, image/bmp, image/gif, image/svg+xml, image/webp, image/tiff, image/x-icon, image/vnd.microsoft.icon"
         placeholder="Pick an avatar"
         prepend-icon="mdi-camera"
         label="Image">
       </v-file-input>
 
-      <v-textarea v-model="form.description" label="Description"></v-textarea>
+      <!-- <v-textarea v-model="form.description" label="Description"></v-textarea> -->
+      <p class="ml-2 text-grey-darken-2">Description</p>
+      <vue-editor  v-model="form.description"></vue-editor>
 
-      <div class="text-center">
+      <div class="text-center mt-4">
         <v-btn type="submit" color="primary">Valider</v-btn>
       </div>
   </v-form>
@@ -48,9 +50,14 @@
 </template>
 
 <script>
+import { VueEditor } from 'vue3-editor';
 import Upload from '../../../services/uploads.service'
 
 export default {
+ components: {
+    VueEditor,
+  },
+  
   
   data: () => ({
     form:{
@@ -61,6 +68,7 @@ export default {
       image: null,
       description: '',
     },
+    
 
     types: ['Commerciale', 'Beta', 'Ne pas communiquer'],
   }),
@@ -92,6 +100,14 @@ export default {
   Upload.addUpload(formData)
     .then(res => {
       console.log(res);
+      this.form = {
+        version: '',
+        file_name: '',
+        file: null,
+        type: '',
+        image: null,
+        description: '',
+      };
     })
     .catch(err => {
       console.log(err);

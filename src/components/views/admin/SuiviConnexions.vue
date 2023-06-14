@@ -43,8 +43,8 @@
             <td>{{ login.entreprise.subcategory }}</td>
             <td>{{ login.user.name }}</td>
             <td>{{ login.user.surname }}</td>
-            <td>{{ login.date.slice(0,10) }}</td>
-            <td>{{ login.date.slice(10,19) }}</td>
+            <td> <v-chip color="primary" size="small">{{ login.date.slice(0,10) }}</v-chip> </td>
+            <td><v-chip color="blue" size="small">{{ login.date.slice(10,19) }}</v-chip> </td>
           </tr>
         </tbody>
       </v-table>

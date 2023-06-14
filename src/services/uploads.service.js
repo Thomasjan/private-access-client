@@ -4,6 +4,7 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
 
  const uploadService = {
     getUploads,
+    getLastUpload,
     addUpload,
 };
 
@@ -14,6 +15,16 @@ async function getUploads() {
     return response.data;
   } catch (error) {
     console.error('Error getting uploads:', error);
+    throw error;
+  }
+}
+
+async function getLastUpload() {
+  try {
+    const response = await axios.get(`${API_URL}/uploads/getLastUpload`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting last upload:', error);
     throw error;
   }
 }
