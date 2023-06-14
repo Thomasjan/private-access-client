@@ -6,6 +6,7 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
   getUsers,
   getUser,
   postUser,
+  updatePassword
 };
 
 //récupérer la liste de tous les utilisateurs
@@ -36,6 +37,16 @@ async function postUser(user) {
     return response.data;
   } catch (error) {
     console.error('Error posting user:', error);
+    throw error;
+  }
+}
+
+async function updatePassword(user) {
+  try {
+    const response = await axios.put(`${API_URL}/users/updatePassword/${user.id}`, user);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating password:', error);
     throw error;
   }
 }

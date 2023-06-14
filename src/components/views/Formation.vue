@@ -7,7 +7,7 @@
 
       <div class="mt-8">
         <p class="mb-4">	Choisissez la formation qui vous convient :</p>
-        <ul>
+        <ul class="ml-6">
           <li class="mt-2">
           <strong class="text-primary"> <v-icon class="pb-1">mdi-arrow-right</v-icon> En ligne</strong>  depuis votre poste Gestimum par internet et téléphone. Cette formule vous assure un maximum de productivité (gain de temps grâce à l'absence de déplacement et 100% personnalisée) sur des thèmes de votre choix pour gagner en performance
           </li>
