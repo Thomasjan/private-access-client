@@ -16,6 +16,11 @@
             </v-btn>
         </div>
       </div>
+      <v-divider
+          :thickness="1"
+          class="border-opacity-100 mt-4 w-75 mx-auto"
+          color="primary"
+        ></v-divider>
 
       <h3 class="text-center mt-8">Découvrez nos dernières évolutions</h3>
       <div class="ml-2">
