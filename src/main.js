@@ -3,7 +3,7 @@ import App from './App.vue'
 import { loadFonts } from './plugins/webfontloader'
 
 import LottieAnimation from "lottie-web-vue";
-
+import { VueEditor } from "vue3-editor";
 
 import vuetify from './plugins/vuetify'
 import router from './router'
@@ -70,4 +70,5 @@ loadFonts()
   .use(router)
   .use(store)
   .use(LottieAnimation)
+  .use(VueEditor)
   .mount('#app')
