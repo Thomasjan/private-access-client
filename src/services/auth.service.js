@@ -5,7 +5,8 @@ const API_URL = 'http://localhost:3000/api'; // Replace with your API URL
  const authService = {
   login,
   register,
-  getLogins
+  getLogins,
+  forgotPassword
 };
 
 //Login
@@ -37,6 +38,16 @@ async function getLogins() {
     return response.data;
   } catch (error) {
     console.error('Error getting logins:', error);
+    throw error;
+  }
+}
+
+async function forgotPassword(email) {
+  try {
+    const response = await axios.post(`${API_URL}/auth/forgotPassword`, email);
+    return response.data;
+  } catch (error) {
+    console.error('Error forgot password:', error);
     throw error;
   }
 }

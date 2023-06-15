@@ -13,7 +13,7 @@
         <div >
 
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
-                <h3 class="text-center">Bienvenue, <span class="text-capitalize"> {{$store.state.user.surname}}</span> <strong class="text-uppercase">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
+                <h3 class="text-center">Bienvenue, <span class="text-capitalize text-primary"> {{$store.state.user.surname}}</span> <strong class="text-uppercase text-primary">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
                 <div class="mt-14">
 
                     <!-- Menu client -->
@@ -72,6 +72,8 @@
                 >
                     <v-list>
                     <v-list-item
+                        @click="$router.push('/profil')"
+                        class="cursor-pointer"
                         prepend-avatar="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
                         :title="$store.state.user.name"
                         :subtitle="$store.state.user.email"
@@ -248,7 +250,7 @@ export default {
     
     mounted(){
 
-        if (this.$store.state.user.id == '' && this.$route.name !== 'mdpoublie' && this.$route.name !== 'generate-password') {
+        if (this.$store.state.user.id == '' && this.$route.name !== 'mdp-oublie' && this.$route.name !== 'generate-password') {
             let userId = localStorage.getItem('auth')
             User.getUser(userId)
                 .then((response) => { 

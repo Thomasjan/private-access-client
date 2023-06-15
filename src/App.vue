@@ -2,22 +2,21 @@
   <v-app>
     <v-main>
       <login-form v-if="$router.currentRoute.value.path=='/login'"></login-form>
+      <mdp-oublie v-else-if="$router.currentRoute.value.path=='/mdp-oublie'"></mdp-oublie>
       <admin-layout v-else-if="isAdminRoute"></admin-layout>
       <nav-bar v-else></nav-bar>
-      <!-- <router-view /> -->
     </v-main>
   </v-app>
 </template>
 
 <script>
-import NavBar from './components/layouts/NavBar.vue'
 import { useTheme } from 'vuetify'
+import NavBar from './components/layouts/NavBar.vue'
 import LoginForm from './components/LoginForm.vue'
-
-import User from './services/users.service'
+import MdpOublie from './components/MdpOublie.vue'
 
 export default {
-  components: { NavBar, LoginForm },
+  components: { NavBar, LoginForm, MdpOublie },
   name: 'App',
 
   setup () {
