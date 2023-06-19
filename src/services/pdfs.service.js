@@ -7,7 +7,8 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
     editPdf,
     addPdf,
     deletePdf,
-    getAideVentePdfs
+    getAideVentePdfs,
+    getFormationPdfs
 };
 //Pdfs de la page Suppport
 async function getSupportsPdfs() {
@@ -24,6 +25,16 @@ async function getSupportsPdfs() {
 async function getAideVentePdfs() {
   try {
     const response = await axios.get(`${API_URL}/pdfs/getAideVentePdfs`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting pdfs:', error);
+    throw error;
+  }
+}
+
+async function getFormationPdfs() {
+  try {
+    const response = await axios.get(`${API_URL}/pdfs/getFormationPdfs`);
     return response.data;
   } catch (error) {
     console.error('Error getting pdfs:', error);

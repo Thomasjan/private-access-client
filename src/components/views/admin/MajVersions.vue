@@ -20,8 +20,6 @@
             @change="handleFileChange"
           ></v-file-input>
 
-          <!-- <input id='file' type="file" > -->
-
       <v-select class="mx-8" v-model="form.type" :items="types" label="Type">
 
       </v-select>
@@ -35,11 +33,10 @@
         label="Image">
       </v-file-input>
 
-      <!-- <v-textarea v-model="form.description" label="Description"></v-textarea> -->
-      <p class="ml-2 text-grey-darken-2">Description</p>
+      <p class="ml-2 text-grey-darken-2">Description :</p>
       <vue-editor  v-model="form.description"></vue-editor>
 
-      <p class="ml-2 text-grey-darken-2 mt-4">Patch</p>
+      <p class="ml-2 text-grey-darken-2 mt-4">Note du patch :</p>
       <vue-editor  v-model="form.patch"></vue-editor>
 
       <div class="text-center mt-4">
@@ -70,7 +67,7 @@ export default {
       type: '',
       image: null,
       description: '',
-      patch: '<p><strong style="color: rgb(239, 132, 28);">Titre Module</strong></p><p><strong style="color: rgb(88, 97, 102);"><img src="http://espace-prive.gestimum.com/images/Decor/barre-orange.gif" height="1" width="100%"></strong></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><br></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p>',
+      patch: '<p><strong style="color: rgb(239, 132, 28);">Titre Module</strong></p><p><strong style="color: rgb(88, 97, 102);"><img src="http://espace-prive.gestimum.com/images/Decor/barre-orange.gif" height="1" width="100%"></strong></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><br></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p>',
     },
     
 
@@ -113,7 +110,7 @@ export default {
         type: '',
         image: null,
         description: '',
-        patch: '',
+        patch: '<p><strong style="color: rgb(239, 132, 28);">Titre Module</strong></p><p><strong style="color: rgb(88, 97, 102);"><img src="http://espace-prive.gestimum.com/images/Decor/barre-orange.gif" height="1" width="100%"></strong></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><br></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="http://espace-prive.gestimum.com/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p>',
       };
     })
     .catch(err => {

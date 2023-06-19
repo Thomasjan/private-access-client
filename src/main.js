@@ -3,7 +3,7 @@ import App from './App.vue'
 import { loadFonts } from './plugins/webfontloader'
 
 import LottieAnimation from "lottie-web-vue";
-
+import { VueEditor } from "vue3-editor";
 
 import vuetify from './plugins/vuetify'
 import router from './router'
@@ -16,6 +16,7 @@ import AdminLayout from './components/layouts/AdminLayout.vue'
 import AdminNavBar from './components/layouts/AdminNavBar.vue'
 
 import LoginForm from './components/LoginForm.vue'
+import MdpOublie from './components/MdpOublie.vue'
 
 //views
 import GestimumERP from './components/views/GestimumERP.vue'
@@ -38,6 +39,7 @@ const app = createApp(App);
 
 
 app.component('login-form', LoginForm)
+app.component('mdp-oublie', MdpOublie)
 
 //layouts
 app.component('navbar', NavBar)
@@ -70,4 +72,5 @@ loadFonts()
   .use(router)
   .use(store)
   .use(LottieAnimation)
+  .use(VueEditor)
   .mount('#app')
