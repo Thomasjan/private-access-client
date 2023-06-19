@@ -22,16 +22,16 @@
 
       <div class="mt-4">
         <span class="font-italic">Téléchargements: </span>
-        <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer" @click="downloadPdf('catalogue formation', 'http://espace-prive.gestimum.com/PDF/formation/Partenaire/CATALOGUE-%20FORMATION-PARTENAIRES-2023.pdf')">mdi-download</v-icon> </h4>
-        <h4>	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="downloadPdf(`modalité d\'accueil`, 'http://espace-prive.gestimum.com/PDF/formation/Modalite-accueil-formation-rambouillet-2023.pdf')">mdi-download</v-icon> </h4>
+        <div v-for="(pdf, index) in pdfs" :key="index">
+          <h4 class="mt-2">	{{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> </h4>
+        </div>
       </div>
    </div>
 
    <div class="mt-2 ml-2" v-else>
-      <h4 class="mt-2">	Notre catalogue de formation <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf('catalogue formation', 'http://espace-prive.gestimum.com/PDF/formation/Partenaire/CATALOGUE-%20FORMATION-PARTENAIRES-2023.pdf')">mdi-download</v-icon> </h4>
-      <h4 class="mt-2">	Nos modalités d'accueil <v-icon color="primary" class="cursor-pointer" @click="downloadPdf(`modalité d\'accueil`, 'http://espace-prive.gestimum.com/PDF/formation/Modalite-accueil-formation-rambouillet-2023.pdf')">mdi-download</v-icon> </h4>
-      <h4 class="mt-2">	Bullentin d'inscription à nos formations <v-icon color="primary" class="cursor-pointer" @click="downloadPdf(`bulletin inscription`, 'http://espace-prive.gestimum.com/PDF/formation/Bulletin-inscription-Formation-partenaire-2023.pdf')">mdi-download</v-icon> </h4>
-  
+    <div v-for="(pdf, index) in pdfs" :key="index">
+      <h4 class="mt-2">	{{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> </h4>
+    </div>
       <div class="mt-4">
         <h3 class="text-primary mb-4">Intégration & Formation - Durées préconisées</h3>
 
@@ -137,6 +137,7 @@
 
 <script>
 import Formations from '../../services/formations.service'
+import PDF from '../../services/pdfs.service'
 
 export default {
   
@@ -153,10 +154,13 @@ export default {
       title: '',
       time: '',
     },
+
+    pdfs: [],
   }),
 
   mounted() {
     this.fetchFormations();
+    this.fetchPdfs();
     
   },
   methods: {
@@ -182,10 +186,20 @@ export default {
 
       this.formations = Object.values(formationsByCategory);
       console.log(this.formations)
-  })
+     })
     .catch((err) => {
       console.log(err)
     })
+    },
+
+    fetchPdfs() {
+      PDF.getFormationPdfs()
+      .then((res) => {
+        this.pdfs = res
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     },
 
     //permettre d'ajouter une catégorie
