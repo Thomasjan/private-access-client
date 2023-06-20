@@ -23,7 +23,7 @@
   
   <h1 class="text-primary text-center">G-News</h1>
 
-  <div v-if="loading" class="w-75 mx-auto mt-12">
+  <div v-if="loading" class="w-75 mx-auto" style="margin-top: 200px">
      <lottie-animation
         ref="anim"
         :animationData="LinkedinAnimation"
@@ -44,7 +44,7 @@
             <div class="d-flex flex-column ml-4">
               <h4>Gestimum</h4>
               <p>476 abhonnés</p>
-              <p>58 min</p>
+              <p class="font-italic text-sm-body-2">{{ getPostTimeDifference(post.lastModifiedAt) }}</p>
             </div>
             </div>
           <div class="mr-1">
@@ -54,7 +54,7 @@
 
         <div class=" mt-2">
           <p class="text-start">
-             <span ref="paragraph" v-html="post.commentary.length > 400 ? post.commentary.slice(0, 400) + '...' : post.commentary"></span>
+             <span ref="paragraph" v-html="post.commentary"></span>
             </p>
         </div>
 
@@ -111,11 +111,11 @@ export default {
   mounted() {
     this.loading = true;
     this.getPosts();
-    
   },
 
   methods:{
 
+    //couleur aléatoire pour les hashtags
     getRandomColor ()  {
       const redTones = ["#FF7F7F", "#FF8787", "#FF8F8F", "#FF9797", "#FF9F9F"];
       const orangeTones = ["#FFB380", "#FFBA8A", "#FFC394", "#FFCDA0", "#FFD7AB"];
@@ -123,6 +123,7 @@ export default {
       return randomColor[Math.floor(Math.random() * randomColor.length)];
     },
     
+    //récupération des posts linkedin
     getPosts() {
       linkedin.getLinkedinPosts()
         .then((response) => {
@@ -134,6 +135,10 @@ export default {
             const randomColor = this.getRandomColor();
             const styledText = replacedText.replace(/#(\w+)/g, `<span style="color:${randomColor}">$&</span>`);
             post.commentary = styledText;
+
+            let timestamp = new Date(post.lastModifiedAt);
+            let formattedDate = timestamp.toISOString();
+            post.lastModifiedAt = formattedDate;
           });
           this.loading = false;
           // console.log(this.posts);
@@ -143,17 +148,53 @@ export default {
       });
     },
 
+    //vérification si l'objet est vide
     isObjectNotEmpty(obj) {
       if (obj === null || obj === undefined) {
         return false;
       }
-  
       return Object.keys(obj).length !== 0;
-    }
+    },
+    
+  },
 
+  computed: {
+    //calcul du temps écoulé depuis la publication
+     getPostTimeDifference() {
+      return function(createdAt) {
+        const timestamp = new Date(createdAt);
+        const currentTime = new Date();
+        const timeDifference = currentTime.getTime() - timestamp.getTime();
+
+        const secondsDifference = Math.floor(timeDifference / 1000);
+        const minutesDifference = Math.floor(secondsDifference / 60);
+        const hoursDifference = Math.floor(minutesDifference / 60);
+        const daysDifference = Math.floor(hoursDifference / 24);
+
+        if (daysDifference >= 365) {
+          const yearsDifference = Math.floor(daysDifference / 365);
+          return `${yearsDifference} an${yearsDifference > 1 ? 's' : ''} `;
+        } else if (daysDifference >= 30) {
+          const monthsDifference = Math.floor(daysDifference / 30);
+          return `${monthsDifference} mois `;
+        } else if (hoursDifference >= 48) {
+          const daysDifference = Math.floor(hoursDifference / 24);
+          return `${daysDifference} jour${daysDifference > 1 ? 's' : ''} `;
+        } else if (hoursDifference >= 1) {
+          return `${hoursDifference} heure${hoursDifference > 1 ? 's' : ''} `;
+        } else if (minutesDifference >= 1) {
+          return `${minutesDifference} minute${minutesDifference > 1 ? 's' : ''} `;
+        } else {
+          return `${secondsDifference} second${secondsDifference > 1 ? 's' : ''} `;
+        }
+      }
+  
+    }
   }
+
 }
 </script>
+
 <style scoped>
 .grid-container {
   display: grid;
@@ -174,6 +215,5 @@ export default {
 .grid-item {
   width: 100%;
 }
-
 
 </style>
