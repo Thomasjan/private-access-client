@@ -167,9 +167,12 @@ export default {
           // console.log(this.posts);
         })
         .catch((error) => {
-          this.loading = false;
-          this.error = "Un problème est survenu, veuillez réessayer plus tard."
-          console.log(error);
+          setTimeout(() => {
+            this.loading = false;
+            this.error = "Un problème est survenu, veuillez réessayer plus tard."
+            console.log(error);
+          }, 2000);
+          
       });
     },
 
