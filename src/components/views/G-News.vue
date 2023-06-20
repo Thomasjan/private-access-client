@@ -127,9 +127,9 @@ export default {
 
     //couleur aléatoire pour les hashtags
     getRandomColor ()  {
-      const redTones = ["#FF7F7F", "#FF8787", "#FF8F8F", "#FF9797", "#FF9F9F"];
-      const orangeTones = ["#FFB380", "#FFBA8A", "#FFC394", "#FFCDA0", "#FFD7AB"];
-      const randomColor = Math.random() < 0.5 ? redTones : orangeTones;
+      const blueTone = ["#80DEEA", "#4DD0E1", "#26C6DA", "#00ACC1", "#00E5FF", "#40C4FF"];
+      const orangeTone = ["#FFE082", "#FFD54F", "#FFCA28", "#FFB300", "#FFA000"];
+      const randomColor = Math.random() < 0.5 ? blueTone : orangeTone;
       return randomColor[Math.floor(Math.random() * randomColor.length)];
     },
     
@@ -143,9 +143,11 @@ export default {
             let commentary = post.commentary;
             let replacedText = commentary.replace(/\{hashtag\|\\#\|([^}]*)\}/g, '#$1');
             const randomColor = this.getRandomColor();
-            const hashtag = replacedText.replace(/#(\w+)/g, `<span style="color:${randomColor}">$&</span>`);
+            const hashtag = replacedText.replace(/#(\w+)/g, `<span style="color: ${randomColor}">$&</span>`);
             const replacedLink = hashtag.replace(/(https:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-            post.commentary = replacedLink;
+            const replacedMentions = replacedLink.replace(/\@\[([^\]]+)\]\(urn:li:organization:\d+\)/g, `<span class="text-red">@$1</span>`);
+
+            post.commentary = replacedMentions;
 
             let timestamp = new Date(post.lastModifiedAt);
             let formattedDate = timestamp.toISOString();
