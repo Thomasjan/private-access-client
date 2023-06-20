@@ -1,4 +1,7 @@
 <template>
+
+
+
   <v-card class="bg-white pa-2 elevation-0">
       <h2 class="text-primary text-center">Formation</h2>
 
@@ -133,6 +136,7 @@
       </v-card>
     </v-dialog>
   </v-card>
+
 </template>
 
 <script>
