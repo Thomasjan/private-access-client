@@ -43,7 +43,7 @@
             <v-img class="rounded-be-circle mt-1" src="https://media.licdn.com/dms/image/C4E0BAQEaArVnn0zCXg/company-logo_100_100/0/1519894936937?e=1695254400&v=beta&t=gKVmc4I-SxrmtbzIBy6zG_wOPlOPpCR1zmj61eNTb9Q" width="50px" height="50px" ></v-img>
             <div class="d-flex flex-column ml-4">
               <h4>Gestimum</h4>
-              <p>476 abhonnés</p>
+              <p>476 abonnés</p>
               <p class="font-italic text-sm-body-2">{{ getPostTimeDifference(post.lastModifiedAt) }}</p>
             </div>
             </div>
@@ -142,9 +142,13 @@ export default {
            this.posts.forEach((post) => {
             let commentary = post.commentary;
             let replacedText = commentary.replace(/\{hashtag\|\\#\|([^}]*)\}/g, '#$1');
-            const randomColor = this.getRandomColor();
-            const hashtag = replacedText.replace(/#(\w+)/g, `<span style="color: ${randomColor}">$&</span>`);
-            const replacedLink = hashtag.replace(/(https:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+
+            let coloredHashtags = replacedText.replace(/#(\w+)/g, (match) => {
+              const randomColor = this.getRandomColor();
+              return `<span style="color: ${randomColor}">${match}</span>`;
+            });
+
+            const replacedLink = coloredHashtags.replace(/(https:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
             const replacedMentions = replacedLink.replace(/\@\[([^\]]+)\]\(urn:li:organization:\d+\)/g, `<span class="text-red">@$1</span>`);
 
             post.commentary = replacedMentions;
