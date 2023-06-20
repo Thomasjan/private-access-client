@@ -91,6 +91,7 @@
 
 
       </v-card>
+      
     </div>
   </v-card>
 
@@ -98,6 +99,10 @@
     <v-img class="rounded-lg ml-8" :src="zoomedImageSrc" width="100%" />
   </v-dialog>
 
+
+<div class="text-center text-red mt-14" v-if="error">
+    <h1>{{error}}</h1>
+</div>
   </div>
 </template>
 
@@ -111,6 +116,7 @@ export default {
 
     posts: [],
 
+    error: '',
     loading: false,
     zoomedImageSrc: '',
     isZoomedIn: false,
@@ -161,6 +167,8 @@ export default {
           // console.log(this.posts);
         })
         .catch((error) => {
+          this.loading = false;
+          this.error = "Un problème est survenu, veuillez réessayer plus tard."
           console.log(error);
       });
     },
