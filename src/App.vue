@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="gradient_bg">
       <login-form v-if="$router.currentRoute.value.path=='/login'"></login-form>
       <mdp-oublie v-else-if="$router.currentRoute.value.path=='/mdp-oublie'"></mdp-oublie>
       <admin-layout v-else-if="isAdminRoute"></admin-layout>
