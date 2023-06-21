@@ -47,6 +47,7 @@
                         <span class="font-serif ml-5 mr-5">Valider</span>  
                     </v-btn>
                 </v-form>
+                <h2 class="text-center text-primary mt-10 mb-8" v-if="message">{{message}} </h2>
             </v-card-text>
 
             <v-progress-linear
@@ -75,6 +76,7 @@ export default {
             loading3: false,
             error: false,
             loading: false,
+            message: '',
         };
     },
 
@@ -82,7 +84,10 @@ export default {
         // mot de passe oublié
         valider() {       
                 Auth.forgotPassword({email: this.email})
-                    .then(this.$router.push({ name: 'login' }))
+                    .then(()=> {
+                        this.message = 'Un email vous a été envoyé !'
+                        this.email = ''
+                    })
                     .catch(err => this.error = true)
                 }
 

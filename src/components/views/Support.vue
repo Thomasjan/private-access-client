@@ -25,6 +25,12 @@
       </div>
     </div>
 
+    <div class="mt-8 w-25 mx-auto">
+      <v-btn class="mt-10" color="primary" centered @click="OnlineHelp()">
+        Accéder à l'aide en Ligne
+      </v-btn>
+    </div>
+
     <!-- MODIFICATION -->
     <v-dialog v-model="dialogEdit" width="600px">
       <v-card class="bg-white">
@@ -252,6 +258,10 @@ export default {
       .catch((err) => {
         console.log(err)
       })
+    },
+
+    OnlineHelp(){
+      window.open('http://docs.gestimum.com/ERP/9/#t=1%2FBienvenue.htm', '_blank')
     }
   }
 }

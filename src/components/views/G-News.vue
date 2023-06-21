@@ -43,7 +43,7 @@
             <v-img class="rounded-be-circle mt-1" src="https://media.licdn.com/dms/image/C4E0BAQEaArVnn0zCXg/company-logo_100_100/0/1519894936937?e=1695254400&v=beta&t=gKVmc4I-SxrmtbzIBy6zG_wOPlOPpCR1zmj61eNTb9Q" width="50px" height="50px" ></v-img>
             <div class="d-flex flex-column ml-4">
               <h4>Gestimum</h4>
-              <p>476 abonnés</p>
+              <p>498 abonnés</p>
               <p class="font-italic text-sm-body-2">{{ getPostTimeDifference(post.lastModifiedAt) }}</p>
             </div>
             </div>
