@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 mb-4">
+  <v-card class="bg-background pa-2 mb-4">
       <h2 class="text-primary text-center">Gestimum ERP</h2>
 
       <!-- DERNIERE VERSION ERP -->
@@ -484,16 +484,16 @@ export default {
         document.body.appendChild(link);
       });
     })
-    .catch(e => {
-      console.log(e)
+    .catch((error) => {
+      console.log(error)
     })
 
     Upload.getLastUpload()
     .then(response => {
       this.lastUpload = response
     })
-    .catch(e => {
-      console.log(e)
+    .catch(error => {
+      console.log(error)
     })
 
   },
@@ -506,7 +506,6 @@ export default {
     downloadLink(item) {
       let link = 'http://localhost:3000/files/uploads/' + item.file_path
       window.open(link, '_blank')
-      
     },
 
     download(file) {
