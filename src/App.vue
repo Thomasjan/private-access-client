@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main class="gradient_bg">
+    <v-main :class="theme.global.name.value == 'customDarkTheme'? 'gradient-dark': 'gradient-light'">
       <login-form v-if="$router.currentRoute.value.path=='/login'"></login-form>
       <mdp-oublie v-else-if="$router.currentRoute.value.path=='/mdp-oublie'"></mdp-oublie>
       <admin-layout v-else-if="isAdminRoute"></admin-layout>
@@ -24,16 +24,16 @@ export default {
 
     return {
       theme,
-      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'customLightTheme' : 'customDarkTheme'
     }
   },
   
   data: () => ({
-    //
+    theme: useTheme(),
   }),
 
   mounted(){
-    
+    this.toggleTheme()
   },
 
    computed: {

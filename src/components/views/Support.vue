@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 elevation-0">
+  <v-card class="bg-background pa-2 elevation-0">
     <h2 class="text-primary text-center">Support</h2>
     <div class="mt-4">
       <v-btn v-if="$store.state.user.role_id ===1" @click="dialogAdd = true" class="bg-primary ml-4">

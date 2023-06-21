@@ -33,7 +33,7 @@
         />
   </div>
 
-  <v-card class="bg-white elevation-0">
+  <v-card class="bg-background elevation-0">
     <div v-for="post in posts.slice(0,40)" :key="post.id" class="mt-8" >
       <v-card class="bg-white rounded-lg pa-2 w-75 mx-auto elevation-4 text-subtitle-2" v-if="post.commentary || isObjectNotEmpty(post.content) ">
 

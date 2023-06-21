@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 elevation-0 mb-4">
+  <v-card class="bg-background pa-2 elevation-0 mb-4">
     <h2 class="text-primary text-center">Mon Contrat</h2>
     
     <div class="mt-4 px-4">
@@ -43,7 +43,7 @@
 
         <div class="mt-14">
 
-          <v-table class="bg-white rounded-xl pa-2" density="compact">
+          <v-table class="bg-background rounded-xl pa-2" density="compact">
           <thead>
             <tr>
               <th class="text-primary text-left">
@@ -143,7 +143,7 @@
         </v-table>
 
 
-        <v-table class="bg-white rounded-xl pa-2 mt-8" density="compact">
+        <v-table class="bg-background rounded-xl pa-2 mt-8" density="compact">
           <thead>
             <tr>
               <th class="text-primary text-left">
