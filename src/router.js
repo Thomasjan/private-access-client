@@ -10,8 +10,6 @@ import Administration from './components/layouts/AdminLayout.vue'
 
 //views
 import GestimumERP from './components/views/GestimumERP.vue'
-import GestionComptable from './components/views/GestionComptable.vue'
-import GestionCommerciale from './components/views/GestionCommerciale.vue'
 import Support from './components/views/Support.vue'
 import Formation from './components/views/Formation.vue'
 import G_News from './components/views/G-News.vue'
@@ -37,8 +35,6 @@ const routes = [
 
   //views
   { path: '/gestimum-erp', component: GestimumERP },
-  { path: '/gestion-comptable', component: GestionComptable },
-  { path: '/gestion-commerciale', component: GestionCommerciale },
   { path: '/support', component: Support },
   { path: '/formation', component: Formation },
   { path: '/g-news', component: G_News },

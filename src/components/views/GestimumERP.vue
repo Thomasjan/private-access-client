@@ -306,7 +306,9 @@
                   </p>
                 </div>
               </div>
+              
         </div>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -340,7 +342,7 @@
       <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')"  />
     </div>
 
-    <!-- MORE INFOS COMPTA -->
+    <!-- MORE INFOS COMMERCIALE -->
     <div class="content-container">
       <div class="vertical-bar"></div>
         <div class="mt-2"  v-if="moreInfosCommercial">
@@ -441,6 +443,7 @@
                 </div>
               </div>
         </div>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Commerciale','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMMERCIALE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -506,8 +509,18 @@ export default {
       
     },
 
+    download(file) {
+      //Requête dans Store
+      this.$store.dispatch('addDownload', file);
+    },
+
     openLink(link) {
       window.open(link, '_blank')
+    },
+
+    downloadPdf(file, link) {
+      this.download(file)
+      this.openLink(link)
     },
 
     zoomImage(src) {
