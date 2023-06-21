@@ -18,6 +18,11 @@
             <v-select v-model="subfamily" :items="subfamilyItems" label="Sous-famille" clearable></v-select>
           </v-col>
         </v-row>
+
+         <div class="d-flex align-center mb-2 ml-4">
+          <v-chip class color="primary">{{loginsFiltered.length}}  </v-chip>
+          <p class="ml-2">Connexions</p>
+        </div>
        
       <v-table density="compact" class="bg-white">
         <thead>
@@ -38,11 +43,11 @@
             v-for="login in loginsFiltered"
             :key="login.id"
           >
-            <td>{{ login.entreprise.social_reason }}</td>
-            <td>{{ login.entreprise.category }}</td>
-            <td>{{ login.entreprise.subcategory }}</td>
-            <td>{{ login.user.name }}</td>
-            <td>{{ login.user.surname }}</td>
+            <td> <v-chip color="purple-darken-3">{{ login.entreprise.social_reason }}</v-chip> </td>
+            <td> <v-chip>{{ login.entreprise.category }}</v-chip> </td>
+            <td> <v-chip>{{ login.entreprise.subcategory }}</v-chip> </td>
+            <td> <v-chip color="red">{{ login.user.name }}</v-chip> </td>
+            <td><v-chip color="red">{{ login.user.surname }}</v-chip></td>
             <td> <v-chip color="primary" size="small">{{ login.date.slice(0,10) }}</v-chip> </td>
             <td><v-chip color="blue" size="small">{{ login.date.slice(10,19) }}</v-chip> </td>
           </tr>

@@ -48,6 +48,11 @@
             <v-select v-model="subfamily" :items="subfamilyItems" label="Sous-famille" clearable></v-select>
           </v-col>
         </v-row>
+
+        <div class="d-flex align-center mb-2 ml-4">
+          <v-chip class color="primary">{{entreprisesFiltered.length}}  </v-chip>
+          <p class="ml-2">Entreprises</p>
+        </div>
       
       <v-table density="compact" class="bg-white">
         <thead>
@@ -57,7 +62,7 @@
             <th class="text-left text-blue" @click="sortByField('category')">Famille</th>
             <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
             <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
-            <th class="text-left text-orange" @click="sortByField('contract')">Contrat</th>
+            <th class="text-left text-orange text-center" @click="sortByField('contract')">Contrat</th>
             <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th>
           </tr>
         </thead>
@@ -66,13 +71,13 @@
             v-for="entreprise in entreprisesFiltered"
             :key="entreprise.id"
           >
-            <td> {{ entreprise.code_client }}</td>
-            <td>{{ entreprise.social_reason }}</td>
-            <td>{{ entreprise.category }}</td>
-            <td>{{ entreprise.subcategory }}</td>
+            <td> <v-chip color="purple">{{ entreprise.code_client }}</v-chip> </td>
+            <td> <v-chip color="blue-darken-3">{{ entreprise.social_reason }}</v-chip> </td>
+            <td> <v-chip>{{ entreprise.category }}</v-chip> </td>
+            <td> <v-chip>{{ entreprise.subcategory }}</v-chip> </td>
             <td><v-chip size="small" color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
-            <td>{{ entreprise.contract? entreprise.contract: 'pas de contrat' }}</td>
-            <td>  <v-chip size="small" :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
+            <td class="text-center"> <v-chip color="blue-lighten-2">{{ entreprise.contract? entreprise.contract: 'pas de contrat' }} </v-chip> </td>
+            <td> <v-chip size="small" :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
           </tr>
         </tbody>
       </v-table>

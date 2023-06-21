@@ -48,6 +48,10 @@
           </v-col>
         </v-row>
 
+         <div class="d-flex align-center mb-2 ml-4">
+          <v-chip class color="primary">{{usersFiltered.length}}  </v-chip>
+          <p class="ml-2">Utilisateurs</p>
+        </div>
       
       <v-table density="compact" class="bg-white" >
         <thead>
@@ -55,12 +59,12 @@
             <!-- <th class="text-left text-red" @click="sortByField('code_client')">Code</th> -->
             <th class="text-left text-blue" @click="sortByField('social_reason')">Entreprise</th>
             <th class="text-left text-black" @click="sortByField('category')">Famille</th>
-            <th class="text-left text-black" @click="sortByField('subcategory')">Sous-famille</th>
-            <th class="text-left text-red" @click="sortByField('name')">Nom</th>
+            <!-- <th class="text-left text-black" @click="sortByField('subcategory')">Sous-famille</th> -->
             <th class="text-left text-red" @click="sortByField('surname')">Prénom</th>
-            <th class="text-left text-red" @click="sortByField('surname')">Email</th>
+            <th class="text-left text-red" @click="sortByField('name')">Nom</th>
+            <th class="text-left text-red" @click="sortByField('email')">Email</th>
             <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
-            <th class="text-left text-orange" @click="sortByField('contract')">Contrat</th>
+            <th class="text-left text-orange text-center" @click="sortByField('contract')">Contrat</th>
             <!-- <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th> -->
           </tr>
         </thead>
@@ -70,14 +74,14 @@
             :key="user.id"
           >
             <!-- <td>{{ user.code_client }}</td> -->
-            <td>{{ user.social_reason }}</td>
-            <td>{{ user.category }}</td>
-            <td>{{ user.subcategory }}</td>
+            <td> <v-chip color="blue-darken-3">{{ user.social_reason }} </v-chip> </td>
+             <td> <v-chip>{{ user.category }}</v-chip> </td>
+            <!-- <td> <v-chip>{{ user.subcategory }}</v-chip> </td> -->
             <td>{{ user.name }}</td>
             <td>{{ user.surname }}</td>
             <td>{{ user.email }}</td>
             <td><v-chip size="small" color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
-            <td>{{ user.contract? user.contract: 'pas de contrat' }}</td>
+            <td class="text-center"> <v-chip color="blue-lighten-2">{{ user.contract? user.contract: 'pas de contrat' }}</v-chip> </td>
             <!-- <td>{{ user.end_contract }}</td> -->
           </tr>
         </tbody>
