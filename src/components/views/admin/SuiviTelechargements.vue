@@ -18,6 +18,11 @@
             <v-select v-model="subfamily" :items="subfamilyItems" label="Sous-famille" clearable></v-select>
           </v-col> -->
         </v-row>
+
+        <div class="d-flex align-center mb-2 ml-4">
+          <v-chip class color="primary">{{downloadsFiltered.length}}  </v-chip>
+          <p class="ml-2">Téléchargements</p>
+        </div>
        
       <v-table density="compact" class="bg-white">
         <thead>
@@ -36,8 +41,8 @@
             v-for="download in downloadsFiltered"
             :key="download.id"
           >
-            <td>{{ download.social_reason }}</td>
-            <td>{{ download.file_name }}</td>
+            <td> <v-chip color="purple-darken-3">{{ download.social_reason }}</v-chip> </td>
+            <td> <v-chip color="primary">{{ download.file_name }}</v-chip> </td>
             <td>{{ download.name }}</td>
             <td>{{ download.surname }}</td>
             <td>{{ download.email }}</td>

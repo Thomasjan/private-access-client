@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 mb-4">
+  <v-card class="bg-background pa-2 mb-4">
       <h2 class="text-primary text-center">Gestimum ERP</h2>
 
       <!-- DERNIERE VERSION ERP -->
@@ -211,13 +211,108 @@
             <li>Établissez un nombre illimité de plans analytiques.</li>
           </ul>
 
-          <p class="text-hover text-orange cursor-pointer">Plus d'infos...</p>
+          <p class="text-hover text-orange cursor-pointer" @click="moreInfosCompta = !moreInfosCompta"> {{moreInfosCompta? "Moins d'infos..." : "Plus d'infos..."}} </p>
       </div>
       <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
     </div>
 
+    <!-- MORE INFOS COMPTA -->
+    <div class="content-container">
+      <div class="vertical-bar"></div>
+        <div class="mt-2"  v-if="moreInfosCompta">
 
-    <div class="mt-6">
+            <div class="mt-6">
+              <h3 class="text-primary">PUISSANCE</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+            </div>
+
+              <div class="mt-6 d-flex">
+                <div>
+                  <p class="text-start">
+                    Développé nativement sous MS-SQL Server, GESTIMUM Gestion Comptable dispose d’une puissance, d’une fiabilité et d’une sécurité des données inédites, pour une taille de base de données illimitée. 
+                    D’une grande richesse fonctionnelle, GESTIMUM Gestion Comptable permet un pilotage haute précision de l’entreprise : gestion budgétaire, analytique, financière. 
+                    En quelques clics, le centralisateur de GESTIMUM Gestion Comptable affiche les journaux et l’état d’avancement de chaque période de l’exercice en cours. Consultez un nombre illimité d’exercices en ligne, gérez vos rapprochements bancaires avec une précision inégalée : traçabilité, historique, édition de rapport par relevé ou par période. 
+                    Établissez un nombre illimité de plans analytiques.
+                  </p>
+                </div>
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
+              </div>
+
+              <div class="mt-6">
+              <h3 class="text-primary">INTEGRATION</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+              </div>
+
+              <div class="mt-6 d-flex">
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/02-Comptes.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/02-Comptes.jpg')" />
+
+                <div>
+                  <p class="text-start ml-2">
+                    Profitez d’un logiciel de comptabilité s’adaptant parfaitement à votre structure et à vos besoins. 
+                    Gagnez en productivité grâce à l’intégration totale avec GESTIMUM Gestion Commerciale. Saisissez une seule fois les informations, elles sont disponibles dans chaque application (même interface). 
+                    Traitez de manière identique vos échéances, paiements et règlements.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6">
+              <h3 class="text-primary">CONVIVIALITE</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+            </div>
+
+              <div class="mt-6 d-flex">
+                <div>
+                  <p class="text-start">
+                  Travaillez rapidement avec un outil ergonomique d’une grande souplesse. 
+                  Un paramétrage très abouti fait de GESTIMUM Gestion Comptable un progiciel personnalisable pour chaque utilisateur et d’une grande flexibilité (mode de saisie : standard, guidé, au kilomètre ou via des écritures automatiques). 
+                  Travaillez en mode réel ou simulé. 
+                  Utilisez les raccourcis clavier pour une saisie performante. 
+                  Gagnez en temps et en fiabilité grâce aux nombreux guides et automatismes de l’application.
+                  </p>
+                </div>
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-03.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-03.jpg')" />
+              </div>
+
+              <div class="mt-6">
+              <h3 class="text-primary">OUVERTURE</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+            </div>
+
+              <div class="mt-6 d-flex">
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-02.jpg')" />
+
+                <div>
+                  <p class="text-start ml-2">
+                    Grâce à sa base MS-SQL Server, GESTIMUM Gestion Comptable est d’une ouverture totale. 
+                    Intégrez simplement l’application dans votre système d’information ou au sein d’une suite logicielle métier. 
+                    Importez et exportez des données dans les formats majeurs du marché. 
+                    Communiquez en toute simplicité avec vos clients et partenaires : fournisseurs, cabinets comptables,...
+                  </p>
+                </div>
+              </div>
+              
+        </div>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
+    </div>
+
+
+    <div class="mt-10">
       <h3 class="text-primary">GESTIMUM Gestion Commerciale</h3>
        <v-divider
             :thickness="1"
@@ -241,9 +336,114 @@
             <li>Gérez vos taxes complémentaires (alcools, écotaxe DEEE,...). Établissez une tarification élaborée : grilles, promotions, remises…</li>
           </ul>
 
-          <p class="text-hover text-orange cursor-pointer">Plus d'infos...</p>
+          <p class="text-hover text-orange cursor-pointer" @click="moreInfosCommercial = !moreInfosCommercial"> {{moreInfosCommercial? "Moins d'infos..." : "Plus d'infos..."}} </p>
       </div>
+
       <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')"  />
+    </div>
+
+    <!-- MORE INFOS COMMERCIALE -->
+    <div class="content-container">
+      <div class="vertical-bar"></div>
+        <div class="mt-2"  v-if="moreInfosCommercial">
+
+            <div class="mt-6">
+              <h3 class="text-primary">PUISSANCE</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+            </div>
+
+              <div class="mt-6 d-flex">
+                <div>
+                  <p class="text-start">
+                    Développé nativement sous MS-SQL Server, GESTIMUM Gestion Commerciale dispose d’une puissance, d’une fiabilité et d’une sécurité des données inédites, pour une taille de base illimitée. Dotée de fonctions très évoluées, GESTIMUM Gestion Commerciale garantit un suivi de la totalité du cycle commercial : prospection, vente, achat. 
+                    Administrez vos stocks, vos dépôts multiples et vos transferts, choisissez parmi 6 méthodes de valorisation. 
+                    Identiﬁez vos articles par un numéro de série ou de lot, maîtrisez vos dates de péremption (traçabilité). 
+                    Structurez vos gammes en nomenclatures multi-niveaux. 
+                    Organisez les conditionnements multiples de vos produits. Facturez au volume, au débit ou au poids. 
+                    Générez automatiquement vos commandes fournisseurs à partir des commandes clients par la contremarque. 
+                    Personnalisez vos tableaux de bord dynamiquement pour analyser, contrôler et décider. 
+                    Communiquez vos documents commerciaux en toute simplicité (courriel, EDI, PDF, XML, ...). 
+                    Gérez vos taxes complémentaires (alcools, écotaxe DEEE,...). 
+                    Établissez une tarification élaborée : grilles, promotions, remises...
+                  </p>
+                </div>
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-03.jpg" width="30%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-03.jpg')" />
+              </div>
+
+              <div class="mt-6">
+              <h3 class="text-primary">INTEGRATION</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+              </div>
+
+              <div class="mt-6 d-flex">
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')" />
+
+                <div>
+                  <p class="text-start ml-2">
+                    Gagnez en productivité grâce à l’intégration totale avec GESTIMUM Gestion Comptable. 
+                    Saisissez une seule fois les informations, elles sont disponibles dans chaque application. 
+                    Gérez vos paiements et règlements en Gestion Commerciale ou en Gestion Comptable avec une interface commune. 
+                    Traitez de manière identique échéances, paiements et règlements. 
+                    L’interface est semblable d’une application à l’autre.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6">
+              <h3 class="text-primary">CONVIVIALITE</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+            </div>
+
+              <div class="mt-6 d-flex">
+                <div>
+                  <p class="text-start">
+                    Intégralement paramétrable, GESTIMUM Gestion Commerciale s’ajuste à votre organisation opérationnelle. 
+                    Travaillez plus efficacement en personnalisant vos écrans d’affichage et de saisie. 
+                    Transférez aisément vos prospects en clients, dupliquez vos documents (devis en bon de commande, bon de livraison ou facture) sans ressaisie. 
+                    Bénéficiez d’une gestion des utilisateurs conviviale et sûre : accédez aux données individuellement ou en groupe. 
+                    Cliquez / Glissez vos articles depuis votre liste pour enrichir vos documents grâce au multifenêtrage. 
+                    Créez vos tiers et articles en cours de saisie d’une pièce. Gérez vos filtres tiers/articles/pièces en onglets d’affichage (personnalisables par poste et/ou groupe). 
+                    Construisez votre application sur mesure grâce aux champs personnalisés : date, texte, booléen, entier, monétaire, calculé,...
+                  </p>
+                </div>
+                <v-img class="cursor-pointer" src="" width="30%" @click="zoomImage('')" />
+              </div>
+
+              <div class="mt-6">
+              <h3 class="text-primary">OUVERTURE</h3>
+                <v-divider
+                      :thickness="1"
+                      class="border-opacity-100 mt-1"
+                      color="primary"
+                  ></v-divider>
+            </div>
+
+              <div class="mt-6 d-flex">
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/Perso-doc.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/Perso-doc.jpg')" />
+
+                <div>
+                  <p class="text-start ml-2">
+                    Grâce à sa base MS-SQL Server, GESTIMUM Gestion Commerciale est d’une ouverture totale. 
+                    Vous intégrez simplement l’application dans votre système d’information, votre GPAO ou au sein d’une suite logicielle métier. 
+                    Vous importez et exportez des données dans les formats majeurs du marché. 
+                    Vous communiquez en toute simplicité avec vos clients, prospects et partenaires (fournisseurs, cabinets comptables).
+                  </p>
+                </div>
+              </div>
+        </div>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Commerciale','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMMERCIALE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -264,6 +464,9 @@ export default {
     uploads:[],
     lastUpload: {},
 
+    moreInfosCompta: false,
+    moreInfosCommercial: false,
+
     zoomedImageSrc: '',
     isZoomedIn: false,
   }),
@@ -281,16 +484,16 @@ export default {
         document.body.appendChild(link);
       });
     })
-    .catch(e => {
-      console.log(e)
+    .catch((error) => {
+      console.log(error)
     })
 
     Upload.getLastUpload()
     .then(response => {
       this.lastUpload = response
     })
-    .catch(e => {
-      console.log(e)
+    .catch(error => {
+      console.log(error)
     })
 
   },
@@ -303,11 +506,20 @@ export default {
     downloadLink(item) {
       let link = 'http://localhost:3000/files/uploads/' + item.file_path
       window.open(link, '_blank')
-      
+    },
+
+    download(file) {
+      //Requête dans Store
+      this.$store.dispatch('addDownload', file);
     },
 
     openLink(link) {
       window.open(link, '_blank')
+    },
+
+    downloadPdf(file, link) {
+      this.download(file)
+      this.openLink(link)
     },
 
     zoomImage(src) {
@@ -333,6 +545,20 @@ export default {
     display: inline-block; 
     width: 1em;
     margin-left: -1em;
+  }
+
+  .vertical-bar {
+    background-color: #EB6F2A;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: -8px;
+    top: 0;
+    opacity: 0.6;
+  }
+
+  .content-container {
+    position: relative;
   }
 
   

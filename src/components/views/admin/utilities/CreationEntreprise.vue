@@ -11,6 +11,11 @@
 
    <v-dialog v-model="importClientDialog" width="600px">
     <v-card class="bg-white pa-8">
+      <v-icon 
+      class="position-absolute cursor-pointer" 
+      style="right: 10px; top: 6px"
+      @click="importClientDialog = false"
+      >mdi-close</v-icon>
       <p class="text-primary text-center text-subtitle-1 font-weight-bold">Choisissez un client à importer</p>
       <v-autocomplete 
         class="mt-2" 
@@ -23,7 +28,7 @@
          >
       </v-autocomplete>
 
-      <div class="d-flex w-100 justify-space-between">
+      <div class="d-flex w-100 justify-space-between" v-if="selectedClient.PCF_RS">
         <v-chip color="primary" class="text-center">{{ selectedClient.PCF_RS }} </v-chip>
         <v-btn outline class="text-primary bg-transparent" @click="handleImport()">Valider</v-btn>
       </div>
@@ -174,7 +179,7 @@ export default {
         return `${item.PCF_RS} - ${item.PCF_CODE}` 
       }
       else{
-        return 'Non disponible'
+        return ''
       }
     },
 

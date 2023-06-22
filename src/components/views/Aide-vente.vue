@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 elevation-0 mb-4">
+  <v-card class="bg-background pa-2 elevation-0 mb-4">
     <h2 class="text-primary text-center">Aide à la vente</h2>
     
     <div class="mt-4 px-4">
@@ -20,7 +20,7 @@
       </div>
 
       <div class="mt-6">
-        <v-table density="compact" class="bg-white pa-2">
+        <v-table density="compact" class="bg-background pa-2">
          <thead>
             <tr>
               <th class="text-primary text-left" width="90%">
@@ -54,7 +54,7 @@
         <h4 class="text-primary">DATE D'IMMATRICULATION (Marché Français)</h4>
         <p class="mt-2 text-left text-subtitle-2">93% ont plus de 5 ans d’activité et 75 % des PME plus de 10 ans d’activité.</p>
 
-        <v-table density="compact" class="bg-white pa-2">
+        <v-table density="compact" class="bg-background pa-2">
             <thead>
                 <tr>
                   <th class="text-primary text-left" width="90%">
@@ -271,7 +271,7 @@ export default {
     }, {});
 
     this.pdfs = Object.values(pdfsByCategory);
-    console.log(this.pdfs)
+    // console.log(this.pdfs)
   })
     .catch((err) => {
       console.log(err)

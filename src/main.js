@@ -4,6 +4,7 @@ import { loadFonts } from './plugins/webfontloader'
 
 import LottieAnimation from "lottie-web-vue";
 import { VueEditor } from "vue3-editor";
+import { MotionPlugin } from '@vueuse/motion' //https://www.npmjs.com/package/@vueuse/motion
 
 import vuetify from './plugins/vuetify'
 import router from './router'
@@ -73,4 +74,5 @@ loadFonts()
   .use(store)
   .use(LottieAnimation)
   .use(VueEditor)
+  .use(MotionPlugin)
   .mount('#app')

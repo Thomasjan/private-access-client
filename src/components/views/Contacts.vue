@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-2 elevation-0">
+  <v-card class="bg-background pa-2 elevation-0">
     <h2 class="text-primary text-center">Contacts</h2>
     
     <div class="mt-4 px-4">
