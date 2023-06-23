@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-4">
+  <v-card class="bg-background pa-4">
     <v-icon 
     class="position-absolute cursor-pointer" 
     style="right: 10px; top: 6px"
@@ -10,7 +10,7 @@
    <v-btn color="primary" class="w-50 mx-auto mt-2" @click="ImportGestimumClients()">Importer de Gestimum</v-btn>
 
    <v-dialog v-model="importClientDialog" width="600px">
-    <v-card class="bg-white pa-8">
+    <v-card class="bg-background pa-8">
       <v-icon 
       class="position-absolute cursor-pointer" 
       style="right: 10px; top: 6px"

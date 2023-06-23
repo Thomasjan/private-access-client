@@ -18,6 +18,7 @@
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
                 <h3 class="text-center">Bienvenue, <span class="text-capitalize text-primary"> {{$store.state.user.surname}}</span> <strong class="text-uppercase text-primary">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
                 <div class="mt-14">
+                    
 
                     <!-- Menu client -->
                     <v-row class="flex-row justify-center" v-if="$store.state.user.role_id >=3">
@@ -65,7 +66,9 @@
                         </v-card>
                     </v-row>
                 </div>
+                
             </div>
+            
 
             <div v-else>
                 <v-layout >
@@ -117,7 +120,10 @@
 
         </div>
         
-            <footer></footer>
+        <div class="text-center d-flex justify-center">
+                        <v-icon>mdi-copyright</v-icon>
+                        <p class="ml-2">Gestimum</p>
+                    </div>
         </v-card>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bg-white pa-4">
+  <v-card class="bg-background pa-4">
     <v-icon 
     class="position-absolute cursor-pointer" 
     style="right: 10px; top: 6px"

@@ -1,7 +1,7 @@
 <template>
     <v-container class="fill-height my-5" >
         <v-row justify="center" no-gutters>
-            <v-card class="elevation-1 text-center justify-content-center" width="600" justify="center" color="white" >
+            <v-card class="elevation-1 text-center justify-content-center bg-background" width="600" justify="center" >
                 <v-col order="auto">
                     <v-card-title class="text-center d-flex justify-center align-center">
                         <div>

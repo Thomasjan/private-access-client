@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ml-1 bg-white">
+  <v-card class="ml-1 bg-background pb-4">
     <h3 class="text-center text-primary mt-4">Liste des Entreprises</h3>
 
     <div class="mt-10">
@@ -54,7 +54,7 @@
           <p class="ml-2">Entreprises</p>
         </div>
       
-      <v-table density="compact" class="bg-white">
+      <v-table density="compact" class="bg-background">
         <thead>
           <tr class="">
             <th class="text-left text-red" @click="sortByField('code_client')">Code</th>

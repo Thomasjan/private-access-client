@@ -2,7 +2,7 @@
   <div class="mt-4">
    <h3 class="text-center text-primary">Mise à jour des versions en ligne</h3> 
 
-    <v-card class="w-75 mx-auto mt-10 bg-white pa-6">
+    <v-card class="w-75 mx-auto mt-10 bg-background pa-6">
     <v-form @submit="submitForm">
 
       <v-row class="my-2">

@@ -1,8 +1,11 @@
 <template>
-    <v-card class="pa-4 mx-auto bg-white  " max-width="1400px">
+    <v-card class="pa-4 mx-auto bg-background  " max-width="1400px">
             <v-row class="flex-row justify-space-between pt-1 pb-6">
                 <div class="flex justify-space-between ml-2">
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
+                </div>
+                <div class="my-auto">
+                     <v-icon @click="toggleTheme" size="large">{{ isDarkTheme ? 'mdi-brightness-4' : 'mdi-brightness-5' }}</v-icon>
                 </div>
                 <div class="flex-wrap">
                   <v-row class="pa-6"> <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> - <p class="px-2 cursor-pointer links" @click="route='/administration'; $router.push('/administration')">Administration</p> </v-row> 
@@ -63,11 +66,21 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import { useTheme } from 'vuetify/lib/framework.mjs';
+
 import User from '../../services/users.service'
 import AdministrationAnim from '../../assets/animations/administration.json'
 
 
 export default {
+    setup () {
+    const theme = useTheme()
+
+    return {
+      theme,
+        toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'customLightTheme' : 'customDarkTheme'
+    }
+  },
     data() {
         return {
             AdministrationAnim,

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ml-1 bg-white">
+  <v-card class="ml-1 bg-background">
     <h3 class="text-center text-primary mt-4">Liste des Connexions</h3>
 
     <div class="mt-10">
@@ -24,7 +24,7 @@
           <p class="ml-2">Connexions</p>
         </div>
        
-      <v-table density="compact" class="bg-white">
+      <v-table density="compact" class="bg-background">
         <thead>
           <tr class="">
             <th class="text-left text-red" @click="sortByField('social_reason')">Entreprise</th>
