@@ -114,11 +114,6 @@
 
                 <v-main style="height: 100vh; overflow-y: scroll" class="ml-0 hide-scroll">
                     <router-view style="min-height: 90vh"></router-view>
-
-                    <div class="text-center d-flex justify-center">
-                        <v-icon>mdi-copyright</v-icon>
-                        <p class="ml-2">Gestimum</p>
-                    </div>
                 </v-main>
                 </v-layout>
             </div>
@@ -178,11 +173,11 @@ export default {
                         route: '/contacts'
                     },
 
-                    {
-                        icon: 'mdi-handshake',
-                        text: 'Aide à la vente',
-                        route: '/aide-vente'
-                    },
+                    // {
+                    //     icon: 'mdi-handshake',
+                    //     text: 'Aide à la vente',
+                    //     route: '/aide-vente'
+                    // },
                     {
                         icon: 'mdi-file-document-edit',
                         text: 'Mon contrat',
@@ -250,11 +245,11 @@ export default {
                         route: '/contacts'
                     },
 
-                    {
-                        icon: 'mdi-handshake',
-                        text: 'Aide à la vente',
-                        route: '/aide-vente'
-                    },
+                    // {
+                    //     icon: 'mdi-handshake',
+                    //     text: 'Aide à la vente',
+                    //     route: '/aide-vente'
+                    // },
                     {
                         icon: 'mdi-file-document-edit',
                         text: 'Mon contrat',
