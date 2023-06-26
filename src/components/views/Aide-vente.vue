@@ -101,9 +101,16 @@
 
       <div class="mt-8">
         <h3 class="text-left text-primary">Descriptif fonctionnel de Gestimum ERP</h3>
-        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG"
-          @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG')"
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/Analyse-Fonctionnelle/ERPv5.png"
+          @click="zoomImage('http://espace-prive.gestimum.com/images/Analyse-Fonctionnelle/ERPv5.png')"
          />
+      </div>
+
+      <div class="mt-4">
+        <h3 class="text-left text-primary">Comparatif Gestion Commerciale gamme PME et INITIALE</h3>
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG" 
+          @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG')"
+        />
       </div>
 
       <div class="mt-4">

@@ -1,14 +1,19 @@
 <template>
-        <v-card class="pa-4 mx-auto bg-background " max-width="1000px">
+        <v-card class="pa-4 mx-auto bg-background " max-width="1200px">
             <v-row class="flex-row justify-space-between pt-1 pb-6">
                 <div class="flex justify-space-between ml-2">
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
                 </div>
-                <div class="my-auto">
-                     <v-icon @click="toggleTheme" size="large">{{ isDarkTheme ? 'mdi-brightness-4' : 'mdi-brightness-5' }}</v-icon>
+                    
+                <div class="icon-theme">
+                     <v-icon @click="toggleTheme" size="large">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
                 </div>
                 <div class="flex-wrap">
-                  <v-row class="pa-6"> <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> - <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> </v-row> 
+                  <v-row class="pa-6"> 
+                    <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> - 
+                    <!-- <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> -->
+                    <v-icon class=" ml-2 px-2 cursor-pointer links" @click="logout()">mdi-logout</v-icon>
+                   </v-row> 
                 </div>
             </v-row>
             <v-divider></v-divider>
@@ -144,6 +149,7 @@ export default {
     data() {
         return {
             route: '/',
+            theme: useTheme(),
             nav:{
                 admin:[
                     {
@@ -312,6 +318,12 @@ export default {
 
 .hover-card:hover{
     opacity: 0.8;
+}
+
+.icon-theme{
+    position: absolute;
+    top: 24px;
+    left: 50%;
 }
 
 

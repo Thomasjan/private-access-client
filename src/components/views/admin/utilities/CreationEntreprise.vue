@@ -28,7 +28,7 @@
          >
       </v-autocomplete>
 
-      <div class="d-flex w-100 justify-space-between" v-if="selectedClient.PCF_RS">
+      <div class="d-flex w-100 justify-space-between" v-if="selectedClient && selectedClient.PCF_RS">
         <v-chip color="primary" class="text-center">{{ selectedClient.PCF_RS }} </v-chip>
         <v-btn outline class="text-primary bg-transparent" @click="handleImport()">Valider</v-btn>
       </div>
@@ -159,6 +159,11 @@ export default {
     //fermer le dialog
     closeDialog(){
       this.$emit('closeDialog')
+      this.selectedClient = {
+        PCF_RS: '',
+        PCF_CODE: '',
+        PCF_TYPE: '',
+      }
     },
 
     ImportGestimumClients(){
@@ -167,7 +172,7 @@ export default {
       Gestimum.getGestimumClients()
       .then(res => {
         this.GestimumClients = res;
-        console.log(this.GestimumClients);
+        // console.log(this.GestimumClients);
       })
       .catch(err => {
         console.log(err);
