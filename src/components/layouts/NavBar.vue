@@ -173,11 +173,11 @@ export default {
                         route: '/contacts'
                     },
 
-                    // {
-                    //     icon: 'mdi-handshake',
-                    //     text: 'Aide à la vente',
-                    //     route: '/aide-vente'
-                    // },
+                    {
+                        icon: 'mdi-handshake',
+                        text: 'Aide à la vente',
+                        route: '/aide-vente'
+                    },
                     {
                         icon: 'mdi-file-document-edit',
                         text: 'Mon contrat',
@@ -245,11 +245,11 @@ export default {
                         route: '/contacts'
                     },
 
-                    // {
-                    //     icon: 'mdi-handshake',
-                    //     text: 'Aide à la vente',
-                    //     route: '/aide-vente'
-                    // },
+                    {
+                        icon: 'mdi-handshake',
+                        text: 'Aide à la vente',
+                        route: '/aide-vente'
+                    },
                     {
                         icon: 'mdi-file-document-edit',
                         text: 'Mon contrat',

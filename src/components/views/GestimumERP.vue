@@ -151,7 +151,7 @@
             <li>Gestimum PME Initiale, adapté aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
           </ul>
 
-          <v-img class="mt-2 mx-auto cursor-pointer" src="http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png" width="50%" @click="zoomImage('http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png')" />
+          <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage('pdfMap')" />
         
         </div>
     </div>
@@ -271,7 +271,7 @@
               </div>
               
         </div>
-        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','https://www.gestimum.com/wp-content/uploads/2022/07/2022-Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -432,6 +432,8 @@ export default {
 
     zoomedImageSrc: '',
     isZoomedIn: false,
+
+    pdfMap: 'images/2023-map.png'
   }),
 
   created() {

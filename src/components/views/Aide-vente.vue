@@ -101,8 +101,8 @@
 
       <div class="mt-8">
         <h3 class="text-left text-primary">Descriptif fonctionnel de Gestimum ERP</h3>
-        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/Analyse-Fonctionnelle/ERPv5.png"
-          @click="zoomImage('http://espace-prive.gestimum.com/images/Analyse-Fonctionnelle/ERPv5.png')"
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" :src="descriptifFonctionnel"
+          @click="zoomImage(descriptifFonctionnel)"
          />
       </div>
 
@@ -111,6 +111,9 @@
         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG" 
           @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG')"
         />
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" :src="descriptifGestionCommerciale" 
+          @click="zoomImage(descriptifGestionCommerciale)"
+        />
       </div>
 
       <div class="mt-4">
@@ -118,23 +121,25 @@
         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG" 
           @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG')"
         />
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" :src="descriptifGestionComptable" 
+          @click="zoomImage(descriptifGestionComptable)"
+        />
       </div>
 
       <div class="mt-8 px-4">
         <h4 class="">Tout PARTENAIRE passant commande est réputé connaître et accepter sans réserve les présentes CONDITIONS GENERALES DE VENTE DES PROGICIELS ET DES SERVICES GESTIMUM et les CONDITIONS DE LICENCES DES PROGICIELS GESTIMUM ET D’UTILISATION DES SERVICES ASSOCIES.	</h4>
         
         <div class="mt-2 d-flex justify-space-between w-75">
-          <h3 class="text-primary text-left cursor-pointer"  @click="openLink('http://espace-prive.gestimum.com/fr/cgv.pdf')">Conditions Générales de Vente</h3>
-          <v-icon class="cursor-pointer" color="primary"  @click="downloadPdf('CGV', 'http://espace-prive.gestimum.com/fr/cgv.pdf')">mdi-file-pdf-box</v-icon>
+          <h3 class="text-primary text-left cursor-pointer"  @click="openLink('https://www.gestimum.com/wp-content/uploads/2021/09/CGV-1.pdf')">Conditions Générales de Vente</h3>
+          <v-icon class="cursor-pointer" color="primary"  @click="downloadPdf('CGV', 'https://www.gestimum.com/wp-content/uploads/2021/09/CGV-1.pdf')">mdi-file-pdf-box</v-icon>
         </div>
 
-
+        <!-- CONTRAT LICENSE -->
         <div class="mt-2 d-flex justify-space-between w-75">
-          <h3 class="text-primary text-left cursor-pointer"  @click="openLink('http://espace-prive.gestimum.com/fr/cls.pdf')">Conditions de Licence</h3>
-          <v-icon class="cursor-pointer" color="primary"  @click="downloadPdf('Conditions de Licence', 'http://espace-prive.gestimum.com/fr/cls.pdf')">mdi-file-pdf-box</v-icon>
+          <h3 class="text-primary text-left cursor-pointer"  @click="openLink(CLS)">Conditions de Licence</h3>
+          <v-icon class="cursor-pointer" color="primary"  @click="downloadPdf('Conditions de Licence', CLS)">mdi-file-pdf-box</v-icon>
         </div>
       </div>
-
 
 
 
@@ -210,6 +215,7 @@
     </v-dialog>
 
     </div>
+
   </v-card>
 </template>
 
@@ -252,6 +258,13 @@ export default {
         link: '',
         ref: 'aide-vente'
       },
+
+      //assets
+      CLS: 'pdfs/CLS.pdf',
+      descriptifFonctionnel: 'images/descriptif-fonctionnel.png',
+      descriptifGestionCommerciale: 'images/descriptif-fonctionnel-gestion-commerciale.png',
+      descriptifGestionComptable: 'images/descriptif-fonctionnel-gestion-comptable.png',
+
   }),
 
   mounted() {

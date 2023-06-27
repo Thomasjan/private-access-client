@@ -234,7 +234,7 @@
 
         <div class="d-flex justify-center">
           <h4 class="text-text-subtitle-1 text-center">Télécharger le contrat partenaire </h4>
-          <v-icon @click="downloadPdf('Contrat partenaire', 'http://espace-prive.gestimum.com/PDF/Contrat/Contrat-partenaires-2021.pdf')" class="ml-4 cursor-pointer" color="primary">mdi-download</v-icon>
+          <v-icon @click="downloadPdf('Contrat partenaire', pdfContract)" class="ml-4 cursor-pointer" color="primary">mdi-download</v-icon>
         </div>
       
       </div>
@@ -246,7 +246,7 @@
 export default {
   
   data: () => ({
-    
+    pdfContract: 'pdfs/contrat-partenaires.pdf'
   }),
 
   methods: {

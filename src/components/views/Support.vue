@@ -31,6 +31,7 @@
       </v-btn>
     </div>
 
+
     <!-- MODIFICATION -->
     <v-dialog v-model="dialogEdit" width="600px">
       <v-card class="bg-white">

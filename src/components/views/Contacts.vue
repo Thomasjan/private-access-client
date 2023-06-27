@@ -7,7 +7,7 @@
       <p class="font-italic">Notre équipe est orientée Services en mode Affaire. Chaque projet confié à Gestimum est traité avec le plus grand soin. Avec l’aide de l’intégrateur, nous nous efforçons de vérifier l’adéquation de notre solution au besoin exprimé du client.</p>
     
 
-      <v-img class="mx-auto mt-8" src="http://espace-prive.gestimum.com/images/Contact/contact-gestimum.png" width="80%" />
+      <v-img class="mx-auto mt-8" :src="pdfContact" width="100%" />
     
       <p class="mt-6">
       Le support Gestimum est accessible 24 heures sur 24 par email
@@ -21,7 +21,7 @@
 export default {
   
   data: () => ({
-    
+    pdfContact: 'images/contact-2023.png'
   }),
 
   methods: {
