@@ -71,6 +71,13 @@
                         </v-card>
                     </v-row>
                 </div>
+
+                <div class="mt-14">
+                    <h3 class="font-italic text-primary text-center">Nos dernières nouveautés !</h3>
+                    <div class="mt-4">
+                        <g-news></g-news>
+                    </div>
+                </div>
                 
             </div>
             
@@ -114,11 +121,6 @@
 
                 <v-main style="height: 100vh; overflow-y: scroll" class="ml-0 hide-scroll">
                     <router-view style="min-height: 90vh"></router-view>
-
-                    <div class="text-center d-flex justify-center">
-                        <v-icon>mdi-copyright</v-icon>
-                        <p class="ml-2">Gestimum</p>
-                    </div>
                 </v-main>
                 </v-layout>
             </div>

@@ -93,43 +93,6 @@
       </div>
 
 
-      <v-divider
-          :thickness="1"
-          class="border-opacity-100 mt-6"
-          color="primary"
-      ></v-divider>
-
-      <div class="mt-6">
-        <div>
-          <h4>2 - Installation de Gestimum</h4>
-          <p class="mt-2 text-medium-emphasis font-italic px-4">
-            Attention : Toute intervention sur le serveur ou sur les postes clients nécessite des compétences métier. Nous vous conseillons de solliciter votre partenaire informatique avant toute mise à jour ou migration de bases de données. Un changement de version nécessite d’effectuer des tests préalables avant la mise en production de votre dossier ; Dans tous les cas, pensez à effectuer au préalable une sauvegarde de la base. Pour toutes informations complémentaires, se référer à votre partenaire. <br>
-            L’assistance G-Web ne se substitue pas aux prestations d’un intégrateur informatique de proximité auquel le client doit pouvoir faire appel pour s’assurer que son infrastructure reste adaptée, que la solution correspond à ses attentes, effectuer ou modifier les paramétrages, former les utilisateurs, effectuer les migrations et mises à jours, se charger d'automatiser les sauvegardes et intervenir sur site.
-          </p>
-
-          <p class="mt-4 ml-2 text-primary font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
-        
-          <div v-for="item in uploads.slice(0,2)" :key="item.id" class="mt-8 px-12" >
-            <div class="flex flex-col justify-start align-center">
-              <div class="d-flex justify-space-between w-100 ">
-                
-                <p class="d-flex">
-                  <v-img class="mr-2" :src="getLink(item)" :width="40" aspect-ratio="4/3" contain/>
-                  Installez
-                  <span class="font-weight-bold text-primary cursor-pointer ml-2 d-flex"  @click="downloadLink(item)">{{ item.file_name }} - <p class="font-italic">{{item.version}}</p>  </span> 
-                </p>
-                  <v-icon class="cursor-pointer" color="primary" @click="downloadLink(item)">mdi-download</v-icon>
-              </div>
-              <p class="mt-2 ml-2 font-italic text-start" v-html="item.description"> </p>
-            </div>
-            <v-divider
-              :thickness="1"
-              class="border-opacity-100 mt-2"
-              color="primary"
-          ></v-divider>
-          </div>
-        </div>
-      </div>
 
       <v-divider
             :thickness="1"
@@ -188,7 +151,7 @@
             <li>Gestimum PME Initiale, adapté aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
           </ul>
 
-          <v-img class="mt-2 mx-auto cursor-pointer" src="http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png" width="50%" @click="zoomImage('http://espace-prive.gestimum.com/images/Planishere/Map%20ERP.png')" />
+          <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage('pdfMap')" />
         
         </div>
     </div>
@@ -308,7 +271,7 @@
               </div>
               
         </div>
-        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','https://www.gestimum.com/wp-content/uploads/2022/07/2022-Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -469,6 +432,8 @@ export default {
 
     zoomedImageSrc: '',
     isZoomedIn: false,
+
+    pdfMap: 'images/2023-map.png'
   }),
 
   created() {
