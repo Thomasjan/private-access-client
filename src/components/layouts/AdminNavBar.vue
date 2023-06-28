@@ -117,6 +117,11 @@ export default {
                         text: 'Liste des Entreprises',
                         route: '/administration/liste-entreprises'
                     },
+                    {
+                        icon: 'mdi-linkedin',
+                        text: 'Linkedin API',
+                        route: '/administration/linkedin'
+                    },
                 ],
             },
 

@@ -24,6 +24,7 @@ import SuiviTelechargements from './components/views/admin/SuiviTelechargements.
 import MajVersions from './components/views/admin/MajVersions.vue'
 import ListeUtilisateurs from './components/views/admin/ListeUtilisateurs.vue' 
 import ListeEntreprises from './components/views/admin/ListeEntreprises.vue' 
+import Linkedin from './components/views/admin/Linkedin.vue'
 
 const routes = [
   {path: '/', component: Home },
@@ -49,6 +50,7 @@ const routes = [
     { path: '/administration/maj-versions', component: MajVersions },
     { path: '/administration/liste-utilisateurs', component: ListeUtilisateurs },
     { path: '/administration/liste-entreprises', component: ListeEntreprises },
+    { path: '/administration/linkedin', component: Linkedin },
 
 ]
 

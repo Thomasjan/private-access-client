@@ -4,6 +4,7 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
 
  const linkedinService = {
     getLinkedinPosts,
+    refreshLinkedinToken
 };
 
 //récupérer la liste de tous les téléchargementss
@@ -13,6 +14,16 @@ async function getLinkedinPosts() {
     return response.data;
   } catch (error) {
     console.error('Error getting Linkedin posts:', error);
+    throw error;
+  }
+}
+
+async function refreshLinkedinToken() {
+  try {
+    const response = await axios.get(`${API_URL}/linkedin/refreshLinkedinToken`);
+    return response.data;
+  } catch (error) {
+    console.error('Error refreshLinkedinToken:', error);
     throw error;
   }
 }

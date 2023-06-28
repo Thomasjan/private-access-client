@@ -71,6 +71,13 @@
                         </v-card>
                     </v-row>
                 </div>
+
+                <div class="mt-14">
+                    <h3 class="font-italic text-primary text-center">Nos dernières nouveautés !</h3>
+                    <div class="mt-4">
+                        <g-news></g-news>
+                    </div>
+                </div>
                 
             </div>
             

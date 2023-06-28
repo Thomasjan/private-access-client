@@ -140,95 +140,95 @@
 
 
           </tbody>
-        </v-table>
+          </v-table>
 
 
-        <v-table class="bg-background rounded-xl pa-2 mt-8" density="compact">
-          <thead>
-            <tr>
-              <th class="text-primary text-left">
-               <h4>Missions partenaire</h4> 
-              </th>
-              <th class="text-center bg-light-blue">
-                Apporteur d'affaires
-              </th>
-              <th class="text-center bg-grey">
-                Constitution de parc clients
-              </th>
-              <th class="text-center bg-primary">
-                Conquête & gestion de parc
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left">Analyse avant-vente - adéquation solutions / besoins</td>
-              <td class="text-center bg-light-blue-lighten-3"></td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+          <v-table class="bg-background rounded-xl pa-2 mt-8" density="compact">
+            <thead>
+              <tr>
+                <th class="text-primary text-left">
+                <h4>Missions partenaire</h4> 
+                </th>
+                <th class="text-center bg-light-blue">
+                  Apporteur d'affaires
+                </th>
+                <th class="text-center bg-grey">
+                  Constitution de parc clients
+                </th>
+                <th class="text-center bg-primary">
+                  Conquête & gestion de parc
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left">Analyse avant-vente - adéquation solutions / besoins</td>
+                <td class="text-center bg-light-blue-lighten-3"></td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Maquettage sur site</td>
-              <td class="text-center bg-light-blue-lighten-3"> </td>
-              <td class="text-center bg-grey-lighten-1"> </td>
-              <td class="text-center bg-orange-lighten-3"> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Maquettage sur site</td>
+                <td class="text-center bg-light-blue-lighten-3"> </td>
+                <td class="text-center bg-grey-lighten-1"> </td>
+                <td class="text-center bg-orange-lighten-3"> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Pilotage du projet sur site</td>
-              <td class="text-center bg-light-blue-lighten-3"> </td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Pilotage du projet sur site</td>
+                <td class="text-center bg-light-blue-lighten-3"> </td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Extractions données logiciel en place</td>
-              <td class="text-center bg-light-blue-lighten-3"></td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Extractions données logiciel en place</td>
+                <td class="text-center bg-light-blue-lighten-3"></td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Intégration réseau et postes clients / mises à jour</td>
-              <td class="text-center bg-light-blue-lighten-3"> </td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Intégration réseau et postes clients / mises à jour</td>
+                <td class="text-center bg-light-blue-lighten-3"> </td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Formation administrateur sur site</td>
-              <td class="text-center bg-light-blue-lighten-3"> </td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Formation administrateur sur site</td>
+                <td class="text-center bg-light-blue-lighten-3"> </td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Formation utilisateurs sur site & online</td>
-              <td class="text-center bg-light-blue-lighten-3"> </td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Formation utilisateurs sur site & online</td>
+                <td class="text-center bg-light-blue-lighten-3"> </td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Assistance téléphonique fonctionnelle</td>
-              <td class="text-center bg-light-blue-lighten-3"></td>
-              <td class="text-center bg-grey-lighten-1"> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Assistance téléphonique fonctionnelle</td>
+                <td class="text-center bg-light-blue-lighten-3"></td>
+                <td class="text-center bg-grey-lighten-1"> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-            <tr>
-              <td class="text-left">Assistance infrastructure et intervention sur site</td>
-              <td class="text-center bg-light-blue-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-              <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
-            </tr>
+              <tr>
+                <td class="text-left">Assistance infrastructure et intervention sur site</td>
+                <td class="text-center bg-light-blue-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-grey-lighten-1"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+                <td class="text-center bg-orange-lighten-3"><v-icon color="primary">mdi-hexagon</v-icon> </td>
+              </tr>
 
-           
+            
 
 
-          </tbody>
-        </v-table>
+            </tbody>
+          </v-table>
 
         </div>
 
