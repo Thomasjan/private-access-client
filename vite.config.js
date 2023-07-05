@@ -25,8 +25,10 @@ export default defineConfig({
   define: { 'process.env': {} },
   resolve: {
     alias: {
+      'vue': 'vue/dist/vue.esm-bundler.js',
       '@': path.resolve(__dirname, 'src'),
     },
+    extensions: ['.js', '.vue', '.json'],
   },
   // build: {
   //   target : "esnext",
