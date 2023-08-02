@@ -465,11 +465,11 @@ export default {
 
   methods: {
     getLink(item) {
-      let link = 'http://localhost:3000/files/uploads/' + item.image_path
+      let link = 'http://api-espace-prive.gestimum.com/files/uploads/' + item.image_path
       return link
     },
     downloadLink(item) {
-      let link = 'http://localhost:3000/files/uploads/' + item.file_path
+      let link = 'http://api-espace-prive.gestimum.com/files/uploads/' + item.file_path
       window.open(link, '_blank')
     },
 
