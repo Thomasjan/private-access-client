@@ -8,9 +8,9 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
 };
 
 //récupérer la liste de tous les utilisateurs
-async function getGestimumClients() {
+async function getGestimumClients(query) {
   try {
-    const response = await axios.get(`${API_URL}/gestimum/getGestimumClients`);
+    const response = await axios.get(`${API_URL}/gestimum/getGestimumClients/${query}`);
     return response.data;
   } catch (error) {
     console.error('Error getting clients:', error);

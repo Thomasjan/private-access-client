@@ -129,14 +129,14 @@
         
         <div class="text-center d-flex justify-center">
                         <v-icon>mdi-copyright</v-icon>
-                        <p class="ml-2">Gestimum</p>
+                        <p class="ml-2">Gestimum {{new Date().getFullYear()}} </p>
                     </div>
         </v-card>
 </template>
 
 <script>
 import { useTheme } from 'vuetify/lib/framework.mjs';
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import User from '../../services/users.service'
 
 export default {
