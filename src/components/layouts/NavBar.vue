@@ -10,6 +10,7 @@
                 </div>
                 <div class="flex-wrap">
                   <v-row class="pa-6"> 
+                    <v-icon @click="route='/profil'; $router.push('/profil')">mdi-account</v-icon>
                     <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> - 
                     <!-- <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> -->
                     <v-icon class=" ml-2 px-2 cursor-pointer links" @click="logout()">mdi-logout</v-icon>
@@ -90,7 +91,7 @@
                 >
                     <v-list>
                     <v-list-item
-                        @click="$router.push('/profil')"
+                        @click="route='/profil'; $router.push('/profil')"
                         class="cursor-pointer"
                         prepend-avatar="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
                         :title="$store.state.user.name"
