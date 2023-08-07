@@ -151,7 +151,7 @@
             <li>Gestimum PME Initiale, adapté aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
           </ul>
 
-          <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage('pdfMap')" />
+          <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage(pdfMap)" />
         
         </div>
     </div>

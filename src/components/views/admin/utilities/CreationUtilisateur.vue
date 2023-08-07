@@ -114,7 +114,7 @@ export default {
         case 'Admin':
             form.role_id = 1
             break;
-        case '1. PAR':
+        case '1. PARTENAIRE':
             form.role_id = 2
             break;
         case '2. PME':
