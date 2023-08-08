@@ -5,7 +5,7 @@
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
                 </div>
                 <div class="icon-theme">
-                    <v-icon @click="toggleTheme" size="large">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
+                    <v-icon @click="toggleTheme" size="26">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
                 </div>
                 <div class="flex-wrap">
                   <v-row class="pa-6"> 

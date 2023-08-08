@@ -1,7 +1,7 @@
 <template>
   <v-card class="bg-background pa-2 elevation-0">
     <h2 class="text-primary text-center">Support</h2>
-    <div class="mt-4">
+    <!-- <div class="mt-4">
       <v-btn v-if="$store.state.user.role_id ===1" @click="dialogAdd = true" class="bg-primary ml-4">
          <v-icon>mdi-plus </v-icon> 
          PDF
@@ -23,7 +23,7 @@
             </div>
           </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="mt-8 w-25 mx-auto">
       <v-btn class="mt-10" color="primary" centered @click="OnlineHelp()">
@@ -33,11 +33,10 @@
 
 
     <!-- MODIFICATION -->
-    <v-dialog v-model="dialogEdit" width="600px">
+    <!-- <v-dialog v-model="dialogEdit" width="600px">
       <v-card class="bg-white">
         <v-card-title class="text-center">Modification</v-card-title>
         <v-card-text>
-          <!-- <v-text-field label="Catégorie" v-model="itemOnEdit.category"></v-text-field> -->
          <v-autocomplete
           v-model="itemOnEdit.category"
           :items="getCategories()"
@@ -56,15 +55,14 @@
           <v-btn color="primary" @click="confirmEdit()">Enregistrer</v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
 
 
     <!-- AJOUT -->
-    <v-dialog v-model="dialogAdd" width="600px">
+    <!-- <v-dialog v-model="dialogAdd" width="600px">
       <v-card class="bg-white">
         <v-card-title class="text-center">Ajout</v-card-title>
         <v-card-text>
-          <!-- <v-text-field label="Catégorie" v-model="itemOnEdit.category"></v-text-field> -->
          <v-autocomplete
           v-model="form.category"
           :items="getCategories()"
@@ -83,11 +81,11 @@
           <v-btn color="primary" @click="addPdf()">Enregistrer</v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
 
 
     <!-- SUPPRESSION -->
-     <v-dialog v-model="dialogDelete" width="600px">
+     <!-- <v-dialog v-model="dialogDelete" width="600px">
       <v-card class="bg-white">
         <v-card-title class="text-center">Suppression</v-card-title>
         <v-card-text>
@@ -98,7 +96,7 @@
           <v-btn color="primary" @click="confirmDelete()">Supprimer</v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
 
   </v-card>
 </template>
@@ -262,7 +260,7 @@ export default {
     },
 
     OnlineHelp(){
-      window.open('http://docs.gestimum.com/ERP/9/#t=1%2FBienvenue.htm', '_blank')
+      window.open('https://docs.gestimum.com/', '_blank')
     }
   }
 }
