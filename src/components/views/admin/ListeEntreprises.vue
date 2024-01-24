@@ -64,6 +64,7 @@
             <th class="text-left text-green cursor-pointer" @click="sortByField('craeted_at')">Création</th>
             <th class="text-left text-orange text-center cursor-pointer" @click="sortByField('contract')">Contrat</th>
             <th class="text-left text-orange cursor-pointer" @click="sortByField('end_contract')">Date fin contrat</th>
+            <th class=""> {{ ' ' }} </th>
           </tr>
         </thead>
         <tbody>
@@ -78,6 +79,7 @@
             <td><v-chip size="small" color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ entreprise.contract? entreprise.contract: 'pas de contrat' }} </v-chip> </td>
             <td> <v-chip size="small" :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
+            <td> <v-icon @click="editCompany(entreprise)">mdi-pencil</v-icon> </td>
           </tr>
         </tbody>
       </v-table>
@@ -87,7 +89,17 @@
         
 
     </div>
+    <v-dialog 
+      v-model="editEntrepriseDialog" 
+      class="position-absolute"
+      width="600"
+      persistent
+     >
+      <creation-entreprise v-on:closeDialog="editEntrepriseDialog=false" v-bind:entreprise="editingEntreprise" ></creation-entreprise>
+    </v-dialog>
   </v-card>
+
+ 
 </template>
 
 <script>
@@ -97,10 +109,12 @@ export default {
   
   data: () => ({
     entrepriseDialog: false,
+    editEntrepriseDialog: false,
     userDialog: false,
     entreprises: [],
     sortBy: [],
 
+    editingEntreprise: {},
     search: '',
     family: '',
     subfamily: '',
@@ -115,6 +129,12 @@ export default {
   },
 
   methods: {
+
+    editCompany(entreprise) {
+      console.log(entreprise)
+      this.editingEntreprise = entreprise
+      this.editEntrepriseDialog = true
+    },
     // récupération des Utilisateurs
     fetchEntreprises(){
       Entreprises.getEntreprises()

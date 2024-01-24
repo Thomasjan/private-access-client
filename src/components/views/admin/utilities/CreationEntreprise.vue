@@ -5,9 +5,10 @@
     style="right: 10px; top: 6px"
     @click="closeDialog()"
     >mdi-close</v-icon>
-   <h3 class="text-center">Création d'une nouvelle entreprise</h3>
+   <h3 v-if="!entreprise" class="text-center">Création d'une nouvelle entreprise</h3>
+    <h3 v-else class="text-center">Modification de l'entreprise</h3>
 
-   <v-btn color="primary" class="w-50 mx-auto mt-2" @click="openImportClientDialog()">Importer de Gestimum</v-btn>
+   <v-btn v-if="!entreprise" color="primary" class="w-50 mx-auto mt-2" @click="openImportClientDialog()">Importer de Gestimum</v-btn>
 
    <v-dialog v-model="importClientDialog" width="600px">
     <v-card class="bg-background pa-8">
@@ -122,7 +123,15 @@
 import Entreprise from '../../../../services/entreprises.service'
 import Gestimum from '../../../../services/gestimum.service'
 
+
 export default {
+
+  props: {
+    entreprise: {
+      type: Object,
+      default: null
+    }
+  },
 
   data: () => ({
     form:{
@@ -146,14 +155,31 @@ export default {
     typingTimer: null,
      showCharMessage: false,
   }),
+
   mounted(){
-   
+   if(this.entreprise){
+     this.form = this.entreprise
+   }
   },
+  
   methods:{
     //ajout d'une Entreprise
     addEntreprise(){
       if(this.form.category == '2. PME' && this.form.contract == 'Aucun'){
         this.errorMessage = 'Contrat obligatoire pour les PME !'
+      }
+      if(this.entreprise){
+        Entreprise.updateEntreprise(this.entreprise.id, this.form)
+        .then(res => {
+          this.form = {}
+          this.form.contract = 'Aucun'
+          this.$emit('fetchEntreprises')
+          this.closeDialog()
+        })
+        .catch(err => {
+          console.log(err);
+          this.errorMessage = err.response.data;
+        })
       }
       else{
         Entreprise.addEntreprise(this.form)

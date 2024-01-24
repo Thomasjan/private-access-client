@@ -6,6 +6,7 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
   getUsers,
   getUser,
   postUser,
+  updateUser,
   updatePassword
 };
 
@@ -37,6 +38,16 @@ async function postUser(user) {
     return response.data;
   } catch (error) {
     console.error('Error posting user:', error);
+    throw error;
+  }
+}
+
+async function updateUser(id, user) {
+  try {
+    const response = await axios.put(`${API_URL}/users/updateUser/${id}`, user);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating user:', error);
     throw error;
   }
 }
