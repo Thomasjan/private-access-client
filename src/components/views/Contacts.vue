@@ -4,7 +4,10 @@
     
     <div class="mt-4 px-4">
       <h4>Vos Intelocuteurs GESTIMUM</h4>
-      <p class="font-italic">Notre équipe est orientée Services en mode Affaire. Chaque projet confié à Gestimum est traité avec le plus grand soin. Avec l’aide de l’intégrateur, nous nous efforçons de vérifier l’adéquation de notre solution au besoin exprimé du client.</p>
+      <p class="font-italic">Notre équipe est orientée Services en mode Affaire. 
+        Chaque projet confié à Gestimum est traité avec le plus grand soin. 
+      </p>
+      <p v-if="$store.state.user.role_id >= 3"> Avec l’aide de l’intégrateur, nous nous efforçons de vérifier l’adéquation de notre solution au besoin exprimé du client.</p>
     
 
       <v-img class="mx-auto mt-8" :src="pdfContact" width="100%" />
