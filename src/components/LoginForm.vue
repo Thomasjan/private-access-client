@@ -10,7 +10,7 @@
                         </div>
                         &nbsp;&nbsp;<br />
                         <p class="text-center text-primary font-weight-bold mb-3">
-                            Connexion privée
+                            Espace privé
                         </p>
                     </v-card-title>
                     <v-divider class="divider"></v-divider>
@@ -54,30 +54,23 @@
                             </span>
                         </v-form>
                     </v-card-text>
-                    <v-row class="pt-8">
-                        <v-col>
-                            <v-btn
-                                class=" pa-2 ml-6  "
-                                color="primary"
-                                @click.prevent="login"
-                                type="submit"
-                                rounded
-                                ><span class="font-serif mr-5 ml-5">Connexion</span> </v-btn
+                    <v-row class="pt-8 d-flex flex-column">
+                        <v-btn
+                            class="pa-2 d-flex mx-auto justify-center align-center"
+                            color="primary"
+                            @click.prevent="login"
+                            type="submit"
+                            rounded
                             >
-                        </v-col>
-                        <v-spacer></v-spacer>
-                        <v-col cols="auto">
-                            <v-btn
-                                @click.prevent="mdpoublie()"
-                                type="button"
-                                text
-                                class="accent--text pa-2 mr-6 "
-                                color="primary"
-                                > <span class="mdpoublie">Mot de passe oublié ?</span> </v-btn
-                            >
-                            <br /><br />
-                        </v-col> </v-row
-                    ><v-row> </v-row>
+                            <span class="font-serif mx-8 font-weight-bold">Connexion</span>
+                        </v-btn>
+
+                        <span @click.prevent="mdpoublie()" class="mdpoublie cursor-pointer text-primary mt-4">
+                            Mot de passe oublié ?
+                        </span>
+                                    
+                        <br/><br/>
+                    </v-row>
                 </v-col>
                 <v-progress-linear
                     :active="loading"
@@ -216,6 +209,14 @@ export default {
     margin-right: 20px;
     opacity: 0.3;
     
+}
+
+.mdpoublie{
+    opacity: 0.6;
+}
+
+.mdpoublie:hover{
+    opacity: 1;
 }
 
 

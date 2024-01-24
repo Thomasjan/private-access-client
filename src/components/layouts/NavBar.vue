@@ -6,13 +6,14 @@
                 </div>
                     
                 <div class="icon-theme">
-                     <v-icon @click="toggleTheme" size="large">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
+                     <v-icon @click="toggleTheme" size="26">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
                 </div>
                 <div class="flex-wrap">
                   <v-row class="pa-6"> 
-                    <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> - 
+                    <v-icon size="30" class="links cursor-pointer" @click="route='/profil'; $router.push('/profil')">mdi-account</v-icon>
+                    <v-icon size="30" class=" ml-4 px-2 cursor-pointer links" @click="logout()">mdi-logout</v-icon>
+                    <!-- <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> -  -->
                     <!-- <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> -->
-                    <v-icon class=" ml-2 px-2 cursor-pointer links" @click="logout()">mdi-logout</v-icon>
                    </v-row> 
                 </div>
             </v-row>
@@ -29,8 +30,8 @@
                     <v-row class="flex-row justify-center" v-if="$store.state.user.role_id >=3">
                         <v-flex v-for="item in nav.client" :key="item.route">
                                 <v-card 
-                                class="bg-primary pa-2 text-h6 font-weight-regular text-uppercase px-6 ma-2 cursor-pointer hover-card" 
-                                style="width: 280px; height: 80px"
+                                class="bg-primary text-center large-text align-center font-weight-regular text-uppercase pa-1 ma-2 cursor-pointer hover-card" 
+                                style="width: 260px; height: 70px"
                                 @click="handleMenu(item)"
                                 >
                                     <div class="my-4">
@@ -45,8 +46,8 @@
                     <v-row class="flex-row justify-center" v-else>
                         <v-flex v-for="item in nav.partenaire" :key="item.route">
                                 <v-card 
-                                class="bg-primary pa-2 text-h6 font-weight-regular text-uppercase px-6 ma-2 cursor-pointer hover-card" 
-                                style="width: 280px; height: 80px"
+                                class="bg-primary text-center align-center large-text font-weight-regular pa-1 text-uppercase ma-2 cursor-pointer hover-card" 
+                                style="width: 260px; height: 70px"
                                 @click="handleMenu(item)"
                                 >
                                     <div class="my-4">
@@ -60,8 +61,8 @@
 
                     <v-row class="flex-row justify-center">
                         <v-card v-if="$store.state.user.role_id === 1"
-                        class="bg-secondary pa-2 text-h6 font-weight-regular text-uppercase px-6 ma-2 cursor-pointer hover-card" 
-                        style="width: 290px; height: 80px"
+                        class="bg-secondary  large-text text-center font-weight-regular text-uppercase pa-1 ma-2 cursor-pointer hover-card" 
+                        style="width: 280px; height: 70px"
                         @click="$router.push('/administration')"
                         >
                             <div class="my-4">
@@ -90,7 +91,7 @@
                 >
                     <v-list>
                     <v-list-item
-                        @click="$router.push('/profil')"
+                        @click="route='/profil'; $router.push('/profil')"
                         class="cursor-pointer"
                         prepend-avatar="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
                         :title="$store.state.user.name"
@@ -175,12 +176,6 @@ export default {
                         route: '/g-news'
                     },
                     {
-                        icon: 'mdi-card-account-mail',
-                        text: 'Mes contacts',
-                        route: '/contacts'
-                    },
-
-                    {
                         icon: 'mdi-handshake',
                         text: 'Aide à la vente',
                         route: '/aide-vente'
@@ -194,6 +189,11 @@ export default {
                         icon: 'mdi-currency-eur',
                         text: 'Tarifs',
                         route: '/tarifs'
+                    },
+                    {
+                        icon: 'mdi-card-account-mail',
+                        text: 'Contacts',
+                        route: '/contacts'
                     },
                 ],
                 client:[
@@ -219,7 +219,7 @@ export default {
                     },
                     {
                         icon: 'mdi-card-account-mail',
-                        text: 'Mes contacts',
+                        text: 'Contacts',
                         route: '/contacts'
                     },
                     
@@ -247,12 +247,6 @@ export default {
                         route: '/g-news'
                     },
                     {
-                        icon: 'mdi-card-account-mail',
-                        text: 'Mes contacts',
-                        route: '/contacts'
-                    },
-
-                    {
                         icon: 'mdi-handshake',
                         text: 'Aide à la vente',
                         route: '/aide-vente'
@@ -266,6 +260,11 @@ export default {
                         icon: 'mdi-currency-eur',
                         text: 'Tarifs',
                         route: '/tarifs'
+                    },
+                    {
+                        icon: 'mdi-card-account-mail',
+                        text: 'Contacts',
+                        route: '/contacts'
                     },
 
                 ]
@@ -326,6 +325,10 @@ export default {
     position: absolute;
     top: 24px;
     left: 50%;
+}
+
+.large-text{
+    font-size: 1.1rem;
 }
 
 

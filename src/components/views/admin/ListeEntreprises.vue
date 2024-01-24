@@ -57,19 +57,19 @@
       <v-table density="compact" class="bg-background">
         <thead>
           <tr class="">
-            <th class="text-left text-red" @click="sortByField('code_client')">Code</th>
-            <th class="text-left text-red" @click="sortByField('social_reason')">Entreprise</th>
-            <th class="text-left text-blue" @click="sortByField('category')">Famille</th>
-            <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
-            <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
-            <th class="text-left text-orange text-center" @click="sortByField('contract')">Contrat</th>
-            <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('code_client')">Code</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('social_reason')">Entreprise</th>
+            <th class="text-left text-blue cursor-pointer" @click="sortByField('category')">Famille</th>
+            <th class="text-left text-blue cursor-pointer" @click="sortByField('subcategory')">Sous-famille</th>
+            <th class="text-left text-green cursor-pointer" @click="sortByField('craeted_at')">Création</th>
+            <th class="text-left text-orange text-center cursor-pointer" @click="sortByField('contract')">Contrat</th>
+            <th class="text-left text-orange cursor-pointer" @click="sortByField('end_contract')">Date fin contrat</th>
           </tr>
         </thead>
         <tbody>
           <tr class="text-subtitle-2"
-            v-for="entreprise in entreprisesFiltered"
-            :key="entreprise.id"
+            v-for="(entreprise, index) in entreprisesFiltered"
+            :key="index"
           >
             <td> <v-chip color="purple">{{ entreprise.code_client }}</v-chip> </td>
             <td> <v-chip color="blue-darken-3">{{ entreprise.social_reason }}</v-chip> </td>
@@ -127,8 +127,14 @@ export default {
     },
 
     sortByField(field) {
-    
-    },
+    if (this.sortBy.includes(field)) {
+      this.sortBy = [`${field}_desc`];
+      this.entreprisesFiltered.sort((a, b) => a[field] < b[field] ? 1 : -1);
+    } else {
+      this.sortBy = [field];
+      this.entreprisesFiltered.sort((a, b) => a[field] > b[field] ? 1 : -1);
+    }
+  },
 
     isContractExpired(entreprise) {
       const currentDate = new Date();

@@ -8,7 +8,7 @@
       <v-row class="my-2">
       <v-text-field class="mx-3" v-model="form.version" label="Version"></v-text-field>
 
-          <v-text-field class="mx-3" v-model="form.file_name" label="File Name"></v-text-field>
+          <v-text-field class="mx-3" v-model="form.file_name" label="Nom du fichier"></v-text-field>
       </v-row>
           <v-file-input
             class="mx-3 w-75"

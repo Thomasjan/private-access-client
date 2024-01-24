@@ -5,10 +5,11 @@
       <!-- DERNIERE VERSION ERP -->
       <div class="mt-6 mx-auto text-center" v-if="lastUpload != {}">
         <h2 class="text-decoration-underline">Dernière version du logiciel</h2>
-        <p class="mt-4 ml-2 text-primary font-italic  font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
+        <!-- <p class="mt-4 ml-2 text-primary font-italic  font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p> -->
+        <p class="mt-4 ml-2 text-primary font-italic font-weight-bold text-lg-h5">Si votre version de Gestimum ERP est antérieur à la version <strong class="text-blue">9</strong>, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         <div class="mt-2 d-flex flex-column justify-center align-center">
             <h3 class="text-blue mt-2">Version {{lastUpload.version}} </h3>
-            <v-img class="mr-2 bg-blue mt-2 w-25 rounded-lg cursor-pointer" @click="zoomImage(getLink(lastUpload))" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
+            <v-img class="mr-2 bg-blue mt-2 w-25 rounded-lg cursor-pointer" @click="downloadLink(lastUpload)" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
             <p class="font-italic text-subtitle-2 mt-4 text-left mx-6" v-html="lastUpload.description"></p>
             <v-btn color="primary w-25 mx-auto mt-4" size="large" @click="downloadLink(lastUpload)"> 
               <v-icon class="mr-4 mt-1">mdi-download</v-icon>
@@ -124,7 +125,7 @@
       GESTIMUM ERP s’adresse aux PME qui désirent une solution de gestion :</p>  
         <div class="mt-4 flex-column">
           <p class="py-1"><strong class="font-italic">Evolutive</strong> <v-icon color="primary">mdi-arrow-right</v-icon>	De 5 à plus de 300 postes.</p>
-          <p class="py-1"><strong class="font-italic">Pérenne</strong>   <v-icon color="primary">mdi-arrow-right</v-icon> Gestimum ERP existe depuis 1998, a une base installée de près de 10 000 utilisateurs, est commercialisée par 250 partenaires dans toute la France, la Belgique et l’Afrique francophone.</p>
+          <p class="py-1"><strong class="font-italic">Pérenne</strong>   <v-icon color="primary">mdi-arrow-right</v-icon> Gestimum ERP existe depuis 1998, a une base installée de près de 10 000 utilisateurs, est commercialisée par 150 partenaires dans toute la France et l’Afrique francophone.</p>
           <p class="py-1"><strong class="font-italic">Puissante</strong> <v-icon color="primary">mdi-arrow-right</v-icon> 	Nativement sur une base de données MS-SQL Server, Gestimum ERP gère des flux d’informations très importants en toute sécurité et des bases de données quasi-illimitées.</p>
           <p class="py-1"><strong class="font-italic">Intégrée</strong>  <v-icon color="primary">mdi-arrow-right</v-icon>Une seule base de donnée, une interface commune entre la Gestion Comptable, la Gestion Commerciale et la Relation clients.</p>
           <p class="py-1"><strong class="font-italic">Ouverte</strong>   <v-icon color="primary">mdi-arrow-right</v-icon>	Gestimum ERP s’intègre naturellement dans votre existant informatique, et communique simplement avec vos partenaires.</p>
@@ -151,7 +152,7 @@
             <li>Gestimum PME Initiale, adapté aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
           </ul>
 
-          <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage('pdfMap')" />
+          <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage(pdfMap)" />
         
         </div>
     </div>
