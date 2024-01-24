@@ -63,6 +63,7 @@
             <th class="text-left text-red cursor-pointer" @click="sortByField('email')">Email</th>
             <th class="text-left text-green cursor-pointer" @click="sortByField('created_at')">Création</th>
             <th class="text-left text-orange text-center cursor-pointer" @click="sortByField('contract')">Contrat</th>
+            <th class=""> {{ ' ' }} </th>
           </tr>
         </thead>
         <tbody>
@@ -77,11 +78,21 @@
             <td>{{ user.email }}</td>
             <td><v-chip size="small" color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ user.contract? user.contract: 'pas de contrat' }}</v-chip> </td>
+            <td> <v-icon @click="editUser(user)">mdi-pencil</v-icon> </td>
           </tr>
         </tbody>
       </v-table>
       </div>
     </div>
+
+    <v-dialog 
+      v-model="editUserDialog" 
+      class="position-absolute"
+      width="600"
+      persistent
+     >
+      <creation-utilisateur v-on:closeDialog="editUserDialog=false" v-bind:userOnEdit="editingUser" v-on:fetchUsers="fetchUsers"></creation-utilisateur>
+    </v-dialog>
 
   </v-card>
 </template>
@@ -93,10 +104,10 @@ export default {
   
   data: () => ({
     entrepriseDialog: false,
+    editUserDialog: false,
     userDialog: false,
+    editingUser: null,
     users: [],
-
-
 
     sortBy: [],
     search: "",
@@ -112,6 +123,12 @@ export default {
   },
 
   methods: {
+
+    editUser(user){
+      this.editingUser = user
+      this.editUserDialog = true
+    },
+
     // récupération des Utilisateurs
     fetchUsers(){
       User.getUsers()
