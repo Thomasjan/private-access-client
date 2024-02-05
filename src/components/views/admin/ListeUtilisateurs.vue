@@ -78,7 +78,12 @@
             <td>{{ user.email }}</td>
             <td><v-chip size="small" color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ user.contract? user.contract: 'pas de contrat' }}</v-chip> </td>
-            <td> <v-icon @click="editUser(user)">mdi-pencil</v-icon> </td>
+            <td>
+              <div class="d-flex align-center">
+                <v-icon @click="editUser(user)">mdi-pencil</v-icon> 
+                <v-icon class="text-red" @click="deleteUser(user)">mdi-delete</v-icon>
+              </div>
+            </td>
           </tr>
         </tbody>
       </v-table>
@@ -127,6 +132,18 @@ export default {
     editUser(user){
       this.editingUser = user
       this.editUserDialog = true
+    },
+
+    deleteUser(user){
+      console.log(user)
+      window.confirm('Voulez-vous vraiment supprimer cet utilisateur?') && 
+      User.deleteUser(user.id)
+      .then(response => {
+        this.fetchUsers()
+      })
+      .catch(err => {
+        console.log(err);
+      })
     },
 
     // récupération des Utilisateurs
