@@ -79,7 +79,12 @@
             <td><v-chip size="small" color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ entreprise.contract? entreprise.contract: 'pas de contrat' }} </v-chip> </td>
             <td> <v-chip size="small" :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
-            <td> <v-icon @click="editCompany(entreprise)">mdi-pencil</v-icon> </td>
+            <td>
+               <div class="d-flex align-center">
+                <v-icon @click="editCompany(entreprise)">mdi-pencil</v-icon> 
+                <v-icon class="text-red" @click="deleteCompany(entreprise)">mdi-delete</v-icon>
+              </div>
+            </td>
           </tr>
         </tbody>
       </v-table>
@@ -135,6 +140,19 @@ export default {
       this.editingEntreprise = entreprise
       this.editEntrepriseDialog = true
     },
+
+    deleteCompany(entreprise){
+      console.log(entreprise)
+      window.confirm('Voulez-vous vraiment supprimer cette entreprise? Tous les utilisateurs de cette entreprise seront supprimés') && 
+      Entreprises.deleteEntreprise(entreprise.id)
+      .then(response => {
+        this.fetchEntreprises()
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    },
+
     // récupération des Utilisateurs
     fetchEntreprises(){
       Entreprises.getEntreprises()

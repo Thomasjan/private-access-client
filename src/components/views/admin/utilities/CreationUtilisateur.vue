@@ -34,13 +34,13 @@
           label="Email"
           :rules="[v => !!v || 'Email requis']"
         ></v-text-field>
-        <v-text-field
+        <!-- <v-text-field
           color="primary"
           v-model="form.password"
           type="text"
           label="Mot de passe"
           :rules="[v => !!v || 'mot de passe requis']"
-        ></v-text-field>
+        ></v-text-field> -->
 
         <div class="d-flex mt-2">
            <v-select
@@ -96,7 +96,7 @@ export default {
       name: '',
       surname: '',
       email: '',
-      password: '',
+      // password: '',
       entreprise: null,
       role: '',
       entreprise_id: null,
