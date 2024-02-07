@@ -76,12 +76,16 @@ router.beforeEach((to, from, next) => {
             store.commit('UPDATE_USER', blankUsers)
             next({ name: 'login' })
         })
-    } else if (!( to.name == 'login' || (to.name == 'mdp-oublie') || !! localStorage.getItem('auth'))) {
+    } else if (!(to.name === 'login' || to.name === 'mdp-oublie' || !!localStorage.getItem('auth'))) {
         next({ name: 'login' })
-   
     } else {
-
-        next()
+        // Check if the user has access to administration routes
+        if (to.path.startsWith('/administration') && $store.state.user.role_id!=1) {
+            // If user role is not 1, redirect to unauthorized page or another appropriate route
+            next({ name: 'login' }) // You can redirect to an unauthorized page or another appropriate route
+        } else {
+            next()
+        }
     }
 })
 
