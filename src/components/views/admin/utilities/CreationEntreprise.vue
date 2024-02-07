@@ -143,7 +143,7 @@ export default {
       end_contract: '',
     },
     errorMessage: '',
-    categoryItems: ['1. PARTENAIRE', '2. PME', '3. AUTRES'],
+    categoryItems: ['1. PAR', '2. PME', '3. AUTRES'],
     subcategoryItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
     contractItems: ['Aucun', 'CSC', 'CS', 'G-WEB', 'G-TEL'],
 
@@ -263,7 +263,7 @@ export default {
       this.form.code_client = this.selectedClient.PCF_CODE;
 
       if(this.selectedClient.PCF_TYPE.toLowerCase() == 'p'){
-        this.form.category = '1. PARTENAIRE'
+        this.form.category = '1. PAR'
       }
       else if(this.selectedClient.PCF_TYPE.toLowerCase() == 'e'){
         this.form.category = '2. PME'
