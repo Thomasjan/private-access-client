@@ -118,7 +118,7 @@ export default {
     search: "",
     family: '',
     subfamily: '',
-    familyItems: ['1. PARTENAIRE', '2. PME', '3. AUTRES'],
+    familyItems: ['1. PAR', '2. PME', '3. AUTRES'],
     subfamilyItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
      
   }),

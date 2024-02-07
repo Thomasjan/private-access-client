@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from './store'
 
 import Home from './components/Home.vue'
 import LoginForm from './components/LoginForm.vue'
@@ -80,7 +81,7 @@ router.beforeEach((to, from, next) => {
         next({ name: 'login' })
     } else {
         // Check if the user has access to administration routes
-        if (to.path.startsWith('/administration') && $store.state.user.role_id!=1) {
+        if (to.path.startsWith('/administration') && store.state.user.role_id!=1) {
             // If user role is not 1, redirect to unauthorized page or another appropriate route
             next({ name: 'login' }) // You can redirect to an unauthorized page or another appropriate route
         } else {
