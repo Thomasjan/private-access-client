@@ -38,7 +38,7 @@
         
         <v-row class="pa-4">
           <v-col cols="6">
-            <v-text-field col="4" v-model="search" label="Rechercher"  class="" prepend-inner-icon="mdi-magnify"></v-text-field>
+            <v-text-field col="4" type="search" v-model="search" label="Rechercher"  class="" prepend-inner-icon="mdi-magnify"></v-text-field>
           </v-col>
           <v-col cols="3">
             <v-select v-model="family" :items="familyItems" label="Famille" clearable></v-select>
@@ -56,43 +56,49 @@
       <v-table density="compact" class="bg-background" >
         <thead>
           <tr class="">
-            <!-- <th class="text-left text-red" @click="sortByField('code_client')">Code</th> -->
-            <th class="text-left text-blue" @click="sortByField('social_reason')">Entreprise</th>
-            <th class="text-left text-black" @click="sortByField('category')">Famille</th>
-            <!-- <th class="text-left text-black" @click="sortByField('subcategory')">Sous-famille</th> -->
-            <th class="text-left text-red" @click="sortByField('surname')">Prénom</th>
-            <th class="text-left text-red" @click="sortByField('name')">Nom</th>
-            <th class="text-left text-red" @click="sortByField('email')">Email</th>
-            <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
-            <th class="text-left text-orange text-center" @click="sortByField('contract')">Contrat</th>
-            <!-- <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th> -->
+            <th class="text-left text-blue cursor-pointer" @click="sortByField('social_reason')">Entreprise</th>
+            <th class="text-left text-black cursor-pointer" @click="sortByField('category')">Famille</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('surname')">Prénom</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('name')">Nom</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('email')">Email</th>
+            <th class="text-left text-green cursor-pointer" @click="sortByField('created_at')">Création</th>
+            <th class="text-left text-orange text-center cursor-pointer" @click="sortByField('contract')">Contrat</th>
+            <th class=""> {{ ' ' }} </th>
           </tr>
         </thead>
         <tbody>
           <tr class="text-subtitle-2"
-            v-for="user in usersFiltered"
-            :key="user.id"
+            v-for="(user, index) in usersFiltered"
+            :key="index"
           >
-            <!-- <td>{{ user.code_client }}</td> -->
             <td> <v-chip color="blue-darken-3">{{ user.social_reason }} </v-chip> </td>
              <td> <v-chip>{{ user.category }}</v-chip> </td>
-            <!-- <td> <v-chip>{{ user.subcategory }}</v-chip> </td> -->
             <td>{{ user.name }}</td>
             <td>{{ user.surname }}</td>
             <td>{{ user.email }}</td>
             <td><v-chip size="small" color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ user.contract? user.contract: 'pas de contrat' }}</v-chip> </td>
-            <!-- <td>{{ user.end_contract }}</td> -->
+            <td>
+              <div class="d-flex align-center">
+                <v-icon @click="editUser(user)">mdi-pencil</v-icon> 
+                <v-icon class="text-red" @click="deleteUser(user)">mdi-delete</v-icon>
+              </div>
+            </td>
           </tr>
         </tbody>
       </v-table>
-
-      
       </div>
-
-        
-
     </div>
+
+    <v-dialog 
+      v-model="editUserDialog" 
+      class="position-absolute"
+      width="600"
+      persistent
+     >
+      <creation-utilisateur v-on:closeDialog="editUserDialog=false" v-bind:userOnEdit="editingUser" v-on:fetchUsers="fetchUsers"></creation-utilisateur>
+    </v-dialog>
+
   </v-card>
 </template>
 
@@ -103,16 +109,16 @@ export default {
   
   data: () => ({
     entrepriseDialog: false,
+    editUserDialog: false,
     userDialog: false,
+    editingUser: null,
     users: [],
 
-
-
     sortBy: [],
-    search: '',
+    search: "",
     family: '',
     subfamily: '',
-    familyItems: ['1. PARTENAIRE', '2. PME', '3. AUTRES'],
+    familyItems: ['1. PAR', '2. PME', '3. AUTRES'],
     subfamilyItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
      
   }),
@@ -122,6 +128,24 @@ export default {
   },
 
   methods: {
+
+    editUser(user){
+      this.editingUser = user
+      this.editUserDialog = true
+    },
+
+    deleteUser(user){
+      console.log(user)
+      window.confirm('Voulez-vous vraiment supprimer cet utilisateur?') && 
+      User.deleteUser(user.id)
+      .then(response => {
+        this.fetchUsers()
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    },
+
     // récupération des Utilisateurs
     fetchUsers(){
       User.getUsers()
@@ -135,8 +159,14 @@ export default {
     },
 
     sortByField(field) {
-    
-    },
+    if (this.sortBy.includes(field)) {
+      this.sortBy = [`${field}_desc`];
+      this.usersFiltered.sort((a, b) => a[field] < b[field] ? 1 : -1);
+    } else {
+      this.sortBy = [field];
+      this.usersFiltered.sort((a, b) => a[field] > b[field] ? 1 : -1);
+    }
+  },
 
     fetchEntreprises(){
       this.fetchUsers()
@@ -148,27 +178,42 @@ export default {
 
   computed: {
     usersFiltered() {
-      let users = this.users
+      let filteredUsers = this.users.slice(); // Create a copy of the original array
 
-      if (this.search) {
-        users = users.filter(user => {
-          return user.name.toLowerCase().includes(this.search.toLowerCase()) || user.surname.toLowerCase().includes(this.search.toLowerCase())  || user.social_reason.toLowerCase().includes(this.search.toLowerCase()) || user.email.toLowerCase().includes(this.search.toLowerCase()) //|| user.code_client.toString().includes(this.search.toLowerCase())
-        })
+      if (this.search !== "") {
+        filteredUsers = filteredUsers.filter(user => {
+          const searchTerm = this.search.toString().toLowerCase();
+          console.log(searchTerm)
+          return (
+            user.name.toString().toLowerCase().includes(searchTerm)
+            || user.surname.toLowerCase().includes(searchTerm) 
+            || user.email.toLowerCase().includes(searchTerm) 
+            || user.social_reason.toLowerCase().includes(searchTerm)
+          );
+        });
       }
+      
+
       if (this.family) {
-        users = users.filter(user => {
-          return user.category === this.family
-        })
-      }
-      if (this.subfamily) {
-        users = users.filter(user => {
-          return user.subcategory === this.subfamily
-        })
+        filteredUsers = filteredUsers.filter(user => {
+          return user.category === this.family;
+        });
       }
 
-      return users
+      if (this.subfamily) {
+        filteredUsers = filteredUsers.filter(user => {
+          return user.subcategory === this.subfamily;
+        });
+      }
+
+      if (this.search === "" && !this.family && !this.subfamily) {
+        // If search is empty and no other filters are applied, return the original array
+        return this.users;
+      }
+
+      return filteredUsers;
     }
-  }
+}
 
   
 

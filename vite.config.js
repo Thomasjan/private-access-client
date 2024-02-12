@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
+import { resolve } from 'path'
 
 const path = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  
   plugins: [
     vue(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
@@ -13,23 +15,19 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+      },
+    },
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {
+      'vue': 'vue/dist/vue.esm-bundler.js',
       '@': path.resolve(__dirname, 'src'),
     },
+    extensions: ['.js', '.vue', '.json'],
   },
-  /* remove the need to specify .vue files https://vitejs.dev/config/#resolve-extensions
-  resolve: {
-    extensions: [
-      '.js',
-      '.json',
-      '.jsx',
-      '.mjs',
-      '.ts',
-      '.tsx',
-      '.vue',
-    ]
-  },
-  */
 })

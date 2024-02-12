@@ -5,7 +5,10 @@
     style="right: 10px; top: 6px"
     @click="closeDialog()"
     >mdi-close</v-icon>
-   <h3 class="text-center">Création d'un nouvel utilisateur</h3>
+
+   <h3 v-if="!userOnEdit" class="text-center">Création d'un nouvel utilisateur</h3>
+    <h3 v-else class="text-center">Modification de l'utilisateur</h3>
+
    <div class="mt-6">
       <v-form fast-fail @submit.prevent>
         <v-text-field
@@ -31,13 +34,13 @@
           label="Email"
           :rules="[v => !!v || 'Email requis']"
         ></v-text-field>
-        <v-text-field
+        <!-- <v-text-field
           color="primary"
           v-model="form.password"
           type="text"
           label="Mot de passe"
           :rules="[v => !!v || 'mot de passe requis']"
-        ></v-text-field>
+        ></v-text-field> -->
 
         <div class="d-flex mt-2">
            <v-select
@@ -81,12 +84,19 @@ import User from '../../../../services/users.service'
 
 export default {
 
+  props: {
+    userOnEdit: {
+      type: Object,
+      default: null
+    }
+  },
+
   data: () => ({
     form:{
       name: '',
       surname: '',
       email: '',
-      password: '',
+      // password: '',
       entreprise: null,
       role: '',
       entreprise_id: null,
@@ -98,6 +108,11 @@ export default {
   }),
   mounted(){
     this.fetchEntreprises()
+
+    if(this.userOnEdit){
+      console.log(this.userOnEdit);
+      this.form = {...this.userOnEdit}  
+    }
   },
   methods:{
 
@@ -124,7 +139,19 @@ export default {
             form.role_id = 4
             break;
       }
-      console.log(form);
+      if(this.userOnEdit){
+        User.updateUser(this.userOnEdit.id, form)
+        .then(res => {
+          this.form = {}
+          this.$emit('fetchUsers')
+          this.closeDialog()
+        })
+        .catch(err => {
+          console.log(err);
+          this.errorMessage = err.response.data;
+        })
+      }
+      else{
         User.postUser(form)
         .then(res => {
           this.form = {}
@@ -135,6 +162,7 @@ export default {
           console.log(err);
           this.errorMessage = err.response.data;
         })
+      }
     },
 
     fetchEntreprises(){
@@ -142,6 +170,9 @@ export default {
       .then(res => {
         this.entreprises = res
         console.log(this.entreprises)
+        if(this.userOnEdit){
+          this.form.entreprise = this.entreprises.find(entreprise => entreprise.code_client === this.userOnEdit.code_client)
+        }
       })
       .catch(err => {
         console.log(err);

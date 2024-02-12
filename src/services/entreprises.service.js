@@ -5,7 +5,9 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
  const entrepriseService = {
     getEntreprises,
     getEntreprise,
-    addEntreprise
+    addEntreprise,
+    updateEntreprise,
+    deleteEntreprise
 };
 
 //récupérer la liste de tous les utilisateurs
@@ -37,6 +39,26 @@ async function addEntreprise(entreprise) {
     return response.data;
   } catch (error) {
     console.error('Error posting entreprise:', error);
+    throw error;
+  }
+}
+
+async function updateEntreprise(id, entreprise) {
+  try {
+    const response = await axios.put(`${API_URL}/entreprises/updateEntreprise/${id}`, entreprise);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating entreprise:', error);
+    throw error;
+  }
+}
+
+async function deleteEntreprise(entreprise_id) {
+  try {
+    const response = await axios.delete(`${API_URL}/entreprises/deleteEntreprise/${entreprise_id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting entreprise:', error);
     throw error;
   }
 }

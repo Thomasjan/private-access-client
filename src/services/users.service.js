@@ -6,7 +6,9 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
   getUsers,
   getUser,
   postUser,
-  updatePassword
+  updateUser,
+  updatePassword,
+  deleteUser
 };
 
 //récupérer la liste de tous les utilisateurs
@@ -41,12 +43,32 @@ async function postUser(user) {
   }
 }
 
+async function updateUser(id, user) {
+  try {
+    const response = await axios.put(`${API_URL}/users/updateUser/${id}`, user);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating user:', error);
+    throw error;
+  }
+}
+
 async function updatePassword(user) {
   try {
     const response = await axios.put(`${API_URL}/users/updatePassword/${user.id}`, user);
     return response.data;
   } catch (error) {
     console.error('Error updating password:', error);
+    throw error;
+  }
+}
+
+async function deleteUser(userId) {
+  try {
+    const response = await axios.delete(`${API_URL}/users/deleteUser/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting user:', error);
     throw error;
   }
 }

@@ -124,10 +124,12 @@
                         >Modifier le mot de passe</v-btn
                     >
                 </v-card-actions>
-            </v-card>
-            <div>
                 
-            </div>
+                <p v-if="message" class="text-center text-success"> {{message}} </p>
+
+                <div v-if="loading" class="loader mx-auto"></div>
+            </v-card>
+            
         </v-hover>
     </div>
 </template>
@@ -147,6 +149,7 @@ export default {
             errors: [],
             error: "",
             message: "",
+            loading: false,
         };
     },
     mounted() {
@@ -161,6 +164,8 @@ export default {
 
         //methode de modification de mot de passe
         resetPassword() {
+            this.message = "";
+            this.errors = [];
             this.form.email = this.$store.state.user.email;
             this.form.id = this.$store.state.user.id;
 
@@ -168,16 +173,20 @@ export default {
                     this.errors.password_confirmation = true;
                     return;
                 }
+            this.loading = true;
             //modification mdp dans BDD
             User.updatePassword(this.form)
                 .then((response) => {
-                    this.message = response;
-                    console.warn(this.message);
+                    this.message = 'Votre mot de passe a bien été modifié !';
+                    this.loading = false;
+                    this.form = {}
+                    console.log(this.message);
                     
                 })
                 .catch((error) => {
-                    this.error = error;
-                    console.warn(this.error);
+                     this.errors.password = true;
+                    this.loading = false;
+                    console.log(this.error);
                 });
         },
     },
@@ -187,5 +196,40 @@ export default {
 
 <style>
 
+.loader {
+        width: 84px;
+        height: 84px;
+        position: relative;
+        overflow: hidden;
+      }
+      .loader:before , .loader:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width:64px;
+        height: 64px;
+        border-radius: 50%;
+        background:#EB6F2A;
+        transform: translate(-50% , 100%)  scale(0);
+        animation: push 2s infinite ease-in;
+      }
+      .loader:after {
+      animation-delay: 1s;
+      }
+      @keyframes push {
+          0% {
+            transform: translate(-50% , 100%)  scale(1);
+          }
+          15% , 25%{
+            transform: translate(-50% , 50%)  scale(1);
+          }
+        50% , 75% {
+            transform: translate(-50%, -30%) scale(0.5);
+          }
+        80%,  100% {
+            transform: translate(-50%, -50%) scale(0);
+          }
+      }
 
 </style>
