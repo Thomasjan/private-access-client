@@ -143,9 +143,9 @@ export default {
       end_contract: '',
     },
     errorMessage: '',
-    categoryItems: ['1. PAR', '2. PME', '3. AUTRES'],
-    subcategoryItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
-    contractItems: ['Aucun', 'CSC', 'CS', 'G-WEB', 'G-TEL'],
+    categoryItems: ['1. PAR', '2. PME', '3. AUTRE'],
+    subcategoryItems: ['1.1 PAR', '1.2 EXP', '1.3 SUP', '1.5 EDI', '2.0 LOC', '2.1 GMA', '2.2 GML'],
+    contractItems: ['Aucun', 'CSC', 'CS', 'G-WEB', 'G-Mail'],
 
     importClientDialog: false,
     GestimumClients: [],
