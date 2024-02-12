@@ -1,11 +1,11 @@
 <template>
-    <v-card class="pa-4 mx-auto bg-background  " max-width="1400px">
+    <v-card class="pa-4 mx-auto bg-background " max-width="1800px">
             <v-row class="flex-row justify-space-between pt-1 pb-6">
                 <div class="flex justify-space-between ml-2">
                     <img class="cursor-pointer" @click="route='/' ;$router.push('/')" src="../../assets/Logo-GESTIMUM.png" alt="">
                 </div>
                 <div class="icon-theme">
-                    <v-icon @click="toggleTheme" size="large">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
+                    <v-icon @click="toggleTheme" size="26">{{ theme.global.name == 'customDarkTheme'? 'mdi-brightness-4': 'mdi-brightness-7' }}</v-icon>
                 </div>
                 <div class="flex-wrap">
                   <v-row class="pa-6"> 

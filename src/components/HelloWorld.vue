@@ -59,13 +59,7 @@ export default {
     };
   },
 
-  mounted() {
-    fetch('http://localhost:3000/')
-    .then(response => response.json())
-    .then(data => {
-      this.items = data;
-    });
-  },
+ 
   
 };
 </script>

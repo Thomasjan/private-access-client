@@ -20,7 +20,7 @@
         </ul>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-4" v-if="pdfs">
         <span class="font-italic">Téléchargements: </span>
         <div v-for="(pdf, index) in pdfs" :key="index">
           <h4 class="mt-2">	{{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> </h4>
@@ -132,7 +132,22 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+
+
+
+    <div class="mt-8 text-center ">
+      <span class="text-primary font-weight-bold">Une plateforme de formation en ligne est disponible pour vous permettre de vous former à votre rythme et à votre convenance.</span>
+      <div class="mt-4">
+        <a href="https://g-formation.gestimum.com/" target="_blank" class="flex flex-col justify-center text-primary">
+        G-Formation
+        <v-img class="rounded-xl mx-auto mt-2" src="images/logo.jpg" width="20%" aspect-ratio="4/3"/>
+      </a>
+      </div>
+      
+    </div>
   </v-card>
+  
 
 </template>
 

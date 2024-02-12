@@ -57,19 +57,20 @@
       <v-table density="compact" class="bg-background">
         <thead>
           <tr class="">
-            <th class="text-left text-red" @click="sortByField('code_client')">Code</th>
-            <th class="text-left text-red" @click="sortByField('social_reason')">Entreprise</th>
-            <th class="text-left text-blue" @click="sortByField('category')">Famille</th>
-            <th class="text-left text-blue" @click="sortByField('subcategory')">Sous-famille</th>
-            <th class="text-left text-green" @click="sortByField('craeted_at')">Création</th>
-            <th class="text-left text-orange text-center" @click="sortByField('contract')">Contrat</th>
-            <th class="text-left text-orange" @click="sortByField('end_contract')">Date fin contrat</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('code_client')">Code</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('social_reason')">Entreprise</th>
+            <th class="text-left text-blue cursor-pointer" @click="sortByField('category')">Famille</th>
+            <th class="text-left text-blue cursor-pointer" @click="sortByField('subcategory')">Sous-famille</th>
+            <th class="text-left text-green cursor-pointer" @click="sortByField('craeted_at')">Création</th>
+            <th class="text-left text-orange text-center cursor-pointer" @click="sortByField('contract')">Contrat</th>
+            <th class="text-left text-orange cursor-pointer" @click="sortByField('end_contract')">Date fin contrat</th>
+            <th class=""> {{ ' ' }} </th>
           </tr>
         </thead>
         <tbody>
           <tr class="text-subtitle-2"
-            v-for="entreprise in entreprisesFiltered"
-            :key="entreprise.id"
+            v-for="(entreprise, index) in entreprisesFiltered"
+            :key="index"
           >
             <td> <v-chip color="purple">{{ entreprise.code_client }}</v-chip> </td>
             <td> <v-chip color="blue-darken-3">{{ entreprise.social_reason }}</v-chip> </td>
@@ -78,6 +79,12 @@
             <td><v-chip size="small" color="primary">{{ entreprise.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ entreprise.contract? entreprise.contract: 'pas de contrat' }} </v-chip> </td>
             <td> <v-chip size="small" :color="isContractExpired(entreprise) ? 'red' : 'green'">{{ entreprise.end_contract }}</v-chip> </td>
+            <td>
+               <div class="d-flex align-center">
+                <v-icon @click="editCompany(entreprise)">mdi-pencil</v-icon> 
+                <v-icon class="text-red" @click="deleteCompany(entreprise)">mdi-delete</v-icon>
+              </div>
+            </td>
           </tr>
         </tbody>
       </v-table>
@@ -87,7 +94,17 @@
         
 
     </div>
+    <v-dialog 
+      v-model="editEntrepriseDialog" 
+      class="position-absolute"
+      width="600"
+      persistent
+     >
+      <creation-entreprise v-on:closeDialog="editEntrepriseDialog=false" v-bind:entreprise="editingEntreprise" ></creation-entreprise>
+    </v-dialog>
   </v-card>
+
+ 
 </template>
 
 <script>
@@ -97,14 +114,16 @@ export default {
   
   data: () => ({
     entrepriseDialog: false,
+    editEntrepriseDialog: false,
     userDialog: false,
     entreprises: [],
     sortBy: [],
 
+    editingEntreprise: {},
     search: '',
     family: '',
     subfamily: '',
-    familyItems: ['1. PARTENAIRE', '2. PME', '3. AUTRES'],
+    familyItems: ['1. PAR', '2. PME', '3. AUTRES'],
     subfamilyItems: ['1.1 PARTENAIRES', '1.2 EXPERTS', '1.3 EXPERTS SUPPORT', '1.4 EX-PARTENAIRES', '1.5 EDITEURS EXPERTS', '2.1 PME G-WEB', '2.2 PME G-TEL'],
 
      
@@ -115,6 +134,25 @@ export default {
   },
 
   methods: {
+
+    editCompany(entreprise) {
+      console.log(entreprise)
+      this.editingEntreprise = entreprise
+      this.editEntrepriseDialog = true
+    },
+
+    deleteCompany(entreprise){
+      console.log(entreprise)
+      window.confirm('Voulez-vous vraiment supprimer cette entreprise? Tous les utilisateurs de cette entreprise seront supprimés') && 
+      Entreprises.deleteEntreprise(entreprise.id)
+      .then(response => {
+        this.fetchEntreprises()
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    },
+
     // récupération des Utilisateurs
     fetchEntreprises(){
       Entreprises.getEntreprises()
@@ -127,8 +165,14 @@ export default {
     },
 
     sortByField(field) {
-    
-    },
+    if (this.sortBy.includes(field)) {
+      this.sortBy = [`${field}_desc`];
+      this.entreprisesFiltered.sort((a, b) => a[field] < b[field] ? 1 : -1);
+    } else {
+      this.sortBy = [field];
+      this.entreprisesFiltered.sort((a, b) => a[field] > b[field] ? 1 : -1);
+    }
+  },
 
     isContractExpired(entreprise) {
       const currentDate = new Date();

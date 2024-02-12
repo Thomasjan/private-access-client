@@ -23,7 +23,7 @@
   
   <h1 class="text-primary text-center">G-News</h1>
 
-  <div v-if="loading" class="w-50 mx-auto" style="margin-top: 200px">
+  <div v-if="loading" class="w-25 mx-auto" style="margin-top: 200px">
      <lottie-animation
         ref="anim"
         :animationData="LinkedinAnimation"
