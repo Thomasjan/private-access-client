@@ -6,7 +6,7 @@
       <div class="mt-6 mx-auto text-center" v-if="lastUpload != {}">
         <h2 class="text-decoration-underline">Dernière version du logiciel</h2>
         <!-- <p class="mt-4 ml-2 text-primary font-italic  font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p> -->
-        <p class="mt-4 ml-2 text-primary font-italic font-weight-bold text-lg-h5">Si votre version de Gestimum ERP est antérieur à la version <strong class="text-blue">9</strong>, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
+        <p class="mt-4 ml-2 text-primary font-italic font-weight-bold text-lg-h5">Si votre version de Gestimum ERP est antérieure à la version <strong class="text-blue">9</strong>, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         <div class="mt-2 d-flex flex-column justify-center align-center">
             <h3 class="text-blue mt-2">Version {{lastUpload.version}} </h3>
             <v-img class="mr-2 bg-blue mt-2 w-25 rounded-lg cursor-pointer" @click="downloadLink(lastUpload)" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
@@ -86,7 +86,7 @@
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-2 text-hover cursor-pointer">
               <p class="d-flex" @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SSMS')">
               Installation Microsoft SQL Server Management Studio
-                <span class="font-weight-bold text-primary cursor-pointer ml-2"  ></span> 
+                <span class="font-weight-bold text-primary cursor-pointer ml-2"></span> 
               </p>
                 <v-icon class="cursor-pointer" color="primary"  @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SSMS')" >mdi-download</v-icon>
             </div>
