@@ -51,17 +51,17 @@
         </v-table>
       </div> -->
 
-      <div class="mt-4">
+      <div class="mt-4 w-100">
           <h3 class="text-primary">CRITERE DE TAILLE</h3>
           <p class="mt-2 text-left text-subtitle-2">GESTIMUM s’appuie sur une base de données relationnelle qui permet de gérer une volumétrie quasi illimitée tant en terme de données, qu’en terme d’utilisateurs. A ce titre, l’effectif seul n’est pas un critère de prospection, il faut le croiser à d’autres critères comme par exemple, le secteur d’activité et / ou la date de création de la société. </p> <br>
-            92 % des PME clientes ont un effectif inférieur à 50 salariés <br>
+           <div class="text-center text-subtitle-2 font-weight-bold"> 92 % des PME clientes ont un effectif inférieur à 50 salariés </div> <br>
             <v-img class="mx-auto rounded-sm my-2" src="images/clients par effectifs.PNG" width="60%" />
 
-            65 % des PME clientes réalise un CA compris entre 0.75 et 7.5 M€.
+            <div class="text-center text-subtitle-2 font-weight-bold my-4"> 65 % des PME clientes réalise un CA compris entre 0.75 et 7.5 M€.</div>
             <v-img class="mx-auto rounded-sm my-2" src="images/clients par CA.PNG" width="60%" />
 
 
-            90 % de nos clients ont plus de 10 ans d’activité.
+            <div class="text-center text-subtitle-2 font-weight-bold my-4"> 90 % de nos clients ont plus de 10 ans d’activité. </div>
             <v-img class="mx-auto rounded-sm my-2" src="images/clients par ancienneté.PNG" width="60%" />
 
           

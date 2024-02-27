@@ -141,7 +141,7 @@
       <div class="mt-4">
         <a href="https://g-formation.gestimum.com/" target="_blank" class="flex flex-col justify-center text-primary">
         G-Formation
-        <v-img class="rounded-xl mx-auto mt-2" src="images/logo.jpg" width="20%" aspect-ratio="4/3"/>
+        <v-img class="rounded-xl mx-auto mt-2" src="images/logo.png" width="20%" aspect-ratio="4/3"/>
       </a>
       </div>
       
