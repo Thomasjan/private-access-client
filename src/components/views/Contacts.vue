@@ -24,7 +24,7 @@
 export default {
   
   data: () => ({
-    pdfContact: 'images/contact-2023.png'
+    pdfContact: 'images/contact-fevrier-2024.png'
   }),
 
   methods: {

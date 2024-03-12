@@ -41,7 +41,7 @@
         <h3 class="text-primary">Détails des évolutions depuis la version 7</h3>
 
         <div class="mx-auto">
-          <v-img class="cursor-pointer mx-auto" @click="openLink('https://docs.gestimum.com/ERP/9.5/NotesVersion/#t=racine%2Fbienvenue.htm')" width="70%" src="https://espace-prive.gestimum.com/images/Lisez-moi/950.png" aspect-ratio="4/3" />
+          <v-img class="cursor-pointer mx-auto" @click="openLink('https://docs.gestimum.com/ERP/9.5/NotesVersion/#t=racine%2Fbienvenue.htm')" width="70%" src="/images/Brochure-9.5.png" aspect-ratio="4/3" />
         </div>
       </div>
 
@@ -69,7 +69,7 @@
           <h4>1 - Installation de SQL Server :</h4>
           <div class="d-flex justify-space-between text-subtitle-2 mt-2">
             <p >Pré requis avant l'installation de SQL Server 2019 Express et SQL Server Management Studio (En français):</p>
-            <p class="text-hover cursor-pointer">[Pour en savoir +]</p>
+            <p class="text-hover cursor-pointer" @click="openLink('https://learn.microsoft.com/fr-fr/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-ver16&redirectedfrom=MSDN')">[Pour en savoir +]</p>
           </div>
           <ul class="ml-8 mt-2">
             <li>Installez <a class="text-hover cursor-pointer" @click="openLink('https://support.microsoft.com/fr-fr/kb/3045560')">Microsoft .Net Framework 4.6.</a>  pour SQL Server Express</li>
@@ -77,18 +77,18 @@
           </ul>
           
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-8 text-hover cursor-pointer">
-              <p class="d-flex" @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SQL_64')">
+              <p class="d-flex" @click="openLink('https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe')">
                 Installation de SQL Server 2019 Express 64 bit
                 <span class="font-weight-bold text-primary cursor-pointer ml-2"  ></span> 
               </p>
-                <v-icon class="cursor-pointer" color="primary"  @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SQL_64')" >mdi-download</v-icon>
+                <v-icon class="cursor-pointer" color="primary"  @click="openLink('https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe')" >mdi-download</v-icon>
             </div>
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-2 text-hover cursor-pointer">
-              <p class="d-flex" @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SSMS')">
+              <p class="d-flex" @click="openLink('https://aka.ms/ssmsfullsetup')">
               Installation Microsoft SQL Server Management Studio
                 <span class="font-weight-bold text-primary cursor-pointer ml-2"></span> 
               </p>
-                <v-icon class="cursor-pointer" color="primary"  @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SSMS')" >mdi-download</v-icon>
+                <v-icon class="cursor-pointer" color="primary"  @click="openLink('https://aka.ms/ssmsfullsetup')" >mdi-download</v-icon>
             </div>
         </div>
       </div>
@@ -177,7 +177,7 @@
 
           <p class="text-hover text-orange cursor-pointer" @click="moreInfosCompta = !moreInfosCompta"> {{moreInfosCompta? "Moins d'infos..." : "Plus d'infos..."}} </p>
       </div>
-      <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
+      <v-img class="cursor-pointer" src="/images/FP-Compta-01.jpg" width="40%" @click="zoomImage('/images/FP-Compta-01.jpg')" />
     </div>
 
     <!-- MORE INFOS COMPTA -->
@@ -203,7 +203,7 @@
                     Établissez un nombre illimité de plans analytiques.
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
+                <v-img class="cursor-pointer" src="/images/FP-Compta-01.jpg" width="40%" @click="zoomImage('/images/FP-Compta-01.jpg')" />
               </div>
 
               <div class="mt-6">
@@ -216,7 +216,7 @@
               </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/02-Comptes.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/02-Comptes.jpg')" />
+                <v-img class="cursor-pointer" src="/images/02-Comptes.jpg" width="40%" @click="zoomImage('/images/02-Comptes.jpg')" />
 
                 <div>
                   <p class="text-start ml-2">
@@ -246,7 +246,7 @@
                   Gagnez en temps et en fiabilité grâce aux nombreux guides et automatismes de l’application.
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-03.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-03.jpg')" />
+                <v-img class="cursor-pointer" src="/images/FP-Compta-03.jpg" width="40%" @click="zoomImage('/images/FP-Compta-03.jpg')" />
               </div>
 
               <div class="mt-6">
@@ -259,7 +259,7 @@
             </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-02.jpg')" />
+                <v-img class="cursor-pointer" src="/images/FP-Compta-02.jpg" width="40%" @click="zoomImage('/images/FP-Compta-02.jpg')" />
 
                 <div>
                   <p class="text-start ml-2">
@@ -303,7 +303,7 @@
           <p class="text-hover text-orange cursor-pointer" @click="moreInfosCommercial = !moreInfosCommercial"> {{moreInfosCommercial? "Moins d'infos..." : "Plus d'infos..."}} </p>
       </div>
 
-      <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')"  />
+      <v-img class="cursor-pointer" src="/images/FP-Gesco-02.jpg" width="40%" @click="zoomImage('/images/FP-Gesco-02.jpg')"  />
     </div>
 
     <!-- MORE INFOS COMMERCIALE -->
@@ -335,7 +335,7 @@
                     Établissez une tarification élaborée : grilles, promotions, remises...
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-03.jpg" width="30%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-03.jpg')" />
+                <v-img class="cursor-pointer" src="/images/FP-Gesco-03.jpg" width="30%" @click="zoomImage('/images/FP-Gesco-03.jpg')" />
               </div>
 
               <div class="mt-6">
@@ -348,7 +348,7 @@
               </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')" />
+                <v-img class="cursor-pointer" src="/images/FP-Gesco-02.jpg" width="40%" @click="zoomImage('/images/FP-Gesco-02.jpg')" />
 
                 <div>
                   <p class="text-start ml-2">
@@ -395,7 +395,7 @@
             </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/Perso-doc.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/Perso-doc.jpg')" />
+                <v-img class="cursor-pointer" src="/images/Perso-doc.jpeg" width="40%" @click="zoomImage('/images/Perso-doc.jpeg')" />
 
                 <div>
                   <p class="text-start ml-2">
@@ -407,7 +407,7 @@
                 </div>
               </div>
         </div>
-        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Commerciale','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMMERCIALE.pdf')" >mdi-download</v-icon> </p>
+        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Commerciale','/pdfs/Fiche-produit-GESTION-COMMERCIALE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -466,11 +466,11 @@ export default {
 
   methods: {
     getLink(item) {
-      let link = 'http://api-espace-prive.gestimum.com/files/uploads/' + item.image_path
+      let link = `${import.meta.env.VITE_APP_API_URL}/files/uploads/` + item.image_path
       return link
     },
     downloadLink(item) {
-      let link = 'http://api-espace-prive.gestimum.com/files/uploads/' + item.file_path
+      let link = `${import.meta.env.VITE_APP_API_URL}/files/uploads/` + item.file_path
       window.open(link, '_blank')
     },
 
