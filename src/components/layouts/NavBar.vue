@@ -12,20 +12,16 @@
                   <v-row class="pa-6"> 
                     <v-icon size="30" class="links cursor-pointer" @click="route='/profil'; $router.push('/profil')">mdi-account</v-icon>
                     <v-icon size="30" class=" ml-4 px-2 cursor-pointer links" @click="logout()">mdi-logout</v-icon>
-                    <!-- <p class="px-2 cursor-pointer links" @click="route='/contacts'; $router.push('/contacts')">Contact</p> -  -->
-                    <!-- <p class="px-2 cursor-pointer links"  @click="logout()">Revenir à l'espace public</p> -->
                    </v-row> 
                 </div>
             </v-row>
             <v-divider></v-divider>
 
-        <div >
-
+        <div>
             <div class="mx-auto mt-16 pb-16 mb-14" style="width: 90%;" v-if="route=='/'">
                 <h3 class="text-center">Bienvenue, <span class="text-capitalize text-primary"> {{$store.state.user.surname}}</span> <strong class="text-uppercase text-primary">{{$store.state.user.name}}</strong> dans votre espace privé Gestimum</h3>
                 <div class="mt-14">
                     
-
                     <!-- Menu client -->
                     <v-row class="flex-row justify-center" v-if="$store.state.user.role_id >=3">
                         <v-flex v-for="item in nav.client" :key="item.route">
@@ -85,53 +81,50 @@
 
             <div v-else>
                 <v-layout >
-                <v-navigation-drawer permanent class="bg-primary rounded-e-shaped "
-                    expand-on-hover
-                    rail
-                >
-                    <v-list>
-                    <v-list-item
-                        @click="route='/profil'; $router.push('/profil')"
-                        class="cursor-pointer"
-                        prepend-avatar="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
-                        :title="$store.state.user.name"
-                        :subtitle="$store.state.user.email"
-                    ></v-list-item>
-                    </v-list>
-
-                    <v-divider></v-divider>
-
-                    <!-- menu client -->
-                    <div v-if="$store.state.user.role_id >=3">
-                        <v-list density="compact" nav v-for="item in nav.client" :key="item.route">
-                            <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
+                    <v-navigation-drawer permanent class="bg-primary rounded-e-shaped "
+                        expand-on-hover
+                        rail
+                    >
+                        <v-list>
+                        <v-list-item
+                            @click="route='/profil'; $router.push('/profil')"
+                            class="cursor-pointer"
+                            prepend-avatar="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
+                            :title="$store.state.user.name"
+                            :subtitle="$store.state.user.email"
+                        ></v-list-item>
                         </v-list>
-                    </div>
 
-                    <!-- Menu admin / partenaire -->
-                    <div v-else>
-                        <v-list density="compact" nav v-for="item in nav.partenaire" :key="item.route">
-                            <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
-                        </v-list>
-                    </div>
+                        <v-divider></v-divider>
+                        <!-- menu client -->
+                        <div v-if="$store.state.user.role_id >=3">
+                            <v-list density="compact" nav v-for="item in nav.client" :key="item.route">
+                                <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
+                            </v-list>
+                        </div>
 
-                    <v-list-item class="mt-6" v-if="$store.state.user.role_id === 1" prepend-icon="mdi-cog" title="Administration" @click="$router.push({path: '/administration'})"></v-list-item>
+                        <!-- Menu admin / partenaire -->
+                        <div v-else>
+                            <v-list density="compact" nav v-for="item in nav.partenaire" :key="item.route">
+                                <v-list-item :class="route==item.route? 'bg-surface rounded-e-xl': ''" :prepend-icon="item.icon" :title="item.text"  @click="handleMenu(item)"></v-list-item>
+                            </v-list>
+                        </div>
 
+                        <v-list-item class="mt-6" v-if="$store.state.user.role_id === 1" prepend-icon="mdi-cog" title="Administration" @click="$router.push({path: '/administration'})"></v-list-item>
+                    </v-navigation-drawer>
 
-                </v-navigation-drawer>
-
-                <v-main style="height: 100vh; overflow-y: scroll" class="ml-0 hide-scroll">
-                    <router-view style="min-height: 90vh"></router-view>
-                </v-main>
+                    <v-main style="height: 100vh; overflow-y: scroll" class="ml-0 hide-scroll">
+                        <router-view style="min-height: 90vh"></router-view>
+                    </v-main>
                 </v-layout>
             </div>
 
         </div>
         
         <div class="text-center d-flex justify-center">
-                        <v-icon>mdi-copyright</v-icon>
-                        <p class="ml-2">Gestimum {{new Date().getFullYear()}} </p>
-                    </div>
+            <v-icon>mdi-copyright</v-icon>
+            <p class="ml-2">Gestimum {{new Date().getFullYear()}} </p>
+        </div>
         </v-card>
 </template>
 
@@ -288,6 +281,12 @@ export default {
         }
     },
 
+    watch: {
+        $route(to, from){
+            this.route = to.path
+        }
+    },
+
     methods:{
         handleMenu(item){
             this.route = item.route;
@@ -332,4 +331,4 @@ export default {
 }
 
 
-</style>
+</style>import { watch } from 'vue';
