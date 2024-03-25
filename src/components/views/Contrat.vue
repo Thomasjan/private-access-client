@@ -21,10 +21,10 @@
           <div>
             <h4 class="text-teal">PARTENAIRE EXPERT: Une relation privilégiée...des prestations à haute valeur ajoutée</h4>
             <div class="d-flex mt-4">
-              <p class="mr-8 text-subtitle-2">Vous êtes un professionnel de l’intégration en informatique de gestion. Vous maîtrisez l’environnement Microsoft Windows Server et SQL Server, et disposez des ressources commerciales et techniques prête à se former sur nos solutions.
+              <p class="mr-8 text-subtitle-2">Vous êtes un professionnel de l’intégration en informatique de gestion. Vous maîtrisez l’environnement Microsoft Windows Server et SQL Server, et disposez des ressources commerciales et techniques prêtes à se former sur nos solutions.
                 En tant que Partenaire Expert, vous profitez d’un programme d’accompagnement comprenant un Ingénieur d’Affaires dédié, une assistance technique illimitée ainsi qu’un crédit formation. GESTIMUM met à votre disposition des licences pour votre usage interne, ainsi que des outils pour faciliter votre communication et la gestion de vos prospects et clients !
                 Vous profitez de conditions commerciales privilégiées sur nos produits et services.
-                Vous gérer votre parc client GESTIMUM en toute autonomie et développez un business récurrent à forte valeur ajoutée pour votre entreprise.</p>
+                Vous gérez votre parc client GESTIMUM en toute autonomie et développez un business récurrent à forte valeur ajoutée pour votre entreprise.</p>
               <v-img src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-expert-2015.png" width="20%" />
             </div>
           </div>
@@ -34,7 +34,7 @@
           <div>
             <h4 class="text-primary">PARTENAIRE SUPPORT La synergie absolue...</h4>
             <div class="d-flex mt-4">
-              <p class="mr-8 text-subtitle-2">Ce contrat est réservé aux Partenaire Expert disposant d’une équipe technique et commerciale dédiée de niveau 2 et d’un parc clients significatif. Le Partenaire Support s’engage à réaliser l’assistance niveau 1 de ses clients. Outres les avantages du programme Expert, les partenaires et les PME utilisatrices apprécient le double accompagnement du Partenaire Support et de l’éditeur.</p>
+              <p class="mr-8 text-subtitle-2">Ce contrat est réservé aux Partenaires Experts disposant d’une équipe technique et commerciale dédiée de niveau 2 et d’un parc clients significatif. Le Partenaire Support s’engage à réaliser l’assistance niveau 1 de ses clients. Outre les avantages du programme Expert, les partenaires et les PME utilisatrices apprécient le double accompagnement du Partenaire Support et de l’éditeur.</p>
               <v-img src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-expert-support-2015.png" width="20%" />
             </div>
           </div>

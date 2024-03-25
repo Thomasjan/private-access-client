@@ -14,7 +14,7 @@ async function getLinkedinPosts() {
     return response.data;
   } catch (error) {
     console.error('Error getting Linkedin posts:', error);
-    throw error;
+    return { error: error.response.data };
   }
 }
 
@@ -24,7 +24,7 @@ async function refreshLinkedinToken() {
     return response.data;
   } catch (error) {
     console.error('Error refreshLinkedinToken:', error);
-    throw error;
+    return { error: error.response.data };
   }
 }
 
