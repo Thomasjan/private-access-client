@@ -41,7 +41,7 @@
         <h3 class="text-primary">Détails des évolutions depuis la version 7</h3>
 
         <div class="mx-auto">
-          <v-img class="cursor-pointer mx-auto" @click="openLink('http://docs.gestimum.com/ERP/9.4/NotesVersion/#t=racine%2Fbienvenue.htm')" width="70%" src="http://espace-prive.gestimum.com/images/Lisez-moi/940.png" aspect-ratio="4/3" />
+          <v-img class="cursor-pointer mx-auto" @click="openLink('http://docs.gestimum.com/ERP/9.4/NotesVersion/#t=racine%2Fbienvenue.htm')" width="70%" src="http://espace-prive.gestimum.com/images/Lisez-moi/950.png" aspect-ratio="4/3" />
         </div>
       </div>
 
