@@ -4,8 +4,8 @@
     
     <p class="text-center px-16 mt-4">Gestimum vous propose d'accéder à son aide en ligne complète et détaillée, une ressource idéale 
        pour trouver des réponses à vos questions en toute autonomie. 
-       . L’occasion pour vous d'explorer de manière approfondie les nombreuses fonctionnalités, astuces, 
-       et guides disponibles via cette ressource en ligne de Gestimum .
+       L’occasion pour vous d'explorer de manière approfondie les nombreuses fonctionnalités, astuces, 
+       et guides disponibles via cette ressource en ligne de Gestimum.
    </p>
 
     <div class="mt-4 w-25 mx-auto">

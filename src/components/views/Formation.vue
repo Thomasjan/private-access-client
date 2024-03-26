@@ -23,15 +23,18 @@
       <div class="mt-4" v-if="pdfs">
         <span class="font-italic">Téléchargements: </span>
         <div v-for="(pdf, index) in pdfs" :key="index">
-          <h4 class="mt-2">	{{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> </h4>
+          <h4 v-if="isVisible(pdf.title)" class="mt-2">	
+          {{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> 
+          </h4>
         </div>
       </div>
    </div>
 
    <div class="mt-2 ml-2" v-else>
     <div v-for="(pdf, index) in pdfs" :key="index">
-      <h4 class="mt-2">	{{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> </h4>
+      <h4 v-if="isVisible(pdf.title)" class="mt-2">	{{pdf.title}} <v-icon color="primary" class="cursor-pointer"  @click="downloadPdf(pdf.title, pdf.link)">mdi-download</v-icon> </h4>
     </div>
+
       <div class="mt-4">
         <h3 class="text-primary mb-4">Intégration & Formation - Durées préconisées</h3>
 
@@ -60,7 +63,7 @@
        
 
     <div class="text-center mt-10 font-italic text-subtitle-2">
-        Le maquettage fonctionnel permet de réduire significativement la durée de formation et d'améliorer la qualité d'accompagnement. Sans maquettage fonctionnel, la formation ne pourra se dérouler que sur la base de fichier de démonstration générique. La durée des prestations est donnée à titre indicatif et dépend du niveau des utilisateurs et de la profondeur du périmètre fonctionnel à étudier. L'installation de l'ERP doit être effectuée avant toute session de formation.
+        Le maquettage fonctionnel permet de réduire significativement la durée de formation et d'améliorer la qualité d'accompagnement. Sans maquettage fonctionnel, la formation ne pourra se dérouler que sur la base de fichiers de démonstration générique. La durée des prestations est donnée à titre indicatif et dépend du niveau des utilisateurs et de la profondeur du périmètre fonctionnel à étudier. L'installation de l'ERP doit être effectuée avant toute session de formation.
     </div>
 
    </div>
@@ -181,6 +184,15 @@ export default {
   },
   methods: {
 
+     isVisible(title) {
+        const roleId = this.$store.state.user.role_id;
+        if (roleId === 3 && (title === "Bulletin d'inscription à nos formations" || title === "Nos catalogues de formation - Partenaires")) {
+            return false;
+        } else if (roleId === 2 && title === "Nos catalogues de formation - PME") {
+            return false;
+        }
+        return true;
+    },
     
     //get Formations
     fetchFormations() {
@@ -335,6 +347,5 @@ export default {
   color: rgb(255, 27, 27);
 }
 </style>
-
 
 

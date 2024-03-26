@@ -6,7 +6,7 @@
       <div class="mt-6 mx-auto text-center" v-if="lastUpload != {}">
         <h2 class="text-decoration-underline">Dernière version du logiciel</h2>
         <!-- <p class="mt-4 ml-2 text-primary font-italic  font-weight-bold text-subtitle-2">Avant de télécharger la nouvelle version Gestimum ERP, nous vous invitons à consulter le service client au 01 34 84 09 99.</p> -->
-        <p class="mt-4 ml-2 text-primary font-italic font-weight-bold text-lg-h5">Si votre version de Gestimum ERP est antérieure à la version <strong class="text-blue">9</strong>, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
+        <p class="mt-4 ml-2 text-primary font-italic font-weight-bold text-lg-h5">Si votre version de Gestimum ERP est antérieur à la version <strong class="text-blue">9</strong>, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         <div class="mt-2 d-flex flex-column justify-center align-center">
             <h3 class="text-blue mt-2">Version {{lastUpload.version}} </h3>
             <v-img class="mr-2 bg-blue mt-2 w-25 rounded-lg cursor-pointer" @click="downloadLink(lastUpload)" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
@@ -41,7 +41,7 @@
         <h3 class="text-primary">Détails des évolutions depuis la version 7</h3>
 
         <div class="mx-auto">
-          <v-img class="cursor-pointer mx-auto" @click="openLink('https://docs.gestimum.com/ERP/9.5/NotesVersion/#t=racine%2Fbienvenue.htm')" width="70%" src="/images/Brochure-9.5.png" aspect-ratio="4/3" />
+          <v-img class="cursor-pointer mx-auto" @click="openLink('https://docs.gestimum.com/ERP/Production/NotesVersion/Version9/Version_9.5.html')" width="70%" src="http://espace-prive.gestimum.com/images/Lisez-moi/950.png" aspect-ratio="4/3" />
         </div>
       </div>
 
@@ -52,8 +52,8 @@
       ></v-divider>
 
       <div class="mt-4 d-flex justify-space-between">
-          <h4 class="cursor-pointer text-hover" @click="openLink('http://docs.gestimum.com/ERP/9/Installation/#t=01%2FPreambule.htm')">Pré-requis et Guide d'installation de SQL Server 2019 Express et de Gestimum</h4>
-          <v-icon class="cursor-pointer"  @click="openLink('http://docs.gestimum.com/ERP/9/Installation/#t=01%2FPreambule.htm')" >mdi-help</v-icon>
+          <h4 class="cursor-pointer text-hover" @click="openLink('https://docs.gestimum.com/ERP/Production/Installation/05/InstallationMicrosoftSQLServerExpressFrancais.html?h=2019+sql+server')">Pré-requis et Guide d'installation de SQL Server 2019 Express et de Gestimum</h4>
+          <!-- <v-icon class="cursor-pointer"  @click="openLink('http://docs.gestimum.com/ERP/9/Installation/#t=01%2FPreambule.htm')" >mdi-help</v-icon> -->
       </div>
 
 
@@ -69,7 +69,7 @@
           <h4>1 - Installation de SQL Server :</h4>
           <div class="d-flex justify-space-between text-subtitle-2 mt-2">
             <p >Pré requis avant l'installation de SQL Server 2019 Express et SQL Server Management Studio (En français):</p>
-            <p class="text-hover cursor-pointer" @click="openLink('https://learn.microsoft.com/fr-fr/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-ver16&redirectedfrom=MSDN')">[Pour en savoir +]</p>
+            <p class="text-hover cursor-pointer">[Pour en savoir +]</p>
           </div>
           <ul class="ml-8 mt-2">
             <li>Installez <a class="text-hover cursor-pointer" @click="openLink('https://support.microsoft.com/fr-fr/kb/3045560')">Microsoft .Net Framework 4.6.</a>  pour SQL Server Express</li>
@@ -77,18 +77,18 @@
           </ul>
           
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-8 text-hover cursor-pointer">
-              <p class="d-flex" @click="openLink('https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe')">
+              <p class="d-flex" @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SQL_64')">
                 Installation de SQL Server 2019 Express 64 bit
                 <span class="font-weight-bold text-primary cursor-pointer ml-2"  ></span> 
               </p>
-                <v-icon class="cursor-pointer" color="primary"  @click="openLink('https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe')" >mdi-download</v-icon>
+                <v-icon class="cursor-pointer" color="primary"  @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SQL_64')" >mdi-download</v-icon>
             </div>
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-2 text-hover cursor-pointer">
-              <p class="d-flex" @click="openLink('https://aka.ms/ssmsfullsetup')">
+              <p class="d-flex" @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SSMS')">
               Installation Microsoft SQL Server Management Studio
-                <span class="font-weight-bold text-primary cursor-pointer ml-2"></span> 
+                <span class="font-weight-bold text-primary cursor-pointer ml-2"  ></span> 
               </p>
-                <v-icon class="cursor-pointer" color="primary"  @click="openLink('https://aka.ms/ssmsfullsetup')" >mdi-download</v-icon>
+                <v-icon class="cursor-pointer" color="primary"  @click="openLink('http://espace-prive.gestimum.com/Script-telechargement/VGestimum.php?fichier=SSMS')" >mdi-download</v-icon>
             </div>
         </div>
       </div>
@@ -127,7 +127,7 @@
           <p class="py-1"><strong class="font-italic">Evolutive</strong> <v-icon color="primary">mdi-arrow-right</v-icon>	De 5 à plus de 300 postes.</p>
           <p class="py-1"><strong class="font-italic">Pérenne</strong>   <v-icon color="primary">mdi-arrow-right</v-icon> Gestimum ERP existe depuis 1998, a une base installée de près de 10 000 utilisateurs, est commercialisée par 150 partenaires dans toute la France et l’Afrique francophone.</p>
           <p class="py-1"><strong class="font-italic">Puissante</strong> <v-icon color="primary">mdi-arrow-right</v-icon> 	Nativement sur une base de données MS-SQL Server, Gestimum ERP gère des flux d’informations très importants en toute sécurité et des bases de données quasi-illimitées.</p>
-          <p class="py-1"><strong class="font-italic">Intégrée</strong>  <v-icon color="primary">mdi-arrow-right</v-icon>Une seule base de donnée, une interface commune entre la Gestion Comptable, la Gestion Commerciale et la Relation clients.</p>
+          <p class="py-1"><strong class="font-italic">Intégrée</strong>  <v-icon color="primary">mdi-arrow-right</v-icon>Une seule base de données, une interface commune entre la Gestion Comptable, la Gestion Commerciale et la Relation clients.</p>
           <p class="py-1"><strong class="font-italic">Ouverte</strong>   <v-icon color="primary">mdi-arrow-right</v-icon>	Gestimum ERP s’intègre naturellement dans votre existant informatique, et communique simplement avec vos partenaires.</p>
           <p class="py-1"><strong class="font-italic">Complète</strong>  <v-icon color="primary">mdi-arrow-right</v-icon>	Gestimum ERP optimise l'ensemble des processus opérationnels de la PME, hors gestion de production.</p>
           <p class="py-1"><strong class="font-italic">Conviviale</strong><v-icon color="primary">mdi-arrow-right</v-icon>	Intuitive comme une suite bureautique, personnalisable comme un logiciel professionnel.</p>
@@ -149,7 +149,7 @@
         
           <ul class="px-8 mt-2">
             <li>Gestimum PME, pour les PME matures, ayant des exigences en terme de fonctionnalités et de performance de leur solution de gestion - Licences à partir de 2 400 €HT</li>
-            <li>Gestimum PME Initiale, adapté aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
+            <li>Gestimum PME Initiale, adaptée aux TPE ayant des besoins fonctionnels réduits et des budgets serrés - Licences à partir de 600 €HT</li>
           </ul>
 
           <v-img class="mt-2 mx-auto cursor-pointer" :src="pdfMap" width="50%" @click="zoomImage(pdfMap)" />
@@ -177,7 +177,7 @@
 
           <p class="text-hover text-orange cursor-pointer" @click="moreInfosCompta = !moreInfosCompta"> {{moreInfosCompta? "Moins d'infos..." : "Plus d'infos..."}} </p>
       </div>
-      <v-img class="cursor-pointer" src="/images/FP-Compta-01.jpg" width="40%" @click="zoomImage('/images/FP-Compta-01.jpg')" />
+      <!-- <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" /> -->
     </div>
 
     <!-- MORE INFOS COMPTA -->
@@ -203,11 +203,11 @@
                     Établissez un nombre illimité de plans analytiques.
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="/images/FP-Compta-01.jpg" width="40%" @click="zoomImage('/images/FP-Compta-01.jpg')" />
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-01.jpg')" />
               </div>
 
               <div class="mt-6">
-              <h3 class="text-primary">INTEGRATION</h3>
+              <h3 class="text-primary">INTÉGRATION</h3>
                 <v-divider
                       :thickness="1"
                       class="border-opacity-100 mt-1"
@@ -216,7 +216,7 @@
               </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="/images/02-Comptes.jpg" width="40%" @click="zoomImage('/images/02-Comptes.jpg')" />
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/02-Comptes.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/02-Comptes.jpg')" />
 
                 <div>
                   <p class="text-start ml-2">
@@ -228,7 +228,7 @@
               </div>
 
               <div class="mt-6">
-              <h3 class="text-primary">CONVIVIALITE</h3>
+              <h3 class="text-primary">CONVIVIALITÉ</h3>
                 <v-divider
                       :thickness="1"
                       class="border-opacity-100 mt-1"
@@ -240,13 +240,13 @@
                 <div>
                   <p class="text-start">
                   Travaillez rapidement avec un outil ergonomique d’une grande souplesse. 
-                  Un paramétrage très abouti fait de GESTIMUM Gestion Comptable un progiciel personnalisable pour chaque utilisateur et d’une grande flexibilité (mode de saisie : standard, guidé, au kilomètre ou via des écritures automatiques). 
+                  Un paramétrage très abouti fait de GESTIMUM Gestion Comptable un progiciel personnalisable pour chaque utilisateur et d’une grande flexibilité (mode de saisie : standard, guidée, au kilomètre ou via des écritures automatiques). 
                   Travaillez en mode réel ou simulé. 
                   Utilisez les raccourcis clavier pour une saisie performante. 
                   Gagnez en temps et en fiabilité grâce aux nombreux guides et automatismes de l’application.
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="/images/FP-Compta-03.jpg" width="40%" @click="zoomImage('/images/FP-Compta-03.jpg')" />
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-03.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-03.jpg')" />
               </div>
 
               <div class="mt-6">
@@ -259,7 +259,7 @@
             </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="/images/FP-Compta-02.jpg" width="40%" @click="zoomImage('/images/FP-Compta-02.jpg')" />
+                <!-- <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/COMPTA/FP-Compta-02.jpg')" /> -->
 
                 <div>
                   <p class="text-start ml-2">
@@ -272,7 +272,7 @@
               </div>
               
         </div>
-        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','https://www.gestimum.com/wp-content/uploads/2022/07/2022-Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
+        <p class="mt-4 ml-2 font-weight-bold">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Comptable','https://www.gestimum.com/wp-content/uploads/2022/07/2022-Fiche-produit-GESTION-COMPTABLE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -287,7 +287,7 @@
 
     <div class="mt-6 d-flex">
       <div>
-        <p class="text-start">Dotée de fonction très évoluées, GESTIMUM Gestion Commerciale garantit un suivi de la totalité du cycle commercial : prospection, vente, achats, stocks.
+        <p class="text-start">Doté de fonctions très évoluées, GESTIMUM Gestion Commerciale garantit un suivi de la totalité du cycle commercial : prospection, vente, achats, stocks.
             Avec GESTIMUM Gestion Commerciale, enrichissez votre relation client, gérez rigoureusement vos stocks, optimisez vos achats, en toute sérénité.</p>
           <ul class="px-8 mt-4">
             <li>Administrez vos stocks, vos dépôts multiples et vos transferts, choisissez parmi 6 méthodes de valorisation.</li>
@@ -303,7 +303,7 @@
           <p class="text-hover text-orange cursor-pointer" @click="moreInfosCommercial = !moreInfosCommercial"> {{moreInfosCommercial? "Moins d'infos..." : "Plus d'infos..."}} </p>
       </div>
 
-      <v-img class="cursor-pointer" src="/images/FP-Gesco-02.jpg" width="40%" @click="zoomImage('/images/FP-Gesco-02.jpg')"  />
+      <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')"  />
     </div>
 
     <!-- MORE INFOS COMMERCIALE -->
@@ -335,11 +335,11 @@
                     Établissez une tarification élaborée : grilles, promotions, remises...
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="/images/FP-Gesco-03.jpg" width="30%" @click="zoomImage('/images/FP-Gesco-03.jpg')" />
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-03.jpg" width="30%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-03.jpg')" />
               </div>
 
               <div class="mt-6">
-              <h3 class="text-primary">INTEGRATION</h3>
+              <h3 class="text-primary">INTÉGRATION</h3>
                 <v-divider
                       :thickness="1"
                       class="border-opacity-100 mt-1"
@@ -348,7 +348,7 @@
               </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="/images/FP-Gesco-02.jpg" width="40%" @click="zoomImage('/images/FP-Gesco-02.jpg')" />
+                <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/FP-Gesco-02.jpg')" />
 
                 <div>
                   <p class="text-start ml-2">
@@ -362,7 +362,7 @@
               </div>
 
               <div class="mt-6">
-              <h3 class="text-primary">CONVIVIALITE</h3>
+              <h3 class="text-primary">CONVIVIALITÉ</h3>
                 <v-divider
                       :thickness="1"
                       class="border-opacity-100 mt-1"
@@ -382,7 +382,7 @@
                     Construisez votre application sur mesure grâce aux champs personnalisés : date, texte, booléen, entier, monétaire, calculé,...
                   </p>
                 </div>
-                <v-img class="cursor-pointer" src="" width="30%" @click="zoomImage('')" />
+                <!-- <v-img class="cursor-pointer" src="" width="30%" @click="zoomImage('')" /> -->
               </div>
 
               <div class="mt-6">
@@ -395,7 +395,7 @@
             </div>
 
               <div class="mt-6 d-flex">
-                <v-img class="cursor-pointer" src="/images/Perso-doc.jpeg" width="40%" @click="zoomImage('/images/Perso-doc.jpeg')" />
+                <!-- <v-img class="cursor-pointer" src="http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/Perso-doc.jpg" width="40%" @click="zoomImage('http://espace-prive.gestimum.com/images/Impressions-ecran-2014/GESCO/Perso-doc.jpg')" /> -->
 
                 <div>
                   <p class="text-start ml-2">
@@ -407,7 +407,7 @@
                 </div>
               </div>
         </div>
-        <p class="mt-4 ml-2">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Commerciale','/pdfs/Fiche-produit-GESTION-COMMERCIALE.pdf')" >mdi-download</v-icon> </p>
+        <p class="mt-4 ml-2 font-weight-bold">Télécharger la fiche produit <v-icon color="primary" @click="downloadPdf('fiche produit Gestion Commerciale','http://espace-prive.gestimum.com/PDF/plaquette/Fiche-produit-GESTION-COMMERCIALE.pdf')" >mdi-download</v-icon> </p>
     </div>
 
 
@@ -466,11 +466,11 @@ export default {
 
   methods: {
     getLink(item) {
-      let link = `${import.meta.env.VITE_APP_API_URL}/files/uploads/` + item.image_path
+      let link = 'http://api-espace-prive.gestimum.com/files/uploads/' + item.image_path
       return link
     },
     downloadLink(item) {
-      let link = `${import.meta.env.VITE_APP_API_URL}/files/uploads/` + item.file_path
+      let link = 'http://api-espace-prive.gestimum.com/files/uploads/' + item.file_path
       window.open(link, '_blank')
     },
 
