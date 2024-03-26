@@ -128,8 +128,8 @@
         <!-- <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG" 
           @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG')"
         /> -->
-        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/Comparatif-gesco-pme-initiale-2022.PNG" 
-          @click="zoomImage('images/Comparatif-gesco-pme-initiale-2022.PNG')"
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/fonctionnalites-gamme-gesco-2024.png" 
+          @click="zoomImage('images/fonctionnalites-gamme-gesco-2024.png')"
         />
         
         <p class="px-8 mt-4 text-primary font-weight-bold text-lg-body-1">Principales fonctionnalités de la Gestion Commerciale PME :</p>
@@ -143,8 +143,8 @@
         <!-- <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG" 
           @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG')"
         /> -->
-         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/Comparatif-compta-pme-initiale-2022.PNG" 
-          @click="zoomImage('images/Comparatif-compta-pme-initiale-2022.PNG')"
+         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/fonctionnalites-gamme-compta-2024.png" 
+          @click="zoomImage('images/fonctionnalites-gamme-compta-2024.png')"
         />
         <p class="px-8 mt-4 text-primary font-weight-bold text-lg-body-1">Principales fonctionnalités de la Gestion Comptable PME :</p>
 
