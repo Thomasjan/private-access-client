@@ -144,13 +144,8 @@ export default {
       linkedin.getLinkedinPosts()
         .then((response) => {
           this.posts = response;
-          if(response?.error?.status === 401) {
-            this.error = "Erreur de connexion au compte Linkedin de Gestimum. Veuillez contacter un administrateur."
-            this.loading = false;
-            return;
-          }
           //Remplacer les {hashtag|\\#\|([^}]*)\} par # et en couleur
-           this.posts?.forEach((post) => {
+           this.posts.forEach((post) => {
             let commentary = post.commentary;
             let replacedText = commentary.replace(/\{hashtag\|\\#\|([^}]*)\}/g, '#$1');
 

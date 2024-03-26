@@ -2,10 +2,10 @@
   <v-card class="bg-background pa-2 elevation-0">
     <h2 class="text-primary text-center">Support</h2>
     
-    <p class="text-center px-16 mt-4">Gestimum vous propose généreusement d'accéder à son aide en ligne complète et détaillée, une ressource inestimable
-       qui saura répondre à toutes vos questions, besoins, et requêtes en un clin d'œil. 
-       Profitez de cette opportunité exceptionnelle pour explorer de manière approfondie les nombreuses fonctionnalités, astuces, 
-       et guides disponibles via cette ressource en ligne de Gestimum, vous permettant ainsi d'optimiser au maximum votre expérience.
+    <p class="text-center px-16 mt-4">Gestimum vous propose d'accéder à son aide en ligne complète et détaillée, une ressource idéale 
+       pour trouver des réponses à vos questions en toute autonomie. 
+       . L’occasion pour vous d'explorer de manière approfondie les nombreuses fonctionnalités, astuces, 
+       et guides disponibles via cette ressource en ligne de Gestimum .
    </p>
 
     <div class="mt-4 w-25 mx-auto">

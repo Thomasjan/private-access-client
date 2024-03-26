@@ -3,7 +3,7 @@
     <h2 class="text-primary text-center">Contacts</h2>
     
     <div class="mt-4 px-4">
-      <h4>Vos interlocuteurs GESTIMUM</h4>
+      <h4>Vos Intelocuteurs GESTIMUM</h4>
       <p class="font-italic">Notre équipe est orientée Services en mode Affaire. 
         Chaque projet confié à Gestimum est traité avec le plus grand soin. 
       </p>
@@ -13,8 +13,8 @@
       <v-img class="mx-auto mt-8" :src="pdfContact" width="100%" />
     
       <p class="mt-6">
-      Le support Gestimum est accessible par email
-      <a href="#" @click="sendEmail">assistance@gestimum.com</a> et accompagne les PME et leurs intégrateurs par téléphones du lundi au vendredi de <strong>9h00 à 12h30 et de 14h00 à 18h00</strong>.
+      Le support Gestimum est accessible 24 heures sur 24 par email
+      <a href="#" @click="sendEmail">assistance@gestimum.com</a> et accompagne les PME et leurs intégrateurs du lundi au vendredi de <strong>9h00 à 12h30 et de 14h00 à 18h00</strong>.
     </p>
     </div>
   </v-card>
@@ -24,7 +24,7 @@
 export default {
   
   data: () => ({
-    pdfContact: 'images/contact-2023.png'
+    pdfContact: 'images/contact-fevrier-2024.png'
   }),
 
   methods: {

@@ -3,28 +3,28 @@
     <h2 class="text-primary text-center">Aide à la vente</h2>
     
     <div class="mt-4 px-4">
-      <h4 class="text-center">Gestimum référence plus de 2 000 clients actifs et 10 000 utilisateurs de son ERP, 70% en France et 30% à l'international.</h4>
+      <h4 class="text-center">Gestimum référence plus de 2 000 clients actifs et 10 000 utilisateurs de don ERP, 70% en France et 30% à l'international.</h4>
 
       <div class="text-left text-subtitle-2 mt-6">
-        <p>85 % des licences en gamme PME et 15% en gamme initiale (marché français). <br>
-            Les PME sélectionnent Gestimum ERP après avoir testé les Majeurs du marché. Elles sont pour la plupart indépendantes (pas d’appartenance à un groupe), matures avec leur process de gestion et savent choisir une alternative représentant un excellent rapport qualité prix performance.</p>
+        <p>85 % des licences en gamme PME et 15% en PME Light (marché français). <br>
+            Les PME sélectionnent Gestimum ERP après avoir testés les Majeurs du marché. Elles sont pour la plupart indépendantes (pas d’appartenance à un groupe), matures avec leur process de gestion et savent choisir une alternative représentant un excellent rapport qualité prix performance.</p>
         <p class="mt-2">En dehors des PME, GESTIMUM équipe d’autres organisations : les associations (avec de nombreux établissements – exemple : Emmaüs), les ONG à vocation internationale (exemple : lutte contre le sida, contre la tuberculose, …), les sociétés anonymes sportives professionnelles, les centres de formations (AFPA), les centres d’aptitudes par le travail (CAT ou ESAT), les fédérations (sportives notamment) ou syndicats professionnels.</p>
       </div>
 
       <div class="mt-4">
           <h3 class="text-primary">ACTIVITE DE LA PME</h3>
-          <p class="mt-2 text-start text-subtitle-2">Gestimum ERP est particulièrement bien adapté au monde du négoce à volumétrie. Les PME clientes commercialisent souvent des offres techniques intégrants des n° de série et / ou comprenant des produits à assembler avec une exigence particulière dans la qualité de la gestion de ses stocks (multi-dépôts) et de ses prix de revient. Elles peuvent être sous-traitantes de la grande distribution (EDI-Vente), du monde automobile ou de la sécurité incendie. <br>
+          <p class="mt-2 text-start text-subtitle-2">Gestimum ERP est particulièrement bien adapté au monde du négoce à volumétrie. Les PME clientes commercialisent souvent des offres techniques intégrants des n° de série et / ou comprenant des produits à assembler avec une exigence particulière dans la qualité de la gestion de ses stocks (multi-dépôts) et de ses prix de revient. Elles peuvent être sous-traitantes de la grande distribution (EDI-Vente), du monde automobile, de la sécurité incendie. <br>
             Dans le même esprit, la gestion puissante des taxes parafiscales (dont la gestion des taxes sur les alcools) combinée aux dates de péremption et de commercialisation permet d’adresser les PME du monde agroalimentaire.
             En dehors du commerce de gros, Gestimum ERP séduit également les sociétés de service par son ergonomie et sa capacité de personnalisation sans développement (champs utilisateurs). <br>
-            Enfin, les PME clientes apprécient son large spectre fonctionnel avec une gestion commerciale, intégrant les premiers modules CRM, couplée intuitivement à la gestion comptable.</p>
+            Enfin, les PME clientes apprécient son large spectre fonctionnel avec une gestion commerciale intégrant les premiers modules CRM couplée intuitivement à la gestion comptable.</p>
       </div>
 
       <div class="mt-6">
         <v-img class="mx-auto rounded-lg cursor-pointer" 
-        src="images/secteurActivitePME.png" 
+        src="images/secteur activités des PME.png" 
         width="40%" 
         aspect-ratio="4/3" 
-         @click="zoomImage('images/secteurActivitePME.png')"/>
+         @click="zoomImage('images/secteur activités des PME.png')"/>
       </div>
 
       <!-- <div class="mt-6">
@@ -51,17 +51,17 @@
         </v-table>
       </div> -->
 
-      <div class="mt-4">
+      <div class="mt-4 w-100">
           <h3 class="text-primary">CRITERE DE TAILLE</h3>
-          <p class="mt-2 text-left text-subtitle-2">GESTIMUM s’appuie sur une base de données relationnelle qui permet de gérer une volumétrie quasi illimitée tant en terme de données, qu’en terme d’utilisateurs. À ce titre, l’effectif seul n’est pas un critère de prospection, il faut le croiser à d’autres critères comme par exemple, le secteur d’activité et / ou la date de création de la société. </p> <br>
-            92 % des PME clientes ont un effectif inférieur à 50 salariés <br>
+          <p class="mt-2 text-left text-subtitle-2">GESTIMUM s’appuie sur une base de données relationnelle qui permet de gérer une volumétrie quasi illimitée tant en terme de données, qu’en terme d’utilisateurs. A ce titre, l’effectif seul n’est pas un critère de prospection, il faut le croiser à d’autres critères comme par exemple, le secteur d’activité et / ou la date de création de la société. </p> <br>
+           <div class="text-center text-subtitle-2 font-weight-bold"> 92 % des PME clientes ont un effectif inférieur à 50 salariés </div> <br>
             <v-img class="mx-auto rounded-sm my-2" src="images/clients par effectifs.PNG" width="60%" />
 
-            65 % des PME clientes réalise un CA compris entre 0.75 et 7.5 M€.
+            <div class="text-center text-subtitle-2 font-weight-bold my-4"> 65 % des PME clientes réalise un CA compris entre 0.75 et 7.5 M€.</div>
             <v-img class="mx-auto rounded-sm my-2" src="images/clients par CA.PNG" width="60%" />
 
 
-            90 % de nos clients ont plus de 10 ans d’activité.
+            <div class="text-center text-subtitle-2 font-weight-bold my-4"> 90 % de nos clients ont plus de 10 ans d’activité. </div>
             <v-img class="mx-auto rounded-sm my-2" src="images/clients par ancienneté.PNG" width="60%" />
 
           
@@ -125,14 +125,11 @@
 
       <div class="mt-4">
         <h3 class="text-left text-primary">Comparatif Gestion Commerciale gamme PME et INITIALE</h3>
-        <!-- <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG" 
-          @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG')"
-        /> -->
-        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/Comparatif-gesco-pme-initiale-2022.PNG" 
-          @click="zoomImage('images/Comparatif-gesco-pme-initiale-2022.PNG')"
+        <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/fonctionnalites-gamme-gesco-2024.png" 
+          @click="zoomImage('images/fonctionnalites-gamme-gesco-2024.png')"
         />
         
-        <p class="px-8 mt-4 text-primary font-weight-bold text-lg-body-1">Principales fonctionnalités de le Gestion Commerciale PME :</p>
+        <p class="px-8 mt-4 text-primary font-weight-bold text-lg-body-1">Principales Fonctionnalités de le Gestion Commerciale PME :</p>
         <v-img class="mx-auto w-75 mt-1 cursor-pointer" :src="descriptifGestionCommerciale" 
           @click="zoomImage(descriptifGestionCommerciale)"
         />
@@ -140,13 +137,10 @@
 
       <div class="mt-4">
         <h3 class="text-left text-primary">Comparatif Gestion Comptable gamme PME et INITIALE</h3>
-        <!-- <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG" 
-          @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG')"
-        /> -->
-         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/Comparatif-compta-pme-initiale-2022.PNG" 
-          @click="zoomImage('images/Comparatif-compta-pme-initiale-2022.PNG')"
+         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/fonctionnalites-gamme-compta-2024.png" 
+          @click="zoomImage('images/fonctionnalites-gamme-compta-2024.png')"
         />
-        <p class="px-8 mt-4 text-primary font-weight-bold text-lg-body-1">Principales fonctionnalités de le Gestion Comptable PME :</p>
+        <p class="px-8 mt-4 text-primary font-weight-bold text-lg-body-1">Principales Fonctionnalités de le Gestion Comptable PME :</p>
 
         <v-img class="mx-auto w-75 mt-1 cursor-pointer" :src="descriptifGestionComptable" 
           @click="zoomImage(descriptifGestionComptable)"
@@ -154,7 +148,7 @@
       </div>
 
       <div class="mt-8 px-4">
-        <h4 class="">Tout PARTENAIRE passant commande est réputé connaître et accepter sans réserve les présentes CONDITIONS GÉNÉRALES DE VENTE DES PROGICIELS ET DES SERVICES GESTIMUM et les CONDITIONS DE LICENCES DES PROGICIELS GESTIMUM ET D’UTILISATION DES SERVICES ASSOCIES.	</h4>
+        <h4 class="">Tout PARTENAIRE passant commande est réputé connaître et accepter sans réserve les présentes CONDITIONS GENERALES DE VENTE DES PROGICIELS ET DES SERVICES GESTIMUM et les CONDITIONS DE LICENCES DES PROGICIELS GESTIMUM ET D’UTILISATION DES SERVICES ASSOCIES.	</h4>
         
         <div class="mt-2 d-flex justify-space-between w-75">
           <h3 class="text-primary text-left cursor-pointer"  @click="openLink('https://www.gestimum.com/wp-content/uploads/2021/09/CGV-1.pdf')">Conditions Générales de Vente</h3>

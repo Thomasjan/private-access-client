@@ -28,8 +28,8 @@ import ListeEntreprises from './components/views/admin/ListeEntreprises.vue'
 import Linkedin from './components/views/admin/Linkedin.vue'
 
 const routes = [
-  {path: '/', component: Home },
-  {name: 'home', path: '/home', component: Home },
+  {name: 'home', path: '/', component: Home },
+//   {name: 'home', path: '/home', component: Home },
   {name: 'login',  path: '/login', component: LoginForm },
   {name: 'mdp-oublie',  path: '/mdp-oublie', component: MdpOublie },
   {name: 'logout',  path: '/logout', component: LoginForm },
@@ -64,6 +64,7 @@ const router = createRouter({
 // Autorisation d'accès aux pages via localStorage
 router.beforeEach((to, from, next) => {
     // Gestion de la route 'logout'
+    
     if (to.name === 'logout') {
         User.logout().then(() => {
             localStorage.removeItem('auth')

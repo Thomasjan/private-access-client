@@ -47,7 +47,7 @@ const store = createStore({
   
       return Download.addDownload(download)
         .then(res => {
-          console.log(res);
+          // console.log(res);
           // Additional logic if needed
         })
         .catch(err => {
