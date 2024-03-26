@@ -51,7 +51,7 @@
         </v-table>
       </div> -->
 
-      <div class="mt-4">
+      <div class="mt-4 text-center">
           <h3 class="text-primary">CRITERE DE TAILLE</h3>
           <p class="mt-2 text-left text-subtitle-2">GESTIMUM s’appuie sur une base de données relationnelle qui permet de gérer une volumétrie quasi illimitée tant en terme de données, qu’en terme d’utilisateurs. À ce titre, l’effectif seul n’est pas un critère de prospection, il faut le croiser à d’autres critères comme par exemple, le secteur d’activité et / ou la date de création de la société. </p> <br>
             92 % des PME clientes ont un effectif inférieur à 50 salariés <br>
