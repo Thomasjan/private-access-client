@@ -28,7 +28,6 @@ https://github.com/Thomasjan/private-access-api
 
 **Client:** VueJS, Vite
 
-**Server:** Node, Express, Typescript
 
 
 ## Run Locally
