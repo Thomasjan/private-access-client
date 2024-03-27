@@ -6,7 +6,7 @@ Le nouvel espace privé Gestimum pour 2024, avec toutes les ressources à jour.
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Thomasjan/private-access-client/blob/master/private-access-screenshot.png)
+![App Screenshot](private-access-screenshot.png)
 
 
 ## Demo
