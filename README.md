@@ -4,9 +4,9 @@
 Le nouvel espace privé Gestimum pour 2024, avec toutes les ressources à jour.
 
 
-## Authors
+## Screenshots
 
-- [@ThomasJan](https://github.com/Thomasjan)
+![App Screenshot](https://github.com/Thomasjan/private-access-client/blob/master/private-access-screenshot.png)
 
 
 ## Demo
@@ -29,11 +29,6 @@ https://github.com/Thomasjan/private-access-api
 **Client:** VueJS, Vite
 
 **Server:** Node, Express, Typescript
-
-
-## Screenshots
-
-![App Screenshot](https://github.com/Thomasjan/private-access-client/blob/master/private-access-screenshot.png)
 
 
 ## Run Locally
@@ -61,4 +56,9 @@ Start the server
 ```bash
   npm run start
 ```
+
+
+## Authors
+
+- [@ThomasJan](https://github.com/Thomasjan)
 
