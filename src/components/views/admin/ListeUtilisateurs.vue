@@ -58,8 +58,8 @@
           <tr class="">
             <th class="text-left text-blue cursor-pointer" @click="sortByField('social_reason')">Entreprise</th>
             <th class="text-left text-black cursor-pointer" @click="sortByField('category')">Famille</th>
-            <th class="text-left text-red cursor-pointer" @click="sortByField('surname')">Prénom</th>
-            <th class="text-left text-red cursor-pointer" @click="sortByField('name')">Nom</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('surname')">Nom</th>
+            <th class="text-left text-red cursor-pointer" @click="sortByField('name')">Prénom</th>
             <th class="text-left text-red cursor-pointer" @click="sortByField('email')">Email</th>
             <th class="text-left text-green cursor-pointer" @click="sortByField('created_at')">Création</th>
             <th class="text-left text-orange text-center cursor-pointer" @click="sortByField('contract')">Contrat</th>

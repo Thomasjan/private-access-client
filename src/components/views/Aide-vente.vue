@@ -126,9 +126,6 @@
 
       <div class="mt-4">
         <h3 class="text-left text-primary">Comparatif Gestion Commerciale gamme PME et INITIALE</h3>
-        <!-- <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG" 
-          @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-commerciale-pme-initiale.JPG')"
-        /> -->
         <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/fonctionnalites-gamme-gesco-2024.png" 
           @click="zoomImage('images/fonctionnalites-gamme-gesco-2024.png')"
         />
@@ -141,9 +138,6 @@
 
       <div class="mt-4">
         <h3 class="text-left text-primary">Comparatif Gestion Comptable gamme PME et INITIALE</h3>
-        <!-- <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG" 
-          @click="zoomImage('http://espace-prive.gestimum.com/images/comparatif-gestion-comptable-pme-initiale.JPG')"
-        /> -->
          <v-img class="mx-auto w-75 mt-4 cursor-pointer" src="images/fonctionnalites-gamme-compta-2024.png" 
           @click="zoomImage('images/fonctionnalites-gamme-compta-2024.png')"
         />
