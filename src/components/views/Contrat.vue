@@ -42,8 +42,9 @@
 
 
         <div class="mt-14">
-
-          <v-table class="bg-background rounded-xl pa-2" density="compact">
+          <v-img src="/images/contrat-gestimum-2024.png" class="img-width" />
+          <v-img src="/images/contrat-partenaire-2024.png" class="mt-8 img-width"/>
+          <!-- <v-table class="bg-background rounded-xl pa-2" density="compact">
           <thead>
             <tr>
               <th class="text-primary text-left">
@@ -228,11 +229,11 @@
 
 
             </tbody>
-          </v-table>
+          </v-table> -->
 
         </div>
 
-        <div class="d-flex justify-center">
+        <div class="d-flex justify-center mt-4">
           <h4 class="text-text-subtitle-1 text-center">Télécharger le contrat partenaire </h4>
           <v-icon @click="downloadPdf('Contrat partenaire', pdfContract)" class="ml-4 cursor-pointer" color="primary">mdi-download</v-icon>
         </div>
@@ -246,7 +247,7 @@
 export default {
   
   data: () => ({
-    pdfContract: 'pdfs/contrat-partenaires.pdf'
+    pdfContract: 'pdfs/Contrat partenaires-2024.pdf'
   }),
 
   methods: {
@@ -278,5 +279,11 @@ export default {
 
 .table-orange {
   background-color: #f17736;
+}
+
+.img-width {
+  width: 80%;
+  display: grid;
+  margin: auto;
 }
 </style>

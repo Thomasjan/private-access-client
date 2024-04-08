@@ -119,20 +119,24 @@ export default {
             this.loading = true;
             // Enregistrement de l'utilisateur puis stockage des infos dans le store
 
-            Auth.login(this.form)
-                .then((response) => {
-                    this.errors = '';
-                    localStorage.setItem('auth', response.id);
-                    this.$store.commit('UPDATE_USER', response);
-                    console.log(this.$store.state.user)
-                    this.$router.push({ name: 'home' });
-                })
-                .catch((error) => {
-                    this.errors = error.response.data.message;
-                    this.loading = false;
-                });
-
-            
+            setTimeout(() => {
+                Auth.login(this.form)
+                    .then((response) => {
+                        this.errors = '';
+                        localStorage.setItem('auth', response.id);
+                        this.$store.commit('UPDATE_USER', response);
+                        console.log(this.$store.state.user)
+                        this.$router.push({ name: 'home' });
+                    })
+                    .catch((error) => {
+                        if(error.message == 'Network Error'){
+                            this.errors = 'Service inaccessible. Veuillez vérifier votre connexion internet.';
+                        }
+                        this.errors = error.response.data.message;
+                        this.loading = false;
+                    });
+            }, 1500);
+                
         },
 
         //redirection vers mot de passe oublié
