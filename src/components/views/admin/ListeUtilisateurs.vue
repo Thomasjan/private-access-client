@@ -73,8 +73,8 @@
           >
             <td> <v-chip color="blue-darken-3">{{ user.social_reason }} </v-chip> </td>
              <td> <v-chip>{{ user.category }}</v-chip> </td>
-            <td>{{ user.name }}</td>
             <td>{{ user.surname }}</td>
+            <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td><v-chip size="small" color="primary">{{ user.created_at.slice(0,10) }}</v-chip> </td>
             <td class="text-center"> <v-chip color="blue-lighten-2">{{ user.contract? user.contract: 'pas de contrat' }}</v-chip> </td>
@@ -185,10 +185,10 @@ export default {
           const searchTerm = this.search.toString().toLowerCase();
           console.log(searchTerm)
           return (
-            user.name.toString().toLowerCase().includes(searchTerm)
-            || user.surname.toLowerCase().includes(searchTerm) 
-            || user.email.toLowerCase().includes(searchTerm) 
-            || user.social_reason.toLowerCase().includes(searchTerm)
+            user.name?.toString().toLowerCase().includes(searchTerm)
+            || user.surname?.toLowerCase().includes(searchTerm) 
+            || user.email?.toLowerCase().includes(searchTerm) 
+            || user.social_reason?.toLowerCase().includes(searchTerm)
           );
         });
       }
@@ -211,6 +211,7 @@ export default {
         return this.users;
       }
 
+      console.log(filteredUsers.length)
       return filteredUsers;
     }
 }
