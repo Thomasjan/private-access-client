@@ -15,7 +15,7 @@
           color="primary"
           v-model="form.name"
           type="text"
-          label="Nom"
+          label="Prénom"
           :rules="[v => !!v || 'Nom requis']"
         ></v-text-field>
 
@@ -23,7 +23,7 @@
           color="primary"
           v-model="form.surname"
           type="text"
-          label="Prénom"
+          label="Nom"
           :rules="[v => !!v || 'Prénom requis']"
         ></v-text-field>
         

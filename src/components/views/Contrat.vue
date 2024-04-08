@@ -12,7 +12,7 @@
             <h4 class="text-blue">PARTENAIRE : Pour commencer, en toute simplicité ...  en valorisant votre base client</h4>
             <div class="d-flex mt-4">
               <p class="mr-8 text-subtitle-2">Vous êtes amenés à côtoyer des dirigeants de PME et avez matière à présenter GESTIMUM comme un éditeur susceptible de répondre aux exigences de votre contact. Vous bénéficiez d’une licence à usage interne. GESTIMUM vous rémunère en tant que prescripteur apporteur d’affaires.</p>
-              <v-img src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-2015.png" width="20%" />
+              <v-img src="/images/Logo-partenaire-2015.png" width="20%" />
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
                 En tant que Partenaire Expert, vous profitez d’un programme d’accompagnement comprenant un Ingénieur d’Affaires dédié, une assistance technique illimitée ainsi qu’un crédit formation. GESTIMUM met à votre disposition des licences pour votre usage interne, ainsi que des outils pour faciliter votre communication et la gestion de vos prospects et clients !
                 Vous profitez de conditions commerciales privilégiées sur nos produits et services.
                 Vous gérez votre parc client GESTIMUM en toute autonomie et développez un business récurrent à forte valeur ajoutée pour votre entreprise.</p>
-              <v-img src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-expert-2015.png" width="20%" />
+              <v-img src="/images/Logo-partenaire-expert-2015.png" width="20%" />
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
             <h4 class="text-primary">PARTENAIRE SUPPORT La synergie absolue...</h4>
             <div class="d-flex mt-4">
               <p class="mr-8 text-subtitle-2">Ce contrat est réservé aux Partenaires Experts disposant d’une équipe technique et commerciale dédiée de niveau 2 et d’un parc clients significatif. Le Partenaire Support s’engage à réaliser l’assistance niveau 1 de ses clients. Outre les avantages du programme Expert, les partenaires et les PME utilisatrices apprécient le double accompagnement du Partenaire Support et de l’éditeur.</p>
-              <v-img src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-expert-support-2015.png" width="20%" />
+              <v-img src="/images/Logo-partenaire-expert-support-2015.png" width="20%" />
             </div>
           </div>
         </div>
@@ -44,192 +44,6 @@
         <div class="mt-14">
           <v-img src="/images/contrat-gestimum-2024.png" class="img-width" />
           <v-img src="/images/contrat-partenaire-2024.png" class="mt-8 img-width"/>
-          <!-- <v-table class="bg-background rounded-xl pa-2" density="compact">
-          <thead>
-            <tr>
-              <th class="text-primary text-left">
-               <h4>Engagement GESTIMUM</h4> 
-              </th>
-              <th class="text-center">
-                <v-img class="mb-2 mx-auto" src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-2015.png" width="160" />
-              </th>
-              <th class="text-center">
-                <v-img class="mb-2 mx-auto" src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-expert-2015.png" width="160" />
-              </th>
-              <th class="text-center">
-                <v-img class="mb-2 mx-auto" src="http://espace-prive.gestimum.com/images/Images-espace-reserve/Logo-partenaire-expert-support-2015.png" width="160" />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left">Ingénieur d’Affaires dédié (Avant vente)</td>
-              <td class="text-center table-blue"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Sessions de formation partenaires</td>
-              <td class="text-center table-blue">1 unité ou 250 € / j / pers</td>
-              <td class="text-center table-grey">1 unité ou 250 € / j / pers</td>
-              <td class="text-center table-orange">1 unité ou 250 € / j / pers</td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Mise à disposition des versions béta</td>
-              <td class="text-center table-blue"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Assistance technique niveau 2</td>
-              <td class="text-center table-blue"> </td>
-              <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Espace réservé - gestimum.com</td>
-              <td class="text-center table-blue"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Pack de communication pour votre site interne</td>
-              <td class="text-center table-blue"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Support à la vente</td>
-              <td class="text-center table-blue"> </td>
-              <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-            </tr>
-
-            <tr>
-              <td class="text-left">1 licence GESTIMUM ERP PME Gestion Commerciale et Gestion Comptable</td>
-              <td class="text-center table-blue">1 unité ou 250 € HT / la licence sup.</td>
-              <td class="text-center table-grey">1 unité ou 250 € HT / la licence sup.</td>
-              <td class="text-center table-orange">1 unité ou 250 € HT / la licence sup.</td>
-            </tr>
-
-            <tr>
-              <td class="text-left">Remises sur tarif public en vigueur [Jusqu’à … Cf Contrat de partenariat]</td>
-              <td class="text-center table-blue">20 %</td>
-              <td class="text-center table-grey">40 %</td>
-              <td class="text-center table-orange">50 %</td>
-            </tr>
-
-            <tr>
-              <td class="text-left font-weight-medium">Coût certification 1ère année</td>
-              <td class="text-center table-blue">500 € <br> 2 unités</td>
-              <td class="text-center table-grey"> 1500 € <br> 6 unités</td>
-              <td class="text-center table-orange">-</td>
-            </tr>
-
-            <tr>
-              <td class="text-left font-weight-medium">Coût annuel renouvellement certification</td>
-              <td class="text-center table-blue">-</td>
-              <td class="text-center table-grey">Fonction du CA n-1</td>
-              <td class="text-center table-orange">Fonction du CA n-1</td>
-            </tr>
-
-
-          </tbody>
-          </v-table>
-
-
-          <v-table class="bg-background rounded-xl pa-2 mt-8" density="compact">
-            <thead>
-              <tr>
-                <th class="text-primary text-left">
-                <h4>Missions partenaire</h4> 
-                </th>
-                <th class="text-center table-blue">
-                  Apporteur d'affaires
-                </th>
-                <th class="text-center table-grey">
-                  Constitution de parc clients
-                </th>
-                <th class="text-center table-orange">
-                  Conquête & gestion de parc
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-left">Analyse avant-vente - adéquation solutions / besoins</td>
-                <td class="text-center table-blue"></td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Maquettage sur site</td>
-                <td class="text-center table-blue"> </td>
-                <td class="text-center table-grey"> </td>
-                <td class="text-center table-orange"> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Pilotage du projet sur site</td>
-                <td class="text-center table-blue"> </td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Extractions données logiciel en place</td>
-                <td class="text-center table-blue"></td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Intégration réseau et postes clients / mises à jour</td>
-                <td class="text-center table-blue"> </td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Formation administrateur sur site</td>
-                <td class="text-center table-blue"> </td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Formation utilisateurs sur site & online</td>
-                <td class="text-center table-blue"> </td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Assistance téléphonique fonctionnelle</td>
-                <td class="text-center table-blue"></td>
-                <td class="text-center table-grey"> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-              <tr>
-                <td class="text-left">Assistance infrastructure et intervention sur site</td>
-                <td class="text-center table-blue"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-grey"><v-icon size="small">mdi-hexagon</v-icon> </td>
-                <td class="text-center table-orange"><v-icon size="small">mdi-hexagon</v-icon> </td>
-              </tr>
-
-            
-
-
-            </tbody>
-          </v-table> -->
 
         </div>
 
