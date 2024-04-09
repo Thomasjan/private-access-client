@@ -56,7 +56,7 @@
             required
         ></v-select>
 
-          <!-- <v-select
+          <v-select
           color="primary"
           class="ml-1"
           v-model="form.role"
@@ -64,7 +64,7 @@
           :rules="[v => !!v || 'Role requis']"
           label="Role"
           required
-          ></v-select> -->
+          ></v-select>
         </div>
 
         
@@ -104,7 +104,7 @@ export default {
     },
     entreprises: [],
     errorMessage: '',
-    roleItems: ['Admin', '1. PAR', '2. PME', '3. AUTRES'],
+    roleItems: ['Admin', '1.PAR', '2.PME', '3.AUTRES'],
   }),
   mounted(){
     this.fetchEntreprises()
@@ -129,10 +129,10 @@ export default {
         case 'Admin':
             form.role_id = 1
             break;
-        case '1. PAR':
+        case '1.PAR':
             form.role_id = 2
             break;
-        case '2. PME':
+        case '2.PME':
             form.role_id = 3
             break;
         default:

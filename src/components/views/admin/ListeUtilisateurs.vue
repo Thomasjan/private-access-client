@@ -118,8 +118,8 @@ export default {
     search: "",
     family: '',
     subfamily: '',
-    familyItems: ['1. PAR', '2. PME', '3. AUTRE'],
-    subfamilyItems: ['1.1 PAR', '1.2 EXP', '1.3 SUP', '1.5 EDI', '2.0 LOC', '2.1 GMA', '2.2 GML'],
+    familyItems: ['1.PAR', '2.PME', '3.AUTRE'],
+    subfamilyItems: ['1.1PAR', '1.2EXP', '1.3SUP', '1.5EDI', '2.0LOC', '2.1GMA', '2.2GML'],
      
   }),
 
