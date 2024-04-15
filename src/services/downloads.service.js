@@ -5,6 +5,7 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
  const downloadService = {
     getDownloads,
     addDownload,
+    resetDownloads
 };
 
 //récupérer la liste de tous les téléchargementss
@@ -14,6 +15,16 @@ async function getDownloads() {
     return response.data;
   } catch (error) {
     console.error('Error getting downloads:', error);
+    throw error;
+  }
+}
+
+async function resetDownloads() {
+  try {
+    const response = await axios.get(`${API_URL}/downloads/reset`);
+    return response.data;
+  } catch (error) {
+    console.error('Error reset logins:', error);
     throw error;
   }
 }

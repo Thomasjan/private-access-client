@@ -6,7 +6,8 @@ const API_URL = import.meta.env.VITE_APP_API_URL; // Replace with your API URL
   login,
   register,
   getLogins,
-  forgotPassword
+  forgotPassword,
+  resetLogins
 };
 
 //Login
@@ -16,6 +17,16 @@ async function login(form) {
     return response.data;
   } catch (error) {
     console.error('Error login:', error);
+    throw error;
+  }
+}
+
+async function resetLogins() {
+  try {
+    const response = await axios.get(`${API_URL}/auth/resetLogins`);
+    return response.data;
+  } catch (error) {
+    console.error('Error reset logins:', error);
     throw error;
   }
 }

@@ -19,9 +19,16 @@
           </v-col> -->
         </v-row>
 
-        <div class="d-flex align-center mb-2 ml-4">
-          <v-chip class color="primary">{{downloadsFiltered.length}}  </v-chip>
-          <p class="ml-2">Téléchargements</p>
+        <div class="d-flex justify-space-between mb-2 ml-4">
+          <div class="d-flex align-center">
+            <v-chip class color="primary">{{downloadsFiltered.length}}  </v-chip>
+            <p class="ml-2">Téléchargements</p>
+             <v-icon class="cursor-pointer ml-2" @click="download()">mdi-download</v-icon>
+          </div>
+          <div class="d-flex align-center cursor-pointer" @click="reset()">
+            <v-icon size="40">mdi-backup-restore</v-icon>
+            <span class="font-weight-light">Réinitialiser</span>
+          </div>
         </div>
        
       <v-table density="compact" class="bg-background">
@@ -41,7 +48,7 @@
             v-for="download in downloadsFiltered"
             :key="download.id"
           >
-            <td> <v-chip color="purple-darken-3">{{ download.social_reason }}</v-chip> </td>
+            <td> <v-chip color="green-darken-1">{{ download.social_reason }}</v-chip> </td>
             <td> <v-chip color="primary">{{ download.file_name }}</v-chip> </td>
             <td>{{ download.name }}</td>
             <td>{{ download.surname }}</td>
@@ -61,7 +68,6 @@
 </template>
 
 <script>
-import Auth from '../../../services/auth.service'
 import Download from '../../../services/downloads.service'
 
 export default {
@@ -98,11 +104,37 @@ export default {
       })
     },
 
-    sortByField(field) {
-    
+    reset() {
+      this.search = ''
+      this.file = ''
+
+      Download.resetDownloads()
+      .then(() => {
+        this.fecthDownloads()
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+    },
+
+    download() {
+      //export to excel
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "data:text/csv;charset=utf-8,";
+      csvContent += "Entreprise;Fichier;Nom;Prénom;Email;Date;Heure\n";
+      this.downloadsFiltered.forEach(download => {
+        csvContent += `${download.social_reason};${download.file_name};${download.name};${download.surname};${download.email};${download.date.slice(0,10)};${download.date.slice(10,19)}\n`
+      })
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "suivi_telechargements.csv");
+      document.body.appendChild(link); // Required for FF
+      link.click();
     },
   
-
   },
 
   computed: {
