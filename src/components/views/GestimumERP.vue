@@ -9,7 +9,7 @@
         <p class="mt-4 ml-2 text-primary font-italic font-weight-bold text-lg-h5">Si votre version de Gestimum ERP est antérieure à la version <strong class="text-blue">9</strong>, nous vous invitons à consulter le service client au 01 34 84 09 99.</p>
         <div class="mt-2 d-flex flex-column justify-center align-center">
             <h3 class="text-blue mt-2">Version {{lastUpload.version}} </h3>
-            <v-img class="mr-2 bg-blue mt-2 w-25 rounded-lg cursor-pointer" @click="downloadLink(lastUpload)" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
+            <v-img class="mr-2 mt-2 w-25 rounded-lg cursor-pointer" @click="downloadLink(lastUpload)" :src="getLink(lastUpload)"  aspect-ratio="4/3" contain/>
             <p class="font-italic text-subtitle-2 mt-4 text-left mx-6" v-html="lastUpload.description"></p>
             <v-btn color="primary w-25 mx-auto mt-4" size="large" @click="downloadLink(lastUpload)"> 
               <v-icon class="mr-4 mt-1">mdi-download</v-icon>
