@@ -1,6 +1,6 @@
 <template>
   <v-card class="ml-1 bg-background">
-    <h3 class="text-center text-primary mt-4">Liste des Connexions</h3>
+    <h3 class="text-center text-primary mt-4">Suivi des Connexions</h3>
 
     <div class="mt-10">
 
@@ -19,9 +19,16 @@
           </v-col>
         </v-row>
 
-         <div class="d-flex align-center mb-2 ml-4">
-          <v-chip class color="primary">{{loginsFiltered.length}}  </v-chip>
-          <p class="ml-2">Connexions</p>
+         <div class="d-flex justify-space-between mb-2 ml-4">
+          <div class="d-flex align-center">
+            <v-chip class color="primary">{{loginsFiltered.length}}  </v-chip>
+            <p class="ml-2">Connexions</p>
+            <v-icon class="cursor-pointer ml-2" @click="downloadLogins">mdi-download</v-icon>
+          </div>
+          <div class="d-flex align-center cursor-pointer" @click="reset()">
+            <v-icon size="40">mdi-backup-restore</v-icon>
+            <span class="font-weight-light">Réinitialiser</span>
+          </div>
         </div>
        
       <v-table density="compact" class="bg-background">
@@ -43,7 +50,7 @@
             v-for="login in loginsFiltered"
             :key="login.id"
           >
-            <td> <v-chip color="purple-darken-3">{{ login.entreprise.social_reason }}</v-chip> </td>
+            <td> <v-chip color="green-darken-1">{{ login.entreprise.social_reason }}</v-chip> </td>
             <td> <v-chip>{{ login.entreprise.category }}</v-chip> </td>
             <td> <v-chip>{{ login.entreprise.subcategory }}</v-chip> </td>
             <td> <v-chip color="red">{{ login.user.name }}</v-chip> </td>
@@ -75,8 +82,8 @@ export default {
     search: '',
     family: '',
     subfamily: '',
-    familyItems: ['1. PAR', '2. PME', '3. AUTRE'],
-    subfamilyItems: ['1.1 PAR', '1.2 EXP', '1.3 SUP', '1.5 EDI', '2.0 LOC', '2.1 GMA', '2.2 GML'],
+    familyItems: ['1.PAR', '2.PME', '3.AUTRE'],
+    subfamilyItems: ['1.1PAR', '1.2EXP', '1.3SUP', '1.5EDI', '2.0LOC', '2.1GMA', '2.2GML'],
      
   }),
 
@@ -97,11 +104,36 @@ export default {
       })
     },
 
-    sortByField(field) {
-    
+    reset() {
+      this.search = ''
+      this.family = ''
+      this.subfamily = ''
+
+      Auth.resetLogins()
+      .then(() => {
+        this.fetchLogins()
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    },
+
+    downloadLogins() {
+      //export to excel
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "Entreprise;Famille;Sous-famille;Nom;Prénom;Date;Heure\n";
+      this.loginsFiltered.forEach(login => {
+        csvContent += `${login.entreprise.social_reason};${login.entreprise.category};${login.entreprise.subcategory};${login.user.name};${login.user.surname};${login.date.slice(0,10)};${login.date.slice(10,19)}\n`
+      })
+
+      var encodedUri = encodeURI(csvContent);
+      var link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "suivi_connexions.csv");
+      document.body.appendChild(link); // Required for FF
+      link.click();
     },
   
-
   },
 
   computed: {

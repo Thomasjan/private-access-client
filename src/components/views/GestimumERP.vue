@@ -77,11 +77,11 @@
           </ul>
           
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-8 text-hover cursor-pointer">
-              <p class="d-flex" @click="openLink('https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe')">
-                Installation de SQL Server 2019 Express 64 bit
+              <p class="d-flex" @click="openLink('https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x40c&culture=fr-fr&country=fr')">
+                Installation de SQL Server 2022 Express 64 bit
                 <span class="font-weight-bold text-primary cursor-pointer ml-2"  ></span> 
               </p>
-                <v-icon class="cursor-pointer" color="primary"  @click="openLink('https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe')" >mdi-download</v-icon>
+                <v-icon class="cursor-pointer" color="primary"  @click="openLink('https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x40c&culture=fr-fr&country=fr')" >mdi-download</v-icon>
             </div>
            <div class="d-flex justify-space-between w-100 ml-10 px-8 mt-2 text-hover cursor-pointer">
               <p class="d-flex" @click="openLink('https://aka.ms/ssmsfullsetup')">

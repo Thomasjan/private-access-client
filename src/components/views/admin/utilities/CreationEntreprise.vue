@@ -98,7 +98,7 @@
             label="Contrat"
             required
             ></v-select>
-            <p v-if="form.category == '2. PME' && form.contract == 'Aucun'" class="text-warning text-center mt-n3 font-weight-bold">*Contrat obligatoire pour les PME</p>
+            <p v-if="form.category == '2.PME' && form.contract == 'Aucun'" class="text-warning text-center mt-n3 font-weight-bold">*Contrat obligatoire pour les PME</p>
           </div>
           <v-text-field 
             color="primary"
@@ -143,8 +143,8 @@ export default {
       end_contract: '',
     },
     errorMessage: '',
-    categoryItems: ['1. PAR', '2. PME', '3. AUTRE'],
-    subcategoryItems: ['1.1 PAR', '1.2 EXP', '1.3 SUP', '1.5 EDI', '2.0 LOC', '2.1 GMA', '2.2 GML'],
+    categoryItems: ['1.PAR', '2.PME', '3.AUTRES'],
+    subcategoryItems: ['1.1PAR', '1.2EXP', '1.3SUP', '1.5EDI', '2.0LOC', '2.1GMA', '2.2GML'],
     contractItems: ['Aucun', 'CSC', 'CS', 'G-WEB', 'G-Mail'],
 
     importClientDialog: false,
@@ -153,7 +153,7 @@ export default {
     loadClients: false,
     importErrorMessage: '',
     typingTimer: null,
-     showCharMessage: false,
+    showCharMessage: true,
   }),
 
   mounted(){
@@ -165,7 +165,7 @@ export default {
   methods:{
     //ajout d'une Entreprise
     addEntreprise(){
-      if(this.form.category == '2. PME' && this.form.contract == 'Aucun'){
+      if(this.form.category == '2.PME' && this.form.contract == 'Aucun'){
         this.errorMessage = 'Contrat obligatoire pour les PME !'
       }
       if(this.entreprise){
@@ -261,16 +261,19 @@ export default {
     handleImport(){
       this.form.social_reason = this.selectedClient.PCF_RS;
       this.form.code_client = this.selectedClient.PCF_CODE;
+      this.form.category = this.selectedClient.FAT_CODE || '3. AUTRES';
+      this.form.subcategory = this.selectedClient.SFT_CODE || null;
+      this.form.contract = this.contractItems.includes(this.selectedClient.Contrat) ? this.selectedClient.Contrat : 'Aucun';
 
-      if(this.selectedClient.PCF_TYPE.toLowerCase() == 'p'){
-        this.form.category = '1. PAR'
-      }
-      else if(this.selectedClient.PCF_TYPE.toLowerCase() == 'e'){
-        this.form.category = '2. PME'
-      }
-      else{
-        this.form.category = '3. AUTRES'
-      }
+      // if(this.selectedClient.PCF_TYPE.toLowerCase() == 'p'){
+      //   this.form.category = '1.PAR'
+      // }
+      // else if(this.selectedClient.PCF_TYPE.toLowerCase() == 'c'){
+      //   this.form.category = '2.PME'
+      // }
+      // else{
+      //   this.form.category = '3.AUTRES'
+      // }
 
 
       this.importClientDialog = false;

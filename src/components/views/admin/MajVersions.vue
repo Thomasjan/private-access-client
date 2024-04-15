@@ -33,15 +33,25 @@
         label="Image">
       </v-file-input>
 
-      <p class="ml-2 text-grey-darken-2">Description :</p>
-      <vue-editor  v-model="form.description"></vue-editor>
+      <p class="ml-2">Description :</p>
+      <vue-editor class="bg-blue-grey lighten-5" v-model="form.description"></vue-editor>
 
-      <p class="ml-2 text-grey-darken-2 mt-4">Note du patch :</p>
-      <vue-editor  v-model="form.patch"></vue-editor>
+      <p class="ml-2 mt-4">Note du patch :</p>
+      <vue-editor class="bg-blue-grey lighten-5" v-model="form.patch"></vue-editor>
 
       <div class="text-center mt-4">
         <v-btn type="submit" color="primary">Valider</v-btn>
       </div>
+      
+      <v-row justify="center" class="mt-2">
+        <v-progress-circular
+          :size="50"
+          color="primary"
+          indeterminate
+          v-if="loader"
+        ></v-progress-circular>
+      </v-row>
+
   </v-form>
     </v-card>
 
@@ -58,7 +68,6 @@ export default {
     VueEditor,
   },
   
-  
   data: () => ({
     form:{
       version: '',
@@ -67,57 +76,60 @@ export default {
       type: '',
       image: null,
       description: '',
-      patch: `<p><strong style="color: rgb(239, 132, 28);">Titre Module</strong></p><p><strong style="color: rgb(88, 97, 102);"><img src="/images/barre-orange.gif" height="1" width="100%"></strong></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><br></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p>`,
+      patch: ''
     },
-    
 
+    loader: false,
     types: ['Commerciale', 'Beta', 'Ne pas communiquer'],
   }),
 
    methods: {
     submitForm(e) {
-  e.preventDefault();
-  const form = { ...this.form };
-  console.log(form)
+      this.loader = true;
+      e.preventDefault();
+      const form = { ...this.form };
+      console.log(form)
 
-  const filePath = `uploads/${form.file_name}`;
-  const imagePath = `uploads/${form.image[0].name}`;
+      const filePath = `uploads/${form.file_name}`;
+      const imagePath = `uploads/${form.image[0].name}`;
 
-  form.file_path = filePath;
-  form.image_path = imagePath;
+      form.file_path = filePath;
+      form.image_path = imagePath;
 
-  const formData = new FormData();
-  formData.append('version', form.version);
-  formData.append('file_name', form.file_name);
-  formData.append('type', form.type);
-  formData.append('description', form.description);
-  formData.append('patch', form.patch);
-  formData.append('file_path', form.file_path);
-  formData.append('image_path', form.image_path);
-  
-  formData.append('name', form.file_name);
-  formData.append('file', this.form.file[0]);
-  formData.append('image', this.form.image[0]);
+      const formData = new FormData();
+      formData.append('version', form.version);
+      formData.append('file_name', form.file_name);
+      formData.append('type', form.type);
+      formData.append('description', form.description);
+      formData.append('patch', form.patch);
+      formData.append('file_path', form.file_path);
+      formData.append('image_path', form.image_path);
+      
+      formData.append('name', form.file_name);
+      formData.append('file', this.form.file[0]);
+      formData.append('image', this.form.image[0]);
 
 
-  Upload.addUpload(formData)
-    .then(res => {
-      console.log(res);
-      this.form = {
-        version: '',
-        file_name: '',
-        file: null,
-        type: '',
-        image: null,
-        description: '',
-        patch: `<p><strong style="color: rgb(239, 132, 28);">Titre Module</strong></p><p><strong style="color: rgb(88, 97, 102);"><img src="/images/barre-orange.gif" height="1" width="100%"></strong></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p><br></p><p><strong style="color: rgb(88, 97, 102);">Sous-module</strong></p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p><p>	<span style="color: rgb(82, 93, 99);"><img src="/images/Decor/tick.gif" height="9" width="10"></span>&nbsp;Description nouveauté / correction</p>`,
-      };
-    })
-    .catch(err => {
-      console.log(err);
-    });
+      Upload.addUpload(formData)
+      .then(res => {
+        console.log(res);
+        this.form = {
+          version: '',
+          file_name: '',
+          file: null,
+          type: '',
+          image: null,
+          description: '',
+          patch: '',
+        };
+        this.loader = false;
+      })
+      .catch(err => {
+        console.log(err);
+        this.loader = false;
+      });
 
-},
+  },
 
     handleFileChange(fileList) {
       if (fileList && fileList.length > 0) {
