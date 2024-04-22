@@ -145,7 +145,7 @@ export default {
     errorMessage: '',
     categoryItems: ['1.PAR', '2.PME', '3.AUTRES'],
     subcategoryItems: ['1.1PAR', '1.2EXP', '1.3SUP', '1.5EDI', '2.0LOC', '2.1GMA', '2.2GML'],
-    contractItems: ['Aucun', 'CSC', 'CS', 'G-WEB', 'G-Mail'],
+    contractItems: ['Aucun', 'PARTENAIRE', 'EXPERT', 'EXPERT SUPPORT', 'G-WEB Infra', 'G-WEB', 'G-MAIL', 'G-MAJ'],
 
     importClientDialog: false,
     GestimumClients: [],
