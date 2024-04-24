@@ -32,6 +32,20 @@
             <creation-utilisateur v-on:closeDialog="userDialog=false" v-on:fetchUsers="fetchUsers"></creation-utilisateur>
           </v-dialog>
         </v-btn>
+
+        <v-btn class="ml-6"
+          color="primary"
+        >
+          Importer des utilisateurs
+          <v-dialog
+            v-model="importUserDialog"
+            activator="parent"
+            width="600"
+            persistent
+          >
+            <import-contacts v-on:closeDialog="importUserDialog=false" v-on:fetchUsers="fetchUsers"></import-contacts>
+          </v-dialog>
+        </v-btn>
       </div>
 
       <div class="mt-6">
@@ -111,6 +125,7 @@ export default {
     entrepriseDialog: false,
     editUserDialog: false,
     userDialog: false,
+    importUserDialog: false,
     editingUser: null,
     users: [],
 
