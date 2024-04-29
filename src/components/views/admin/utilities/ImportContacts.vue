@@ -78,6 +78,12 @@
   
   export default {
   
+    props: {
+      usersList: {
+        type: Array,
+        required: false
+      }
+    },
   
     data: () => ({
       
@@ -92,19 +98,25 @@
     }),
     mounted(){
       this.fetchEntreprises()
-     
     },
     methods:{
 
       getNameSurname(item){
-          if((item.CCT_EMAIL=="") || (item.CCT_NOM=="") || (item.CCT_PRENOM=="") || (!item.CCT_EMAIL)){
-            item.disabled = true  
-            return `${item.CCT_NOM}: champs invalides`;
-            }
-            else{ 
-              item.disabled = false
-              return `${item.CCT_NOM} ${item.CCT_PRENOM}`;
-            }
+        //check already imported users
+        if(this.usersList.some(user => user.email == item.CCT_EMAIL)){
+          item.disabled = true
+          return `${item.CCT_NOM}: déjà importé`
+        }
+
+        //check invalid fields
+        if((item.CCT_EMAIL=="") || (item.CCT_NOM=="") || (item.CCT_PRENOM=="") || (!item.CCT_EMAIL)){
+          item.disabled = true  
+          return `${item.CCT_NOM}: champs invalides`;
+          }
+          else{ 
+            item.disabled = false
+            return `${item.CCT_NOM} ${item.CCT_PRENOM}`;
+          }
         },
 
       async fetchUsers(code_client){
@@ -112,11 +124,7 @@
             try {
               await User.getGestimumContacts(code_client)
               .then(res => {
-                // res.forEach(item => {
-                //   item.disabled = true
-                // })
                 this.contacts = res
-                console.log(this.contacts)
                 this.loading = false
               })
             } catch (error) {

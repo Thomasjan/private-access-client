@@ -43,7 +43,7 @@
             width="600"
             persistent
           >
-            <import-contacts v-on:closeDialog="importUserDialog=false" v-on:fetchUsers="fetchUsers"></import-contacts>
+            <import-contacts :usersList="usersList" v-on:closeDialog="importUserDialog=false" v-on:fetchUsers="fetchUsers"></import-contacts>
           </v-dialog>
         </v-btn>
       </div>
@@ -136,6 +136,7 @@ export default {
     importUserDialog: false,
     editingUser: null,
     users: [],
+    usersList: [],
     loading: false,
     sortBy: [],
     search: "",
@@ -162,7 +163,7 @@ export default {
       console.log(user)
       window.confirm('Voulez-vous vraiment supprimer cet utilisateur?') && 
       User.deleteUser(user.id)
-      .then(response => {
+      .then(() => {
         this.fetchUsers()
       })
       .catch(err => {
@@ -175,6 +176,7 @@ export default {
       User.getUsers()
       .then(response => {
         this.users = response
+        this.usersList = response
         this.loading = false
       })
       .catch(err => {
