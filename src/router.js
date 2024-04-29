@@ -64,7 +64,6 @@ const router = createRouter({
 // Autorisation d'accès aux pages via localStorage
 router.beforeEach((to, from, next) => {
     // Gestion de la route 'logout'
-    
     if (to.name === 'logout') {
         User.logout().then(() => {
             localStorage.removeItem('auth')

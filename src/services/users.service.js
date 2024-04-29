@@ -8,7 +8,9 @@ const API_URL = import.meta.env.VITE_APP_API_URL;
   postUser,
   updateUser,
   updatePassword,
-  deleteUser
+  deleteUser,
+  getGestimumContacts,
+  addUsers
 };
 
 //récupérer la liste de tous les utilisateurs
@@ -69,6 +71,26 @@ async function deleteUser(userId) {
     return response.data;
   } catch (error) {
     console.error('Error deleting user:', error);
+    throw error;
+  }
+}
+
+async function getGestimumContacts(code) {
+  try {
+    const response = await axios.get(`${API_URL}/gestimum/getGestimumContacts/${code}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting users:', error);
+    throw error;
+  }
+}
+
+async function addUsers(contacts) {
+  try {
+    const response = await axios.post(`${API_URL}/users/addUsers`, contacts);
+    return response.data;
+  } catch (error) {
+    console.error('Error adding contacts:', error);
     throw error;
   }
 }
