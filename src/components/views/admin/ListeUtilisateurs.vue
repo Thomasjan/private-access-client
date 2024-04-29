@@ -67,7 +67,15 @@
           <p class="ml-2">Utilisateurs</p>
         </div>
       
-      <v-table density="compact" class="bg-background" >
+      
+      <div class="d-flex center justify-center align-center mt-4" v-if="loading">
+          <v-progress-circular
+            class="mt-4"
+            indeterminate
+            color="primary"
+          ></v-progress-circular>
+      </div>
+      <v-table v-else density="compact" class="bg-background" >
         <thead>
           <tr class="">
             <th class="text-left text-blue cursor-pointer" @click="sortByField('social_reason')">Entreprise</th>
@@ -85,7 +93,7 @@
             v-for="(user, index) in usersFiltered"
             :key="index"
           >
-            <td> <v-chip color="blue-darken-3">{{ user.social_reason }} </v-chip> </td>
+            <td> <v-chip color="blue-darken-3">{{ user.social_reason.length < 20 ? user.social_reason : user.social_reason.slice(0,20) + "..." }} </v-chip> </td>
              <td> <v-chip>{{ user.category }}</v-chip> </td>
             <td>{{ user.surname }}</td>
             <td>{{ user.name }}</td>
@@ -128,7 +136,7 @@ export default {
     importUserDialog: false,
     editingUser: null,
     users: [],
-
+    loading: false,
     sortBy: [],
     search: "",
     family: '',
@@ -139,6 +147,7 @@ export default {
   }),
 
   mounted() {
+    this.loading = true
     this.fetchUsers()
   },
 
@@ -166,10 +175,11 @@ export default {
       User.getUsers()
       .then(response => {
         this.users = response
-        
+        this.loading = false
       })
       .catch(err => {
         console.log(err);
+        this.loading = false
       })
     },
 

@@ -53,8 +53,16 @@
           <v-chip class color="primary">{{entreprisesFiltered.length}}  </v-chip>
           <p class="ml-2">Entreprises</p>
         </div>
+
+      <div class="d-flex center justify-center align-center mt-4" v-if="loading">
+        <v-progress-circular
+          class="mt-4"
+          indeterminate
+          color="primary"
+        ></v-progress-circular>
+      </div>
       
-      <v-table density="compact" class="bg-background">
+      <v-table v-else density="compact" class="bg-background">
         <thead>
           <tr class="">
             <th class="text-left text-red cursor-pointer" @click="sortByField('code_client')">Code</th>
@@ -118,7 +126,7 @@ export default {
     userDialog: false,
     entreprises: [],
     sortBy: [],
-
+    loading: false,
     editingEntreprise: {},
     search: '',
     family: '',
@@ -130,6 +138,7 @@ export default {
   }),
 
   mounted() {
+    this.loading = true
     this.fetchEntreprises()
   },
 
@@ -158,9 +167,11 @@ export default {
       Entreprises.getEntreprises()
       .then(response => {
         this.entreprises = response
+        this.loading = false
       })
       .catch(err => {
         console.log(err);
+        this.loading = false
       })
     },
 
